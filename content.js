@@ -250,7 +250,6 @@ window.CONTENT = {
         images: [
           { src: "assets/urban/wire-home.jpg", alt: "Paper wireframes: home map and the posts at one address", ratio: 1.55 },
           { src: "assets/urban/wire-add.jpg", alt: "Paper wireframes: a post in the feed and the four steps to add one", ratio: 1.33 },
-          { src: "assets/urban/wire-notif.jpg", alt: "Paper wireframe of notifications and profile", ratio: 0.77 },
         ],
         links: [
           { label: "Live site", href: "https://laurenlambrecht.github.io/ClaremontColumns_HCD/" },
