@@ -1,7 +1,11 @@
 # Lauren Lambrecht Portfolio
 
-Plain HTML/CSS/JS, no build step.
+*Plain HTML/CSS/JS, no build step.*
+
 [Lauren's Product Portfolio](https://laurenlambrecht.github.io/MyPortfolio/)
+
+
+
 - **Edit text, links and images:** `content.js` (everything on the page comes from here)
 - **Add images:** put files in `assets/goodgame/`, `assets/samba/` etc., then set the matching `src` in `content.js`
 - **Placeholders:** any empty image `src` or string starting with `TODO:` shows a yellow "TO ADD" marker
