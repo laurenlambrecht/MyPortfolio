@@ -349,6 +349,7 @@ a:hover { opacity: .78; }
 .sky-dusk .pill-dashed { border-color: var(--violet-text); }
 #urban { padding-top: 40px; }
 #urban .actions .pill-lilac { margin-top: 0; }
+#urban .pill-line { border-color: var(--violet-text); color: var(--violet-text); }
 .proto { margin-top: clamp(80px, 10vw, 130px); }
 .proto-head { display: flex; gap: clamp(16px, 2.4vw, 28px); align-items: flex-end; }
 .proto-n { font-size: clamp(64px, 9vw, 128px); font-weight: 800; line-height: .8; color: var(--hob-pink); }

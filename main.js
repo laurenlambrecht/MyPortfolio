@@ -252,7 +252,7 @@
               <div class="proto-app-text rv">
                 <h4 class="disp">${acc(p.app.heading)}</h4>
                 <p>${esc(p.app.body)}</p>
-                <div class="actions">${(p.links || []).map((l) => ext(l.href, l.label, "pill-lilac")).join("")}</div>
+                <div class="actions">${(p.links || []).map((l, i) => ext(l.href, l.label, i === 0 ? "pill-lilac" : "pill-line")).join("")}</div>
                 <p class="proto-app-note">${esc(p.app.note)}</p>
               </div>
               <div class="live-phone rv">

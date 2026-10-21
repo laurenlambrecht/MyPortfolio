@@ -252,7 +252,11 @@ window.CONTENT = {
           { src: "assets/urban/wire-add.jpg", alt: "Paper wireframes: a post in the feed and the four steps to add one", ratio: 1.33 },
           { src: "assets/urban/wire-notif.jpg", alt: "Paper wireframe of notifications and profile", ratio: 0.77 },
         ],
-        links: [{ label: "Try Claremont Columns", href: "https://laurenlambrecht.github.io/ClaremontColumns_HCD/" }],
+        links: [
+          { label: "Live site", href: "https://laurenlambrecht.github.io/ClaremontColumns_HCD/" },
+          { label: "Code on GitHub", href: "https://github.com/laurenlambrecht/ClaremontColumns_HCD" },
+          { label: "Demo video", href: "" },
+        ],
         app: {
           heading: "Try it _live_",
           live: "https://laurenlambrecht.github.io/ClaremontColumns_HCD/",
