@@ -2,7 +2,7 @@
 
 *Plain HTML/CSS/JS, no build step.*
 
-[Lauren's Product Portfolio](https://laurenlambrecht.github.io/MyPortfolio/)
+Live at: [Lauren's Product Portfolio](https://laurenlambrecht.github.io/MyPortfolio/)
 
 
 
