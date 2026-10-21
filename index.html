@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lauren Lambrecht</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Lauren Lambrecht: product work, prototypes and case studies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:opsz,wght@9..40,400..700&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="ll">
+<a class="skip" href="#work">Skip to work</a>
+
+<!-- Floating nav -->
+<div class="nav-shell">
+  <nav class="nav" aria-label="Sections">
+    <a href="#top" class="nav-logo disp" aria-label="Lauren Lambrecht, back to top">LL</a>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-bar bar" aria-hidden="true"></div>
+  </nav>
+</div>
+
+<!-- Dawn -->
+<header id="top" class="hero"></header>
+<div class="ticker" id="ticker"></div>
+
+<main>
+  <!-- Project picker: bubbles that zoom into each section -->
+  <section class="picker" id="work" aria-labelledby="picker-h"></section>
+  <div class="fade f-dawn" aria-hidden="true"></div>
+
+  <!-- Morning: GoodGame -->
+  <section class="sky sky-morning" id="goodgame" aria-labelledby="gg-h"></section>
+  <div class="fade f-noon" aria-hidden="true"></div>
+  <!-- Noon: GoodGame continued -->
+  <section class="sky sky-noon" id="goodgame-more" aria-labelledby="built-h"></section>
+  <div class="fade f-afternoon" aria-hidden="true"></div>
+  <!-- Afternoon: Samba TV -->
+  <section class="sky sky-afternoon" id="samba" aria-labelledby="samba-h"></section>
+  <div class="fade f-dusk" aria-hidden="true"></div>
+  <!-- Dusk: Sports data -->
+  <section class="sky sky-dusk" id="sports" aria-labelledby="sports-h"></section>
+  <!-- Dusk: urban planning prototypes -->
+  <section class="sky sky-dusk" id="urban" aria-labelledby="urban-h"></section>
+  <div class="fade f-evening" aria-hidden="true"></div>
+  <!-- Evening: smaller projects with live demos, then other experience -->
+  <section class="sky sky-evening" id="playground" aria-labelledby="play-h"></section>
+  <section class="sky sky-evening" id="more" aria-labelledby="more-h"></section>
+</main>
+<div class="fade f-night" aria-hidden="true"></div>
+
+<!-- Night -->
+<div class="night">
+  <svg class="stars" aria-hidden="true" viewBox="0 0 1440 1600" preserveAspectRatio="xMidYMid slice">
+    <g fill="#FFF3E2">
+      <circle class="tw" cx="80" cy="60" r="2"/><circle cx="230" cy="180" r="1.5"/><circle class="tw" cx="410" cy="90" r="2.5"/><circle cx="620" cy="40" r="1.5"/><circle class="tw" cx="780" cy="150" r="2"/><circle cx="960" cy="70" r="1.5"/><circle class="tw" cx="1120" cy="200" r="2"/><circle cx="1320" cy="110" r="2.5"/><circle cx="150" cy="420" r="1.5"/><circle class="tw" cx="340" cy="560" r="2"/><circle cx="1240" cy="480" r="1.5"/><circle class="tw" cx="1390" cy="640" r="2"/><circle cx="60" cy="820" r="2"/><circle class="tw" cx="1180" cy="900" r="1.5"/><circle cx="700" cy="980" r="1.5"/><circle class="tw" cx="260" cy="1120" r="2"/><circle cx="1000" cy="1180" r="2"/><circle class="tw" cx="1340" cy="1320" r="1.5"/><circle cx="120" cy="1460" r="1.5"/><circle class="tw" cx="560" cy="1400" r="2"/>
+    </g>
+  </svg>
+  <section id="about" aria-labelledby="about-h"></section>
+  <section id="contact" aria-labelledby="contact-h"></section>
+  <footer class="foot wrap">
+    <span>© <span id="yr"></span> Lauren Lambrecht</span>
+    <a href="#top">Back to sunrise <span aria-hidden="true">↑</span></a>
+  </footer>
+</div>
+</div>
+
+<div class="zoom" id="zoom" aria-hidden="true"></div>
+
+<script src="content.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
