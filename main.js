@@ -247,6 +247,25 @@
             <p class="disp proto-n">${esc(p.n)}</p>
             <div><h3 class="disp">${esc(p.name)}</h3><p class="ser proto-sub">${esc(p.sub)}</p></div>
           </header>
+          ${p.app ? `<div class="proto-app">
+            <div class="proto-live">
+              <div class="proto-app-text rv">
+                <h4 class="disp">${acc(p.app.heading)}</h4>
+                <p>${esc(p.app.body)}</p>
+                <div class="actions">${(p.links || []).map((l) => ext(l.href, l.label, "pill-lilac")).join("")}</div>
+                <p class="proto-app-note">${esc(p.app.note)}</p>
+              </div>
+              <div class="live-phone rv">
+                <div class="phone">
+                  <button type="button" class="live-start" data-src="${esc(p.app.live)}" aria-label="Load the live ${esc(p.name)} demo here">
+                    <img src="${esc(p.app.screens[0].src)}" alt="">
+                    <span class="live-cta">Tap to try it live</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <ul class="proto-phones">${p.app.screens.slice(1).map((sc) => `<li class="rv">${phone(sc)}<p>${esc(sc.title)}</p></li>`).join("")}</ul>
+          </div>` : ""}
           <div class="proto-shots">${p.images
             .map((m) => `<figure class="rv" style="flex: ${m.ratio} 1 ${Math.round(m.ratio * 220)}px; max-width: min(100%, ${Math.round(m.ratio * 440)}px)"><img src="${esc(m.src)}" alt="${esc(m.alt)}">${m.caption ? `<figcaption>${esc(m.caption)}</figcaption>` : ""}</figure>`)
             .join("")}</div>
@@ -255,7 +274,7 @@
               <p class="proto-what rv">${esc(p.what)}</p>
               ${p.hypothesis ? `<p class="proto-hyp rv"><span class="label disp">Hypothesis</span>${esc(p.hypothesis)}</p>` : ""}
               ${p.test ? `<p class="proto-test rv">${esc(p.test)}</p>` : ""}
-              ${p.links ? `<div class="actions rv">${p.links.map((l) => ext(l.href, l.label, "pill-lilac")).join("")}</div>` : ""}
+              ${p.links && !p.app ? `<div class="actions rv">${p.links.map((l) => ext(l.href, l.label, "pill-lilac")).join("")}</div>` : ""}
             </div>
             <div>
               ${p.heard ? `<h4 class="disp label rv">What testers asked for</h4><ul class="found rv">${p.heard.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
@@ -263,14 +282,6 @@
               ${p.changed ? `<p class="proto-changed rv">${esc(p.changed)}</p>` : ""}
             </div>
           </div>
-          ${p.app ? `<div class="proto-app">
-            <div class="proto-app-text rv">
-              <h4 class="disp">${acc(p.app.heading)}</h4>
-              <p>${esc(p.app.body)}</p>
-              <p class="proto-app-note">${esc(p.app.note)}</p>
-            </div>
-            <ul class="proto-phones">${p.app.screens.map((sc) => `<li class="rv">${phone(sc)}<p>${esc(sc.title)}</p></li>`).join("")}</ul>
-          </div>` : ""}
           ${p.scenario ? `<div class="scenario rv">
             <p class="eyebrow">${esc(p.scenario.label)}</p>
             <p class="ser scenario-q">${esc(p.scenario.prompt)}</p>
@@ -283,6 +294,17 @@
         <p class="urban-aside rv">${esc(u.aside)}</p>
       </div>
     </div>`;
+
+  // Live demo: swap the poster for the real app only when asked, so the page stays light
+  document.querySelectorAll(".live-start").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const f = document.createElement("iframe");
+      f.src = btn.dataset.src;
+      f.title = "Live Claremont Columns demo";
+      f.loading = "eager";
+      btn.replaceWith(f);
+    })
+  );
 
   /* Evening: playground */
   const pg = C.playground;
