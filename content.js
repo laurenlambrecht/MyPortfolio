@@ -16,7 +16,7 @@ window.CONTENT = {
   },
 
   hero: {
-    eyebrow: ["Product", "Claremont McKenna '27", "Looking at SF"],
+    eyebrow: ["Product", "Claremont McKenna '27"],
     headline: "Building products that bring people _closer_ to the things they _love._",
     body:
       "a senior at Claremont McKenna who likes the whole arc of a product: figuring out what a user actually needs, deciding what to build first, and getting a working prototype in front of people fast. Lately that's meant AI-assisted mobile prototypes, user testing, and a pickup-sports app of my own.",
