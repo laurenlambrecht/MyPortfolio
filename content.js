@@ -293,7 +293,6 @@ window.CONTENT = {
           { src: "assets/urban/wire-home.jpg", alt: "Paper wireframes: home map and the posts at one address", ratio: 1.55 },
           { src: "assets/urban/wire-add.jpg", alt: "Paper wireframes: a post in the feed and the four steps to add one", ratio: 1.33 },
           { src: "assets/urban/wire-notif.jpg", alt: "Paper wireframe of notifications and profile", ratio: 0.77 },
-          { src: "assets/urban/city-site.jpg", alt: "Mock-up of the City of Claremont website with a Featured Posts tile", ratio: 0.91, caption: "Mock-up, not the live city site" },
         ],
         links: [{ label: "Try Claremont Columns", href: "https://laurenlambrecht.github.io/ClaremontColumns_HCD/" }],
         app: {
