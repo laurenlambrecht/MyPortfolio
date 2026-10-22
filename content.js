@@ -482,6 +482,6 @@ window.CONTENT = {
 
   contact: {
     heading: "Let's build something people _show up_ for.",
-    line: "Open to product roles in San Francisco. Say hi.",
+    line: "Open to product & strategy roles in San Francisco.",
   },
 };
