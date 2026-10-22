@@ -411,7 +411,7 @@ window.CONTENT = {
     ],
     items: [
       { org: "Woolley Athenaeum Fellowship", role: "Marian Miner Cook Athenaeum, CMC", when: "2025–26", line: "Represent CMC to distinguished guests, speakers and alumni at the school's flagship speaker series, introducing keynote speakers to audiences of 100+ three to four times a week and researching potential speakers." },
-      { org: "Handley Fellowship", role: "Kravis Leadership Institute, CMC", when: "2025–26", line: "Selected through the Women in Leadership Development Initiative. Twelve workshops, leadership salons and 1:1 coaching sessions, plus monthly leadership circles with peers." },
+      { org: "Handley Leadership Fellowship", role: "Kravis Leadership Institute, CMC", when: "2025–26", line: "Selected through the Women in Leadership Development Initiative. Twelve workshops, leadership salons and 1:1 coaching sessions, plus monthly leadership circles with peers." },
       { org: "Randall Lewis Center for Innovation and Entrepreneurship Fellowship", role: "Randall Lewis Center (RLCIE), CMC", when: "2025–26", line: "Led a team taking a product from idea to prototype using LLMs and AI tools, alongside workshops on product-market fit and business models." },
       { org: "Ion Game Design, Stockholm", role: "Consulting Intern", when: "Spring 2023", line: "Kickstarter campaigns, Shopify SEO and a move onto Twitch for an educational board game company." },
     ],
