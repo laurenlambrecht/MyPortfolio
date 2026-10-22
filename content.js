@@ -368,7 +368,7 @@ window.CONTENT = {
         tone: "teal",
         pitch: "Catch, scan, collect. Point your phone at a fish and Guppo identifies it, then adds it to your collection.",
         body: "Every species you scan unlocks a card in the GuppoDex (144 to find), earns XP toward angler tiers, and lands in your catch log and on a map. Weekly challenges give you a reason to go back out.",
-        role: "TODO: your role on Guppo",
+        role: "Product Strategy & Marketing Lead",
         phones: true,
         images: [
           { src: "assets/guppo/home.jpg", alt: "Guppo home screen with Scan a Fish, XP progress, a weekly challenge and fish to find" },
@@ -376,7 +376,7 @@ window.CONTENT = {
           { src: "assets/guppo/new-species.jpg", alt: "New species card for a yellowfin tuna worth 550 XP" },
           { src: "assets/guppo/dex.jpg", alt: "GuppoDex species collection with filters and undiscovered cards" },
         ],
-        links: [{ label: "Code on GitHub", href: "https://github.com/thesaxon004/Guppo" }],
+        links: [{ label: "Download on the App Store", href: "" }], // TODO: App Store link from Lauren
       },
       {
         id: "p-jungle",

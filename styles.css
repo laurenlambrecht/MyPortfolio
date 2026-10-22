@@ -616,3 +616,5 @@ a:hover { opacity: .78; }
 .proj-dark .proj-body { color: #DCD6FF; }
 .proj-light .pill-proj { background: var(--ink); color: var(--cream); }
 .proj-dark .pill-proj { background: #F4EFFF; color: #2A1C86; }
+.proj-role { margin-top: 18px; font-size: 18px; font-weight: 600; }
+.proj-role .label { display: block; margin-bottom: 4px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; opacity: .65; }
