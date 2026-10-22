@@ -394,7 +394,6 @@ window.CONTENT = {
         ],
         // Extra case-study detail, from the team's final presentation (Hiki Partnership deck)
         deep: {
-          team: "Team: Jamie Paik, Sam Bingham and Lauren Lambrecht",
           user: "Our user, Jamie, hates setting up dating profiles because it feels like “commodifying, curating, and rendering myself purchasable for others.” He wants meeting people online to feel like real life, where curiosity starts a connection.",
           findings: [
             { t: "Replacing the swipe", d: "Testers called Hiki Grids “a fundamental deconstruction of the swipe.”" },
