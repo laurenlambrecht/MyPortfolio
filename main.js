@@ -396,6 +396,18 @@
   const DUSK = "var(--bg-pink)", EVE = "var(--bg-evening)";
   const mix = (a, b) => `color-mix(in oklab, ${a} 60%, ${b})`;
   const cols = pg.items.map((it) => TONES[it.tone]);
+  const cards = (xs, cls) => `<div class="deep-cards ${cls} rv">${xs.map((x) => `<div class="deep-card">${x.k ? `<p class="deep-k">${esc(x.t)}</p><h4 class="disp">${esc(x.k)}</h4>` : `<h4 class="disp">${esc(x.t)}</h4>`}<p>${esc(x.d)}</p></div>`).join("")}</div>`;
+  const projDeep = (d) => `<div class="proj-deep">
+          ${d.team ? `<p class="deep-team rv">${esc(d.team)}</p>` : ""}
+          <h3 class="label disp rv">Who we designed for</h3>${cards(d.pov, "three")}
+          <h3 class="label disp rv">How we got there</h3><p class="deep-p rv">${esc(d.process)}</p>
+          <h3 class="label disp rv">What testing showed</h3>${cards(d.findings, "three")}
+          <h3 class="label disp rv">Final idea: Hiki Grids</h3><p class="deep-p rv">${esc(d.final)}</p>
+          <h3 class="label disp rv">Key implications</h3>${cards(d.implications, "four")}
+          <h3 class="label disp rv">Lingering thoughts</h3>${cards(d.next, "three")}
+          <h3 class="label disp rv">From the presentation</h3>
+          <div class="slide-strip rv" tabindex="0" aria-label="Presentation slides, scroll sideways">${d.slides.map((sl) => `<a href="${esc(sl.src)}" target="_blank" rel="noopener"><img src="${esc(sl.src)}" alt="${esc(sl.alt)}" loading="lazy"></a>`).join("")}</div>
+        </div>`;
   const projShots = (it) => `<div class="proj-shots ${it.phones ? "phones" : it.images.length > 1 ? "two" : "one"} rv">${it.images.map(shot).join("")}</div>`;
   $("playground").innerHTML = pg.items
     .map((it, i) => {
@@ -412,6 +424,7 @@
             ${it.role ? (isTodo(it.role) ? note(it.role) : `<p class="proj-role"><span class="label disp">My role</span>${esc(it.role)}</p>`) : ""}
             ${it.links.length ? `<div class="play-links">${it.links.map((l, i) => ext(l.href, l.label, i === 0 ? "pill-proj" : "pill-line")).join("")}</div>` : ""}
           </div>
+          ${it.deep ? projDeep(it.deep) : ""}
         </div>
       </section>`;
     })
