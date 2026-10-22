@@ -401,7 +401,7 @@ window.CONTENT = {
         ],
         // Extra case-study detail, from the team's final presentation (Hiki Partnership deck)
         deep: {
-          user: "Our user, Jamie, hates setting up dating profiles because it feels like “commodifying, curating, and rendering myself purchasable for others.” He wants meeting people online to feel like real life, where curiosity starts a connection.",
+          user: "Our selected user, User B, hated the process of creating dating profiles because they felt as if they were “commodifying, curating, and rendering myself purchasable for others.” They wanted meeting people online to feel like real life, where curiosity starts a connection.",
           findings: [
             { t: "Replacing the swipe", d: "Testers called Hiki Grids “a fundamental deconstruction of the swipe.”" },
             { t: "Agency", d: "Choosing a spot on a grid let people decide if they wanted similar people or opposites." },
