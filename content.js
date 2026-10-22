@@ -364,11 +364,10 @@ window.CONTENT = {
       {
         id: "p-guppo",
         title: "Guppo",
-        kind: "07 · Team project",
+        kind: "07 · Product Strategy & Marketing Lead",
         tone: "teal",
         pitch: "Catch, scan, collect. Point your phone at a fish and Guppo identifies it, then adds it to your collection.",
         body: "Every species you scan unlocks a card in the GuppoDex (144 to find), earns XP toward angler tiers, and lands in your catch log and on a map. Weekly challenges give you a reason to go back out.",
-        role: "Product Strategy & Marketing Lead",
         phones: true,
         images: [
           { src: "assets/guppo/home.jpg", alt: "Guppo home screen with Scan a Fish, XP progress, a weekly challenge and fish to find" },
