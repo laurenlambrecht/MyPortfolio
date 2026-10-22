@@ -371,7 +371,7 @@
         </article>`;
   // Each of these is its own project with its own section, colored like its bubble. The sky keeps
   // flowing: each section eases in from the color before it and out toward the next one.
-  const TONES = { noon: "#F3875A", night: "#3D3297", teal: "#57CBBE", jungle: "#74C47E" };
+  const TONES = { noon: "#F3875A", night: "#24326E", teal: "#57CBBE", jungle: "#74C47E" };
   const DARK = { night: true };
   const DUSK = "var(--bg-dusk)", EVE = "var(--bg-evening)";
   const mix = (a, b) => `color-mix(in oklab, ${a} 60%, ${b})`;
