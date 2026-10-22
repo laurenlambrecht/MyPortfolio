@@ -145,14 +145,8 @@ window.CONTENT = {
       // Full-width 4th card. From the GoodGame website (Post-Game Bar Deals); not built in the prototype.
       reward: {
         title: "The reward",
-        tag: "Planned · not in the prototype yet",
-        body: "Deposits make flaking cost something. The other half is making showing up pay off. After a game, GoodGame surfaces deals at partner bars nearby, so the first round is on the bar.",
-        points: [
-          ["Players", "a reason to hang out after the game and keep playing together."],
-          ["Bars", "a built-in crowd after every game."],
-          ["GoodGame", "players stay in the app instead of drifting to a group chat."],
-        ],
-        tradeoff: "it depends on signing partner bars in each city, and it only works for players 21 and up.",
+        tag: "Coming soon",
+        body: "Showed up? First round's on the bar. 🍻 After every game, GoodGame unlocks drink deals at partner bars nearby.",
       },
     },
   },
