@@ -399,12 +399,8 @@
   const cards = (xs, cls) => `<div class="deep-cards ${cls} rv">${xs.map((x) => `<div class="deep-card">${x.k ? `<p class="deep-k">${esc(x.t)}</p><h4 class="disp">${esc(x.k)}</h4>` : `<h4 class="disp">${esc(x.t)}</h4>`}<p>${esc(x.d)}</p></div>`).join("")}</div>`;
   const projDeep = (d) => `<div class="proj-deep">
           ${d.team ? `<p class="deep-team rv">${esc(d.team)}</p>` : ""}
-          <h3 class="label disp rv">Who we designed for</h3>${cards(d.pov, "three")}
-          <h3 class="label disp rv">How we got there</h3><p class="deep-p rv">${esc(d.process)}</p>
+          <h3 class="label disp rv">Who we designed for</h3><p class="deep-p rv">${esc(d.user)}</p>
           <h3 class="label disp rv">What testing showed</h3>${cards(d.findings, "three")}
-          <h3 class="label disp rv">Final idea: Hiki Grids</h3><p class="deep-p rv">${esc(d.final)}</p>
-          <h3 class="label disp rv">Key implications</h3>${cards(d.implications, "four")}
-          <h3 class="label disp rv">Lingering thoughts</h3>${cards(d.next, "three")}
           <h3 class="label disp rv">From the presentation</h3>
           <div class="slide-strip rv" tabindex="0" aria-label="Presentation slides, scroll sideways">${d.slides.map((sl) => `<a href="${esc(sl.src)}" target="_blank" rel="noopener"><img src="${esc(sl.src)}" alt="${esc(sl.alt)}" loading="lazy"></a>`).join("")}</div>
         </div>`;

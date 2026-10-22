@@ -395,28 +395,11 @@ window.CONTENT = {
         // Extra case-study detail, from the team's final presentation (Hiki Partnership deck)
         deep: {
           team: "Team: Jamie Paik, Sam Bingham and Lauren Lambrecht",
-          pov: [
-            { t: "User", d: "Jamie is a 20-year-old college senior with ADHD who identifies as gay. He has used multiple dating apps but hates setting up a profile, because it feels like he is “commodifying, curating, and rendering myself purchasable for others.”" },
-            { t: "Need", d: "Jamie needs his self-presentation and interactions online to feel authentic: less like a marketplace, and more like how people meet in real life, where spontaneity and curiosity start a relationship." },
-            { t: "Insight", d: "Matching may feel inauthentic because dating online feels like a marketplace. It would be game changing if Jamie could present himself for himself, instead of to look attractive to others." },
-          ],
-          process: "We started from interviews (“swiping feels like shopping in a big mall with too many choices”), ran How Might We brainstorms, and landed on two ideas inspired by infinite zoom art and the 2-by-2 design tool. We tested both with paper grids and sticky notes before building clickable prototypes.",
+          user: "Our user, Jamie, hates setting up dating profiles because it feels like “commodifying, curating, and rendering myself purchasable for others.” He wants meeting people online to feel like real life, where curiosity starts a connection.",
           findings: [
-            { t: "Replacing the swipe", d: "One tester said the infinite zoom “feels like an aesthetic revolution of matching,” while Hiki Grids “seems more of a fundamental deconstruction of the swipe.” Another said it felt like seeing the back door of the algorithm." },
-            { t: "Friendship vs. romance", d: "Depending on what people are looking for, some gravitate toward similar people and others are curious about opposites. Choosing a spot on a grid gives the user agency." },
-            { t: "The beauty of novelty", d: "“The swipe mechanism is old and repetitive.” Testers found the daily prompts fun, and tracing a match’s answers day by day felt closer to meeting someone in person." },
-          ],
-          final: "Hiki Grids matches people without relying on appearance or labels. You place yourself on the grid of the day and match with others based on how they answered. Everyone is pre-filtered by age, location, sexual orientation, and whether they want friendship or romance. It is a daily feature designed to replace the matching tab entirely: come back each day for a new prompt and new matches.",
-          implications: [
-            { t: "2×2 “+” axis", k: "Anti-commodification", d: "You don’t see people one by one, swiping left and right. You see a plane of people and their answers relative to yours." },
-            { t: "Daily prompts", k: "Encourages curiosity", d: "A new question each day, so you learn about a person bit by bit, like a continued conversation in real life." },
-            { t: "Icon profiles", k: "Diminishes labels", d: "No photos or labels at the start. You match out of interest in someone’s answers." },
-            { t: "Settings", k: "Intentions are valued", d: "Basic intentions like age, gender, sexuality, location, neurodivergent traits, and friendship vs. romance are respected from the start." },
-          ],
-          next: [
-            { t: "Age and intention matter", d: "Needs change with age and how serious you are about a relationship. Hiki Grids may suit younger users best." },
-            { t: "Curiosity beyond the grid", d: "“I would learn much more about a person by hearing WHY they placed themselves there.” Maybe add space for a short explanation." },
-            { t: "A “living, breathing app”", d: "“Learning a bit about someone each day would feel like a nudge.” Maybe keep the grids going after you match." },
+            { t: "Replacing the swipe", d: "Testers called Hiki Grids “a fundamental deconstruction of the swipe.”" },
+            { t: "Agency", d: "Choosing a spot on a grid let people decide if they wanted similar people or opposites." },
+            { t: "Novelty", d: "Daily prompts felt fun and closer to getting to know someone in person." },
           ],
           slides: [
             { src: "assets/projects/hiki-deck/slide-01.jpg", alt: "Title slide: Project HIKI, Reimagining Matching, by Jamie Paik, Sam Bingham and Lauren Lambrecht" },
