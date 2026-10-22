@@ -359,12 +359,36 @@
             ${it.links.length ? `<div class="play-links">${it.links.map((l) => ext(l.href, l.label, "pill-cream")).join("")}</div>` : ""}
           </div>
         </article>`;
-  // Each of these is its own project (they each have a bubble), so no group heading
-  $("playground").innerHTML = `
-    <div class="wrap">
-      <h2 id="play-h" class="sr-only">More projects</h2>
-      <div class="play">${pg.items.map(card).join("")}</div>
-    </div>`;
+  // Each of these is its own project with its own section, colored like its bubble. The sky keeps
+  // flowing: each section eases in from the color before it and out toward the next one.
+  const TONES = { noon: "#F3875A", night: "#3D3297", teal: "#57CBBE", jungle: "#74C47E" };
+  const DARK = { night: true };
+  const DUSK = "var(--bg-dusk)", EVE = "var(--bg-evening)";
+  const mix = (a, b) => `color-mix(in oklab, ${a} 60%, ${b})`;
+  const cols = pg.items.map((it) => TONES[it.tone]);
+  const projShots = (it) => `<div class="proj-shots ${it.phones ? "phones" : it.images.length > 1 ? "two" : "one"} rv">${it.images.map(shot).join("")}</div>`;
+  $("playground").innerHTML = pg.items
+    .map((it, i) => {
+      const c = cols[i], prev = cols[i - 1] || DUSK, next = cols[i + 1] || EVE;
+      const fade = `<div class="fade" aria-hidden="true" style="--from:${mix(prev, c)}; --to:${mix(c, prev)}"></div>`;
+      return `${fade}<section class="sky proj ${DARK[it.tone] ? "proj-dark" : "proj-light"}" id="${esc(it.id)}" aria-labelledby="${esc(it.id)}-h" style="--c:${c}; --top:${mix(c, prev)}; --bot:${mix(c, next)}">
+        <div class="wrap">
+          <p class="eyebrow rv">${esc(it.kind)}</p>
+          <h2 id="${esc(it.id)}-h" class="disp h-xl rv">${esc(it.title)}</h2>
+          <p class="lead rv">${esc(it.pitch)}</p>
+          ${projShots(it)}
+          <div class="proj-foot rv">
+            ${it.body ? (isTodo(it.body) ? note(it.body) : `<p class="proj-body">${esc(it.body)}</p>`) : ""}
+            ${it.role ? note(it.role) : ""}
+            ${it.links.length ? `<div class="play-links">${it.links.map((l) => ext(l.href, l.label, "pill-proj")).join("")}</div>` : ""}
+          </div>
+        </div>
+      </section>`;
+    })
+    .join("") + `<div class="fade" aria-hidden="true" style="--from:${mix(cols[cols.length - 1], EVE)}; --to:${mix(EVE, cols[cols.length - 1])}"></div>`;
+  // Urban and Beyond the Build ease toward the project colors next to them
+  $("urban").style.setProperty("--bot", mix(DUSK, cols[0]));
+  $("more").style.setProperty("--top", mix(EVE, cols[cols.length - 1]));
 
   /* Evening: Beyond the Build */
   const mo = C.more;

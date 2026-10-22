@@ -332,12 +332,24 @@ window.CONTENT = {
 
   // Smaller projects with live demos. `id` is what the picker bubbles link to.
   playground: {
-    // Hiki, MassBids, Guppo and Jungle Quest each get their own project block (they each have a bubble)
+    // MassBids, Hiki, Guppo and Jungle Quest each get their own full section in their bubble's color.
+    // Order follows the color flow: dusk purple → orange → indigo → teal → green → evening navy.
     items: [
+      {
+        id: "p-massbids",
+        title: "MassBids",
+        kind: "05 · Internship · Summer 2025",
+        tone: "noon",
+        pitch: "Zillow, but for local government contracts in Massachusetts.",
+        body: "A clickable demo of the idea: pick a city on the map to see its open bids, then filter by category or search. The data in the demo is illustrative.",
+        images: [{ src: "assets/projects/massbids.jpg", alt: "MassBids demo showing a map of Massachusetts with Boston-area cities and a bid detail panel" }],
+        links: [{ label: "Try the demo", href: "https://laurenlambrecht.github.io/MassBids-Demo/" }],
+      },
       {
         id: "p-hiki",
         title: "Hiki",
-        kind: "05 · Founder & developer",
+        kind: "06 · Founder & developer",
+        tone: "night",
         pitch: "Redesigning how people match on Hiki, a dating and friendship app for neurodivergent people.",
         body: "We prototyped two new ways to browse: Hiki Grids, a daily board that sorts people by traits and neurodivergence filters instead of photos, and an infinite-zoom canvas where you explore profiles in space.",
         images: [
@@ -350,18 +362,10 @@ window.CONTENT = {
         ],
       },
       {
-        id: "p-massbids",
-        title: "MassBids",
-        kind: "06 · Internship · Summer 2025",
-        pitch: "Zillow, but for local government contracts in Massachusetts.",
-        body: "A clickable demo of the idea: pick a city on the map to see its open bids, then filter by category or search. The data in the demo is illustrative.",
-        images: [{ src: "assets/projects/massbids.jpg", alt: "MassBids demo showing a map of Massachusetts with Boston-area cities and a bid detail panel" }],
-        links: [{ label: "Try the demo", href: "https://laurenlambrecht.github.io/MassBids-Demo/" }],
-      },
-      {
         id: "p-guppo",
         title: "Guppo",
         kind: "07 · Team project",
+        tone: "teal",
         pitch: "Catch, scan, collect. Point your phone at a fish and Guppo identifies it, then adds it to your collection.",
         body: "Every species you scan unlocks a card in the GuppoDex (144 to find), earns XP toward angler tiers, and lands in your catch log and on a map. Weekly challenges give you a reason to go back out.",
         role: "TODO: your role on Guppo",
@@ -378,6 +382,7 @@ window.CONTENT = {
         id: "p-jungle",
         title: "Jungle Quest",
         kind: "08 · Side project",
+        tone: "jungle",
         pitch: "A jungle-themed brick-breaker I built with Cursor.",
         body: "An experiment in building a game end to end with an AI coding tool. Click anywhere to drop the ball.",
         images: [{ src: "assets/projects/jungle-quest.jpg", alt: "Jungle Quest title screen with a brick wall and a Play Now button" }],
@@ -405,9 +410,9 @@ window.CONTENT = {
       },
     ],
     items: [
-      { org: "Woolley Athenaeum Fellow", role: "Marian Miner Cook Athenaeum, CMC", when: "2025–26", line: "Represent CMC to distinguished guests, speakers and alumni at the school's flagship speaker series, introducing keynote speakers to audiences of 100+ three to four times a week and researching potential speakers." },
-      { org: "Handley Fellow", role: "Kravis Leadership Institute, CMC", when: "2025–26", line: "Selected through the Women in Leadership Development Initiative. Twelve workshops, leadership salons and 1:1 coaching sessions, plus monthly leadership circles with peers." },
-      { org: "RLCIE Fellowship, CMC", role: "Fellow", when: "2025–26", line: "Led a team taking a product from idea to prototype using LLMs and AI tools, alongside workshops on product-market fit and business models." },
+      { org: "Woolley Athenaeum Fellowship", role: "Marian Miner Cook Athenaeum, CMC", when: "2025–26", line: "Represent CMC to distinguished guests, speakers and alumni at the school's flagship speaker series, introducing keynote speakers to audiences of 100+ three to four times a week and researching potential speakers." },
+      { org: "Handley Fellowship", role: "Kravis Leadership Institute, CMC", when: "2025–26", line: "Selected through the Women in Leadership Development Initiative. Twelve workshops, leadership salons and 1:1 coaching sessions, plus monthly leadership circles with peers." },
+      { org: "Randall Lewis Center for Innovation and Entrepreneurship Fellowship", role: "Randall Lewis Center (RLCIE), CMC", when: "2025–26", line: "Led a team taking a product from idea to prototype using LLMs and AI tools, alongside workshops on product-market fit and business models." },
       { org: "Ion Game Design, Stockholm", role: "Consulting Intern", when: "Spring 2023", line: "Kickstarter campaigns, Shopify SEO and a move onto Twitch for an educational board game company." },
     ],
   },
