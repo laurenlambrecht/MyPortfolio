@@ -401,7 +401,7 @@ window.CONTENT = {
             { t: "Novelty", d: "Daily prompts felt fun and closer to getting to know someone in person." },
           ],
           slides: [
-            { src: "assets/projects/hiki-deck/slide-01.jpg", alt: "Title slide: Project HIKI, Reimagining Matching, by Jamie Paik, Sam Bingham and Lauren Lambrecht" },
+            { src: "assets/projects/hiki-deck/slide-01.jpg", alt: "Title slide: Project HIKI, Reimagining Matching" },
             { src: "assets/projects/hiki-deck/slide-03.jpg", alt: "Key Nuggets: a say, think, do, feel map of interview quotes" },
             { src: "assets/projects/hiki-deck/slide-04.jpg", alt: "POV slide: Jamie's user, need and insight" },
             { src: "assets/projects/hiki-deck/slide-05.jpg", alt: "Initial idea generation: How Might We boards covered in sticky notes" },
