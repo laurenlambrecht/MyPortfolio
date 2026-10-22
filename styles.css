@@ -712,3 +712,4 @@ a:hover { opacity: .78; }
 .story-end { margin-top: clamp(32px, 4vw, 56px); }
 .role-card { align-items: center; }
 @media (min-width: 720px) { .role-card h3 { text-align: center; } }
+@media (min-width: 720px) { .role-card h3 { padding-right: clamp(32px, 4vw, 64px); } }
