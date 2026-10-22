@@ -740,3 +740,4 @@ a:hover { opacity: .78; }
 .slide-strip { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
 .slide-strip a { flex: 0 0 min(80vw, 520px); scroll-snap-align: start; }
 .slide-strip img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.3); }
+.proj-intro { max-width: 760px; margin-top: 18px; }

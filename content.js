@@ -382,7 +382,8 @@ window.CONTENT = {
         title: "Hiki",
         kind: "06 · Hiki: Redesigning Online Dating Project",
         tone: "night",
-        pitch: "Hiki is a dating and friendship app designed for neurodivergent people to build meaningful connections in a space that understands their experiences and needs. We partnered with Hiki to rethink traditional swipe-based matching, exploring how to make discovering new people feel more authentic, intentional, and centered on personality rather than appearance.",
+        pitch: "Redesigning how people match on Hiki, a dating and friendship app for neurodivergent people.",
+        intro: "Hiki is a dating and friendship app designed for neurodivergent people to build meaningful connections in a space that understands their experiences and needs. We partnered with Hiki to rethink traditional swipe-based matching, exploring how to make discovering new people feel more authentic, intentional, and centered on personality rather than appearance.",
         body: "We prototyped two new ways to browse: Hiki Grids, a daily board that sorts people by traits and neurodivergence filters instead of photos, and an infinite-zoom canvas where you explore profiles in space.",
         images: [
           { src: "assets/projects/hiki-zoom.jpg", alt: "Hiki infinite-zoom prototype welcome screen on a starry background" },

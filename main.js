@@ -414,6 +414,7 @@
           <p class="eyebrow rv">${esc(it.kind)}</p>
           <h2 id="${esc(it.id)}-h" class="disp h-xl rv">${esc(it.title)}</h2>
           <p class="lead rv">${esc(it.pitch)}</p>
+          ${it.intro ? `<p class="proj-body proj-intro rv">${esc(it.intro)}</p>` : ""}
           ${projShots(it)}
           <div class="proj-foot rv">
             ${it.body ? (isTodo(it.body) ? note(it.body) : `<p class="proj-body">${esc(it.body)}</p>`) : ""}
