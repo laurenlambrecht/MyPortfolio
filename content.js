@@ -41,7 +41,7 @@ window.CONTENT = {
       { target: "p-guppo", title: "Guppo", sub: "Social media tracking for your next fishing catch", tone: "teal", d: 200, x: 85, y: 0 },
       { target: "sports", title: "Sports Fan Dashboard", sub: "Tracking fan engagement across the NFL sports season", tone: "dusk", d: 260, x: 3, y: 480 },
       { target: "p-massbids", title: "MassBids", sub: "Zillow for government procurement/bidding in Massachusetts", tone: "noon", d: 260, x: 30, y: 360 },
-      { target: "urban", title: "Claremont Columns", sub: "A social app concept for Claremont residents to upload photos of places they love in Claremont — or places that could use engineering improvement.", tone: "pink", d: 260, x: 55, y: 480 },
+      { target: "urban", title: "Claremont Columns", sub: "Local Claremont 'Reddit' feed for residents and students to share favorite places and express desired changes in town planning", tone: "pink", d: 260, x: 55, y: 480 },
       { target: "p-jungle", title: "Jungle Quest", sub: "Jungle-themed Brick Breaker Website", tone: "jungle", d: 200, x: 84, y: 320 },
       { target: "more", title: "Beyond the Build", sub: "Leadership, experiences & interests", tone: "evening", d: 165, x: 86, y: 600 },
     ],
