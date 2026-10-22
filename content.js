@@ -55,7 +55,6 @@ window.CONTENT = {
       ["Stage", "Working prototype"],
       ["Role", "Solo: concept, design, build"],
       ["Stack", "React Native, Expo, TypeScript"],
-      ["Status", "Evolving"],
     ],
     links: [
       { label: "Live site", href: "https://laurenlambrecht.github.io/GoodGames/" },
