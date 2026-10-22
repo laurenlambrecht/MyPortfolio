@@ -197,6 +197,14 @@ window.CONTENT = {
         score: "3/3",
         finding: "were unenthusiastic about prediction markets. The weakest signal of the summer, and a clear call to cut it.",
       },
+      {
+        label: "Sprint 4 · All together",
+        name: "The full app, end to end",
+        // Put a YouTube, Loom or Vimeo link here and it plays right on the page
+        demo: { label: "Demo video", href: "" },
+        image: { src: "assets/samba/sprint4.jpg", alt: "Nine prototype screens of the combined app: home with Recommendation of the Day, a Big Bang Theory title page, an episode tracker for The Voice, live voting during Love Island, a rewards balance, gift card redemption, a friends activity feed, and a library with watch tracking and viewing habits" },
+        finding: "TODO: the headline finding from the final sprint (what testers said about the combined app)",
+      },
     ],
     quote: "Without the social layer, I'd probably forget the app exists.",
     quoteBy: "A Sprint 2 tester",

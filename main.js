@@ -11,6 +11,17 @@
   const isTodo = (s) => typeof s === "string" && s.startsWith("TODO:");
   const todoText = (s) => s.replace(/^TODO:\s*/, "");
   const note = (s) => (isTodo(s) ? `<p class="todo-box rv"><span class="todo-tag">To add</span>${esc(todoText(s))}</p>` : "");
+  // A demo video: YouTube, Loom and Vimeo links play in place; any other link opens; no link shows a placeholder
+  const demoVideo = (v) => {
+    const u = v.href || "";
+    const yt = u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([\w-]{6,})/);
+    const loom = u.match(/loom\.com\/(?:share|embed)\/(\w+)/);
+    const vimeo = u.match(/vimeo\.com\/(\d+)/);
+    const src = yt ? `https://www.youtube-nocookie.com/embed/${yt[1]}` : loom ? `https://www.loom.com/embed/${loom[1]}` : vimeo ? `https://player.vimeo.com/video/${vimeo[1]}` : "";
+    if (src) return `<div class="demo-video rv"><iframe src="${esc(src)}" title="${esc(v.label)}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
+    if (u) return `<a class="btn btn-sun demo-link rv" href="${esc(u)}" target="_blank" rel="noopener">▶ ${esc(v.label)}</a>`;
+    return `<div class="demo-video demo-ph rv"><span class="demo-play" aria-hidden="true">▶</span><p><span class="todo-tag">To add</span>${esc(v.label)}: a walkthrough of the full app</p></div>`;
+  };
 
   const ext = (href, label, cls) =>
     href
@@ -205,11 +216,12 @@
     <div class="sprints">${s.sprints
       .map((sp) => `<article class="sprint rv">
         <div class="wrap sprint-head">
-          <p class="eyebrow">${esc(sp.label)} · ${sp.testers} testers</p>
+          <p class="eyebrow">${esc(sp.label)}${sp.testers ? ` · ${sp.testers} testers` : ""}</p>
           <h3 class="disp">${esc(sp.name)}</h3>
         </div>
+        ${sp.demo ? `<div class="wrap">${demoVideo(sp.demo)}</div>` : ""}
         <div class="sprint-shot"><img src="${esc(sp.image.src)}" alt="${esc(sp.image.alt)}"></div>
-        <div class="wrap"><p class="sprint-find"><span class="disp">${esc(sp.score)}</span>${esc(sp.finding)}</p></div>
+        <div class="wrap">${isTodo(sp.finding) ? note(sp.finding) : `<p class="sprint-find"><span class="disp">${esc(sp.score)}</span>${esc(sp.finding)}</p>`}</div>
       </article>`)
       .join("")}</div>
     <div class="wrap">
