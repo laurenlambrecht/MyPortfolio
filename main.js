@@ -874,7 +874,7 @@
     // narrow screens shrink the bubbles instead of freezing them
     // and never let the bubbles cover more than ~44% of the stage, so they always have room to move
     const area = balls.reduce((a, b) => a + Math.PI * b.r0 * b.r0, 0) || 1;
-    const sc = Math.min(1, Math.max(0.36, stage.clientWidth / 1240), Math.sqrt((0.44 * stage.clientWidth * stage.clientHeight) / area));
+    const sc = Math.min(1, Math.max(0.36, stage.clientWidth / 1240), Math.sqrt((0.47 * stage.clientWidth * stage.clientHeight) / area));
     for (const b of balls) { b.r = b.r0 * sc; b.m = b.r * b.r; }
     if (stageSeen && !matchMedia("(prefers-reduced-motion: reduce)").matches) drift(dt);
     for (const b of balls) b.el.style.transform = `translate3d(${b.x - b.r}px, ${b.y - b.r}px, 0) scale(${sc})`;

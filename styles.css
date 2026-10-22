@@ -184,7 +184,7 @@ a:hover { opacity: .78; }
 /* Project picker: glossy bubbles that drift around a stage (motion in main.js) */
 .picker { position: relative; background: linear-gradient(in oklab, var(--dawn) 55%, var(--pick-bot)); padding-block: clamp(80px, 9vw, 110px) clamp(60px, 7vw, 100px); scroll-margin-top: 0; overflow: clip; }
 .picker .intro { color: var(--ink-soft); }
-.stage { position: relative; height: 880px; margin-top: 40px; }
+.stage { position: relative; height: 820px; margin-top: 40px; }
 .slot { position: absolute; will-change: transform; }
 .bob { animation: ll-jelly 4s ease-in-out infinite; }
 @keyframes ll-jelly { 0%, 100% { transform: scale(1, 1); } 30% { transform: scale(1.04, .96); } 60% { transform: scale(.97, 1.03); } }
@@ -229,7 +229,7 @@ a:hover { opacity: .78; }
 .mini-jungle { background: radial-gradient(circle at 30% 28%, rgba(255,255,255,.95), rgba(139,227,106,.4) 55%, rgba(61,181,90,.3)); }
 @keyframes ll-bubble-rise { 0% { transform: translate3d(0, 0, 0); opacity: 0; } 12% { opacity: 1; } 85% { opacity: .9; } 100% { transform: translate3d(30px, -760px, 0); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .bob, .mini { animation: none; } .mini { display: none; } }
-@media (max-width: 600px) { .stage { height: 720px; } }
+@media (max-width: 600px) { .stage { height: 670px; } }
 }
 
 .zoom { position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: 0; clip-path: circle(var(--r, 0px) at var(--x, 50%) var(--y, 50%)); }
