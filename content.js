@@ -395,7 +395,7 @@ window.CONTENT = {
       {
         id: "p-jungle",
         title: "Jungle Quest",
-        kind: "08 · Side project",
+        kind: "08 · Gaming Side Project",
         tone: "jungle",
         pitch: "A jungle-themed brick-breaker I built with Cursor.",
         body: "An experiment in building a game end to end with an AI coding tool. Click anywhere to drop the ball.",
