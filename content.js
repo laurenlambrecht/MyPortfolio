@@ -237,7 +237,7 @@ window.CONTENT = {
 
   // Urban planning: three prototypes, all from Lauren's class slides. Only facts shown on those slides.
   urban: {
-    tag: "Design project · Claremont, CA",
+    tag: "04 · Design project · Claremont, CA",
     title: "Urban planning, _as a game_",
     lead: "How do city engineers hear from the people who actually live in Claremont, especially students? Three prototypes tried three answers: a social app you can click through right here, a board game and a dinner. Each one was tested and changed between rounds.",
     role: "TODO: your role and team, and the class this was for",
@@ -332,13 +332,12 @@ window.CONTENT = {
 
   // Smaller projects with live demos. `id` is what the picker bubbles link to.
   playground: {
-    heading: "More things I've _made_",
-    intro: "Prototypes, experiments and one very serious brick-breaker. Most of these are live, so go click around.",
+    // Hiki, MassBids, Guppo and Jungle Quest each get their own project block (they each have a bubble)
     items: [
       {
         id: "p-hiki",
         title: "Hiki",
-        kind: "Founder & developer",
+        kind: "05 · Founder & developer",
         pitch: "Redesigning how people match on Hiki, a dating and friendship app for neurodivergent people.",
         body: "We prototyped two new ways to browse: Hiki Grids, a daily board that sorts people by traits and neurodivergence filters instead of photos, and an infinite-zoom canvas where you explore profiles in space.",
         images: [
@@ -353,25 +352,16 @@ window.CONTENT = {
       {
         id: "p-massbids",
         title: "MassBids",
-        kind: "Internship · Summer 2025",
+        kind: "06 · Internship · Summer 2025",
         pitch: "Zillow, but for local government contracts in Massachusetts.",
         body: "A clickable demo of the idea: pick a city on the map to see its open bids, then filter by category or search. The data in the demo is illustrative.",
         images: [{ src: "assets/projects/massbids.jpg", alt: "MassBids demo showing a map of Massachusetts with Boston-area cities and a bid detail panel" }],
         links: [{ label: "Try the demo", href: "https://laurenlambrecht.github.io/MassBids-Demo/" }],
       },
       {
-        id: "p-jungle",
-        title: "Jungle Quest",
-        kind: "Side project",
-        pitch: "A jungle-themed brick-breaker I built with Cursor.",
-        body: "An experiment in building a game end to end with an AI coding tool. Click anywhere to drop the ball.",
-        images: [{ src: "assets/projects/jungle-quest.jpg", alt: "Jungle Quest title screen with a brick wall and a Play Now button" }],
-        links: [{ label: "Play it", href: "https://laurenlambrecht.github.io/CursorPlay2/" }],
-      },
-      {
         id: "p-guppo",
         title: "Guppo",
-        kind: "Team project",
+        kind: "07 · Team project",
         pitch: "Catch, scan, collect. Point your phone at a fish and Guppo identifies it, then adds it to your collection.",
         body: "Every species you scan unlocks a card in the GuppoDex (144 to find), earns XP toward angler tiers, and lands in your catch log and on a map. Weekly challenges give you a reason to go back out.",
         role: "TODO: your role on Guppo",
@@ -384,6 +374,22 @@ window.CONTENT = {
         ],
         links: [{ label: "Code on GitHub", href: "https://github.com/thesaxon004/Guppo" }],
       },
+      {
+        id: "p-jungle",
+        title: "Jungle Quest",
+        kind: "08 · Side project",
+        pitch: "A jungle-themed brick-breaker I built with Cursor.",
+        body: "An experiment in building a game end to end with an AI coding tool. Click anywhere to drop the ball.",
+        images: [{ src: "assets/projects/jungle-quest.jpg", alt: "Jungle Quest title screen with a brick wall and a Play Now button" }],
+        links: [{ label: "Play it", href: "https://laurenlambrecht.github.io/CursorPlay2/" }],
+      },
+    ],
+  },
+
+  more: {
+    heading: "Beyond the _Build_",
+    intro: "Leadership, experiences & interests",
+    cards: [
       {
         id: "p-vicunita",
         title: "La Vicuñita brochure",
@@ -398,10 +404,6 @@ window.CONTENT = {
         links: [],
       },
     ],
-  },
-
-  more: {
-    heading: "Also _along the way_",
     items: [
       { org: "MassBids", role: "Product and Business Development Intern", when: "Summer 2025", line: "Built the company website with Cursor and Framer, ran 100+ cold calls to test contractor interest, and mapped the competitive landscape." },
       { org: "RLCIE Fellowship, CMC", role: "Fellow", when: "2025–26", line: "Led a team taking a product from idea to prototype using LLMs and AI tools, alongside workshops on product-market fit and business models." },

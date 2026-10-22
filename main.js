@@ -348,12 +348,7 @@
     m.src
       ? `<img class="${m.tall ? "shot-tall" : ""}" src="${esc(m.src)}" alt="${esc(m.alt)}">`
       : `<div class="shot-ph" role="img" aria-label="Placeholder: ${esc(m.alt)}"><span class="todo-tag">To add</span>${esc(m.need)}</div>`;
-  $("playground").innerHTML = `
-    <div class="wrap">
-      <h2 id="play-h" class="disp h-xl rv">${acc(pg.heading)}</h2>
-      <p class="intro rv">${esc(pg.intro)}</p>
-      <div class="play">${pg.items
-        .map((it, i) => `<article class="play-card ${i % 2 ? "flip" : ""} rv" id="${esc(it.id)}">
+  const card = (it, i) => `<article class="play-card ${i % 2 ? "flip" : ""} rv" id="${esc(it.id)}">
           <div class="play-shots ${it.phones ? "phones" : it.images.length === 3 ? "three" : it.images.length > 1 ? "two" : ""}">${it.images.map(shot).join("")}</div>
           <div class="play-text">
             <p class="eyebrow">${esc(it.kind)}</p>
@@ -361,17 +356,24 @@
             <p class="play-pitch">${esc(it.pitch)}</p>
             ${it.body ? (isTodo(it.body) ? note(it.body) : `<p class="play-body">${esc(it.body)}</p>`) : ""}
             ${it.role ? note(it.role) : ""}
-            <div class="play-links">${it.links.map((l) => ext(l.href, l.label, "pill-cream")).join("")}</div>
+            ${it.links.length ? `<div class="play-links">${it.links.map((l) => ext(l.href, l.label, "pill-cream")).join("")}</div>` : ""}
           </div>
-        </article>`)
-        .join("")}</div>
+        </article>`;
+  // Each of these is its own project (they each have a bubble), so no group heading
+  $("playground").innerHTML = `
+    <div class="wrap">
+      <h2 id="play-h" class="sr-only">More projects</h2>
+      <div class="play">${pg.items.map(card).join("")}</div>
     </div>`;
 
-  /* Evening: more */
+  /* Evening: Beyond the Build */
+  const mo = C.more;
   $("more").innerHTML = `
     <div class="wrap">
-      <h2 id="more-h" class="disp h-xl rv">${acc(C.more.heading)}</h2>
-      <div class="more">${C.more.items
+      <h2 id="more-h" class="disp h-xl rv">${acc(mo.heading)}</h2>
+      ${mo.intro ? `<p class="intro rv">${esc(mo.intro)}</p>` : ""}
+      ${mo.cards && mo.cards.length ? `<div class="play beyond-cards">${mo.cards.map(card).join("")}</div>` : ""}
+      <div class="more">${mo.items
         .map((m) => `<div class="more-row rv"><p class="more-when">${esc(m.when)}</p><div><p class="disp more-org">${esc(m.org)}</p><p class="more-role">${esc(m.role)}</p><p class="more-line">${esc(m.line)}</p></div></div>`)
         .join("")}</div>
     </div>`;
