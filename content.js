@@ -88,7 +88,7 @@ window.CONTENT = {
     role: {
       heading: "What's Next:",
       body:
-        "GoodGame is an independent passion project that I've taken from initial concept to a working mobile prototype. I identified the problem, developed the product strategy, designed the user experience, and built the app using React Native, Expo, and Claude Code. The app currently runs in the iOS Simulator, with interactive features and simulated user data. I'm continuing to refine the experience, explore the technical infrastructure, and work toward a fully functional launch within next couple of months.",
+        "GoodGame is an independent passion project that I've taken from initial concept to a working mobile prototype. I identified the problem, developed the product strategy, designed the user experience, and built the app using React Native, Expo, and Claude Code. The app currently runs in the iOS Simulator, with interactive features and simulated user data. I'm continuing to refine the app and planning on a fully functional launch within next couple of months.",
     },
 
     solution: {
