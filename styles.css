@@ -685,3 +685,5 @@ a:hover { opacity: .78; }
 .sprint-find p + p { margin-top: 1.5em; }
 @media (min-width: 900px) { .samba-quote.sprint-quote p { max-width: none; white-space: nowrap; font-size: clamp(26px, 3.4vw, 52px); } }
 .sprint-quote footer { padding-left: clamp(24px, 4vw, 64px); white-space: pre; }
+.samba-quote.sprint-quote { width: fit-content; max-width: 100%; }
+.sprint-quote footer { padding-left: 0; text-align: right; }
