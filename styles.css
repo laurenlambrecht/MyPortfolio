@@ -743,3 +743,5 @@ a:hover { opacity: .78; }
 .proj-intro { max-width: 760px; margin-top: 18px; }
 .proj-intro-below { margin-top: clamp(32px, 4vw, 48px); }
 .proj-intro-below + .proj-foot { margin-top: 20px; }
+.about-photo { flex-direction: column; align-items: center; }
+.about-chips { width: 360px; max-width: 100%; margin-top: 28px; justify-content: center; }

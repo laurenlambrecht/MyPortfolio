@@ -452,12 +452,11 @@
         a.photo.src
           ? `<img class="portrait tl" src="${esc(a.photo.src)}" alt="${esc(a.photo.alt)}">`
           : `<div class="portrait portrait-ph tl" role="img" aria-label="Placeholder: ${esc(a.photo.alt)}"><span class="todo-tag">To add</span>${esc(a.photo.need)}</div>`
-      }</div>
+      }<div class="chips about-chips">${a.hobbies.map((x, i) => `<span class="chip chip-${HOB[i % 4]}">${esc(x)}</span>`).join("")}</div></div>
       <div class="about-text">
         <p class="eyebrow rv">About</p>
         <h2 id="about-h" class="disp h-l2 rv">${acc(a.heading, "accent")}</h2>
         ${a.body.map((p) => `<p class="about-p rv">${esc(p)}</p>`).join("")}
-        <div class="chips rv">${a.hobbies.map((x, i) => `<span class="chip chip-${HOB[i % 4]}">${esc(x)}</span>`).join("")}</div>
       </div>
     </div>`;
 
