@@ -777,6 +777,7 @@
       if (b.y < b.r - o) { b.y = b.r - o; b.vy = Math.abs(b.vy); }
       if (b.y > H - b.r + o) { b.y = H - b.r + o; b.vy = -Math.abs(b.vy); }
     }
+    for (let pass = 0; pass < 3; pass++)
     for (let i = 0; i < balls.length; i++)
       for (let j = i + 1; j < balls.length; j++) {
         const a = balls[i], c = balls[j], dx = c.x - a.x, dy = c.y - a.y;
@@ -786,7 +787,7 @@
         a.x -= (nx * over * c.m) / tot; a.y -= (ny * over * c.m) / tot;
         c.x += (nx * over * a.m) / tot; c.y += (ny * over * a.m) / tot;
         const rv = (c.vx - a.vx) * nx + (c.vy - a.vy) * ny;
-        if (rv < 0) {
+        if (rv < 0 && pass === 0) {
           const imp = (-2 * rv) / (1 / a.m + 1 / c.m);
           a.vx -= (imp / a.m) * nx; a.vy -= (imp / a.m) * ny;
           c.vx += (imp / c.m) * nx; c.vy += (imp / c.m) * ny;
@@ -816,7 +817,9 @@
       placed = true;
     }
     // narrow screens shrink the bubbles instead of freezing them
-    const sc = Math.min(1, Math.max(0.42, stage.clientWidth / 1240));
+    // and never let the bubbles cover more than ~36% of the stage, so they always have room to move
+    const area = balls.reduce((a, b) => a + Math.PI * b.r0 * b.r0, 0) || 1;
+    const sc = Math.min(1, Math.max(0.36, stage.clientWidth / 1240), Math.sqrt((0.36 * stage.clientWidth * stage.clientHeight) / area));
     for (const b of balls) { b.r = b.r0 * sc; b.m = b.r * b.r; }
     if (stageSeen && !matchMedia("(prefers-reduced-motion: reduce)").matches) drift(dt);
     for (const b of balls) b.el.style.transform = `translate3d(${b.x - b.r}px, ${b.y - b.r}px, 0) scale(${sc})`;
