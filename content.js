@@ -416,7 +416,7 @@ window.CONTENT = {
     heading: "Why people do what they do, _then the data._",
     photo: { src: "assets/about/lauren.jpg", alt: "Portrait of Lauren Lambrecht", need: "A photo of you, portrait or candid" },
     body: [
-      "I study International Relations, History and Data Science at Claremont McKenna. That mix shows up in how I work: I like understanding why people do what they do, and then checking it against the data.",
+      "I study International Relations and History at Claremont McKenna, which trained me to ask why people do what they do. That shows up in how I work on products: I start with the why, and then check it against the data.",
       "Outside class I'm an Athenaeum Fellow, which means introducing speakers to rooms of 100+ people a few times a week. I've gotten comfortable asking good questions in public.",
       "I'm especially drawn to products in sports, fitness and wearables, the kind of thing you'd find on your wrist or finger, because they're so close to how people actually live.",
     ],
