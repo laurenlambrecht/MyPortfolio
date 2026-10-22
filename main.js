@@ -275,6 +275,23 @@
           <a class="pill pill-lilac rv" href="${esc(d.repo)}" target="_blank" rel="noopener">View the repo <span aria-hidden="true">↗</span></a>
         </div>
       </div>
+      ${d.fansignal ? (() => {
+        const f = d.fansignal;
+        return `<div class="fs">
+        <p class="eyebrow rv">${esc(f.label)}</p>
+        <h3 class="disp fs-title rv">${acc(f.title)}</h3>
+        <p class="lead rv">${esc(f.pitch)}</p>
+        <p class="fs-problem rv">${esc(f.problem)}</p>
+        <ol class="fs-flow rv">${f.flow.map((x) => `<li>${esc(x)}</li>`).join("")}</ol>
+        <figure class="fs-shots rv">
+          <div class="fs-grid">${f.images.map((m) => `<button type="button" class="zoomable" data-full="${esc(m.src)}" aria-label="Enlarge: ${esc(m.alt)}"><img src="${esc(m.src)}" alt="${esc(m.alt)}"></button>`).join("")}</div>
+          <figcaption>${esc(f.caption)}</figcaption>
+        </figure>
+        <ul class="fs-features">${f.features.map(([k, t]) => `<li class="rv"><h4 class="disp">${esc(k)}</h4><p>${esc(t)}</p></li>`).join("")}</ul>
+        <div class="actions rv">${f.links.map((l, i) => ext(l.href, l.label, i === 0 ? "pill-lilac" : "pill-line")).join("")}</div>
+        <p class="fs-note rv">${esc(f.note)}</p>
+      </div>`;
+      })() : ""}
     </div>`;
 
   /* Dusk: urban planning prototypes */

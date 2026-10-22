@@ -248,6 +248,33 @@ window.CONTENT = {
       "Audience interest follows the season. NFL search activity rises during the regular season and intensifies around high-stakes playoff moments.",
       "Timing creates strategic opportunities. Identifying when audience attention peaks can inform content calendars, marketing campaigns, and product launch strategies.",
     ],
+    // FanSignal: Lauren's B2B product layer on top of this research (repo branch feature/fansignal-product-layer),
+    // hosted with the portfolio at fansignal/. Demo data in the app is illustrative and labeled as such.
+    fansignal: {
+      label: "From analysis to product",
+      title: "Fan_Signal_",
+      pitch: "I turned the research into FanSignal, a B2B product prototype: an audience-intelligence workspace for NFL teams' marketing, content and partnership staff.",
+      problem: "Search-interest charts show when attention moves, but they don't tell a marketer where to focus, when to launch, or what to test. FanSignal is built for that next step.",
+      flow: ["Explore interest", "Interpret momentum", "Compare teams", "Propose an experiment", "Export a decision brief"],
+      features: [
+        ["Audience momentum", "Compares the latest four weeks of interest with the four before and labels it rising, stable or cooling."],
+        ["Campaign opportunity engine", "Turns that signal into a suggested experiment and the metrics to validate it. Rule-based and explainable, not predictive."],
+        ["Geographic discovery", "A state map of where interest is strongest, filled in from an uploaded regional CSV."],
+        ["Event context", "League calendar moments shown alongside the data, as reference points rather than causes."],
+        ["Team benchmarking", "Ranks teams side by side when the data shares one Google Trends scale."],
+        ["Decision brief", "Exports an editable Word document with the insight, hypothesis and validation steps."],
+      ],
+      images: [
+        { src: "assets/sports/fansignal-dashboard.jpg", alt: "FanSignal dashboard: team selectors, latest interest index, momentum and attention signal cards, a search-interest chart for the Kansas City Chiefs vs NFL, and a campaign opportunity panel with a proposed action and how to validate it" },
+        { src: "assets/sports/fansignal-map.jpg", alt: "FanSignal geographic discovery card: a purple US state map labeled as illustrative, with an Upload geography CSV button" },
+      ],
+      caption: "Screens from the prototype running on its built-in illustrative demo data.",
+      note: "Prototype: the demo values are made up and clearly labeled in the app. Upload real Google Trends CSVs to explore real patterns. No backend, live API or campaign results.",
+      links: [
+        { label: "Try FanSignal", href: "fansignal/" },
+        { label: "Product guide on GitHub", href: "https://github.com/laurenlambrecht/Sports-Fan-Engagement-Dashboard/tree/feature/fansignal-product-layer" },
+      ],
+    },
   },
 
   // Urban planning: three prototypes, all from Lauren's class slides. Only facts shown on those slides.

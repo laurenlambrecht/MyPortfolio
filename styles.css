@@ -638,3 +638,26 @@ a:hover { opacity: .78; }
 .dec-b { margin-top: 8px; font-size: 14px; line-height: 1.5; }
 .dec-t { margin-top: 10px; padding-top: 10px; font-size: 13.5px; line-height: 1.45; }
 .sky-noon .dec ~ .todo-box, .sky-noon .decisions + .todo-box { margin-top: 14px; font-size: 14px; padding: 10px 14px; }
+/* Sports: FanSignal, the product layer built on the research */
+#sports .pill-line { border-color: var(--violet-text); color: var(--violet-text); }
+.fs { margin-top: clamp(80px, 9vw, 130px); padding-top: clamp(48px, 5vw, 72px); border-top: 1px solid rgba(232,222,255,.22); }
+.fs .eyebrow { color: var(--lilac); }
+.fs-title { margin-top: 14px; font-size: clamp(44px, 6vw, 84px); line-height: .95; font-weight: 800; }
+.fs .lead { margin-top: 24px; }
+.fs-problem { margin-top: 16px; max-width: 700px; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.6; opacity: .85; }
+.fs-flow { margin: 28px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; counter-reset: fs; }
+.fs-flow li { counter-increment: fs; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.1); font-size: 14px; font-weight: 600; }
+.fs-flow li::before { content: counter(fs) " · "; color: var(--lilac); }
+.fs-shots { margin: 44px 0 0; }
+.fs-grid { display: grid; grid-template-columns: minmax(0, 2.05fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.fs-grid .zoomable { background: #12162B; padding: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 70px rgba(10,5,40,.45); }
+.fs-grid .zoomable img { display: block; width: 100%; height: auto; }
+@media (hover: hover) { .fs-grid .zoomable:hover { transform: scale(1.03); } }
+@media (max-width: 700px) { .fs-grid { grid-template-columns: minmax(0, 1fr); } }
+.fs-shots figcaption { margin-top: 14px; font-size: 15px; color: var(--lilac); }
+.fs-features { margin: 44px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 26px 40px; }
+.fs-features h4 { font-size: 19px; font-weight: 700; }
+.fs-features p { margin-top: 6px; font-size: 15.5px; line-height: 1.55; opacity: .85; }
+.fs .actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
+.fs .actions .pill-lilac { margin-top: 0; }
+.fs-note { margin-top: 18px; max-width: 700px; font-size: 14px; line-height: 1.5; color: var(--lilac); }
