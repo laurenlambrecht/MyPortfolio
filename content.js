@@ -351,7 +351,7 @@ window.CONTENT = {
         pitch: "Zillow, but for local government contracts in Massachusetts.",
         body: "A clickable demo of the idea: pick a city on the map to see its open bids, then filter by category or search. The data in the demo is illustrative.",
         images: [{ src: "assets/projects/massbids.jpg", alt: "MassBids demo showing a map of Massachusetts with Boston-area cities and a bid detail panel" }],
-        links: [{ label: "Try the demo", href: "https://nile842ll.github.io/MassBids-Demo/" }],
+        links: [{ label: "Try the demo", href: "https://laurenlambrecht.github.io/MassBids-Demo/" }],
       },
       {
         id: "p-jungle",
@@ -360,7 +360,7 @@ window.CONTENT = {
         pitch: "A jungle-themed brick-breaker I built with Cursor.",
         body: "An experiment in building a game end to end with an AI coding tool. Click anywhere to drop the ball.",
         images: [{ src: "assets/projects/jungle-quest.jpg", alt: "Jungle Quest title screen with a brick wall and a Play Now button" }],
-        links: [{ label: "Play it", href: "https://nile842ll.github.io/CursorPlay2/" }],
+        links: [{ label: "Play it", href: "https://laurenlambrecht.github.io/CursorPlay2/" }],
       },
       {
         id: "p-guppo",
