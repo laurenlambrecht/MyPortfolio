@@ -908,4 +908,31 @@
       strip.scrollBy({ left: strip.clientWidth * 0.8 * Number(b.dataset.dir), behavior: reduce ? "auto" : "smooth" });
     })
   );
+
+  /* Scroll label: while scrolling, a pill beside the scrollbar names the project in view,
+     riding at the same height as the scrollbar thumb. Hides shortly after scrolling stops. */
+  const names = Object.fromEntries(C.picker.bubbles.map((b) => [b.target, b.title]));
+  Object.assign(names, { "goodgame-more": names.goodgame, work: "Pick a project", about: "About", contact: "Contact" });
+  const marks = Object.keys(names).map((id) => $(id)).filter(Boolean)
+    .sort((x, y) => (x.compareDocumentPosition(y) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
+  const tag = document.createElement("div");
+  tag.className = "scroll-tag";
+  tag.setAttribute("aria-hidden", "true");
+  document.body.append(tag);
+  let hideT;
+  addEventListener("scroll", () => {
+    const mid = innerHeight / 2;
+    let cur = null;
+    for (const el of marks) if (el.getBoundingClientRect().top <= mid) cur = el;
+    if (!cur || scrollY < innerHeight * 0.6) return tag.classList.remove("on");
+    const label = names[cur.id];
+    if (tag.textContent !== label) tag.textContent = label;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const thumb = Math.max(40, innerHeight * (innerHeight / document.documentElement.scrollHeight));
+    const y = (scrollY / max) * (innerHeight - thumb) + thumb / 2;
+    tag.style.top = `${Math.min(innerHeight - 24, Math.max(24, y))}px`;
+    tag.classList.add("on");
+    clearTimeout(hideT);
+    hideT = setTimeout(() => tag.classList.remove("on"), 900);
+  }, { passive: true });
 })();

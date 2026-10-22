@@ -671,3 +671,11 @@ a:hover { opacity: .78; }
 #urban .proto-steps .disp { color: #FF9CC2; }
 #urban .proto-hyp { background: rgba(255,255,255,.28); border-color: rgba(58,10,31,.22); }
 #urban .todo-box { border-color: #3A0A1F; }
+/* Scroll label beside the scrollbar */
+.scroll-tag { position: fixed; right: 18px; top: 50%; z-index: 60; transform: translate(8px, -50%); opacity: 0; pointer-events: none;
+  padding: 8px 14px; border-radius: 999px; background: rgba(26,18,6,.88); color: #FFF3E2; font: 700 14px/1 "DM Sans", system-ui, sans-serif;
+  letter-spacing: .01em; white-space: nowrap; box-shadow: 0 10px 30px rgba(0,0,0,.25); backdrop-filter: blur(6px);
+  transition: opacity .25s ease, transform .25s ease; }
+.scroll-tag.on { opacity: 1; transform: translate(0, -50%); }
+@media (prefers-reduced-motion: reduce) { .scroll-tag { transition: opacity .2s ease; transform: translate(0, -50%); } }
+@media (min-width: 720px) { .decisions { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

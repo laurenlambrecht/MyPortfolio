@@ -124,23 +124,18 @@ window.CONTENT = {
       items: [
         {
           title: "A small deposit instead of a free RSVP",
-          body: "Joining holds $5, refunded on check-in. Leaving more than 24 hours out refunds it; leaving later forfeits it.",
-          tradeoff: "adds friction at the moment of joining, and needs real payments before it can work outside a prototype.",
+          body: "Joining holds $5, refunded on check-in. Leaving more than 24 hours out returns it; leaving later forfeits it.",
+          tradeoff: "adds friction at sign-up and depends on real payments to work beyond a prototype.",
         },
         {
           title: "A reliability score that unlocks access",
-          body: "Showing up earns +2 and a no-show costs 3. Some runs are gated, like a competitive run open to scores of 85 and up.",
-          tradeoff: "rewards regulars, but could feel punitive to someone new or someone who misses once.",
-        },
-        {
-          title: "Your score travels with you",
-          body: "Switching regions keeps your score and history, so moving cities doesn't mean starting over.",
-          tradeoff: "trust earned in one community is assumed to carry to another.",
+          body: "Showing up earns +2 and a no-show costs 3. Some runs are gated, and your score travels with you if you switch cities.",
+          tradeoff: "rewards consistency, but can feel punitive to new users and assumes trust carries across communities.",
         },
         {
           title: "Native maps and sample data first",
-          body: "I moved from the web prototype's simple world outline to Apple Maps, and kept all data in memory so I could test the flows before building a backend.",
-          tradeoff: "feels real on a phone, but nothing persists and it's iOS-first for now.",
+          body: "I moved from the web prototype's simple world outline to Apple Maps and kept data in memory so I could test the core flows before building a backend.",
+          tradeoff: "feels more real on a phone, but nothing persists yet and it's iOS-first for now.",
         },
       ],
       note: "TODO: In your own words: why you chose the deposit model, and anything you tried and dropped.",
