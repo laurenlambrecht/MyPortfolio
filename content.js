@@ -317,7 +317,7 @@ window.CONTENT = {
         app: {
           heading: "Try it _live_",
           live: "claremont-columns/",
-          body: "The paper prototype and the Featured Posts idea, built as a working web app. Tap a pin, scroll the feed, add a post in four steps. It runs right here, or open it full screen.",
+          body: "Tap a pin, scroll the feed, add a post in four steps. It runs right here, or open it full screen.",
           note: "Sample posts, usernames and engineer replies are made up for the demo.",
           screens: [
             { src: "assets/urban/cc-map.jpg", alt: "Claremont Columns map home with pins", title: "Map" },
