@@ -162,7 +162,7 @@ window.CONTENT = {
         testers: 6,
         image: { src: "assets/samba/sprint1.jpg", alt: "Five prototype screens: recommendation of the day, trending by streaming service, a 260-point rewards ring, a top 10 list and a gift card redemption screen" },
         score: "6/6",
-        finding: "users expressed confusion over reward tiers. The next iteration needed to answer a fundamental question: How are points, tiers, and payouts connected? Beyond clarity, the challenge was ensuring rewards felt valuable, achievable, and compelling enough to bring users back to the app.",
+        finding: "Users expressed confusion over reward tiers. The next iteration needed to answer a fundamental question: How are points, tiers, and payouts connected? Beyond clarity, the challenge was ensuring rewards felt valuable, achievable, and compelling enough to bring users back to the app.",
       },
       {
         label: "Sprint 2 · Engagement",
@@ -170,7 +170,7 @@ window.CONTENT = {
         testers: 6,
         image: { src: "assets/samba/sprint2.jpg", alt: "Five prototype screens: a title page with a match score, reviews, a Refresh My Memory recap tool, an episode tracker and the home feed" },
         score: "6/6",
-        finding: "users responded positively to the Friend's Feed, comparing it to Strava, Venmo, and Goodreads. AI-powered features were another highlight, particularly \u201cRefresh My Memory,\u201d a scene-recall tool loved by 5/6 testers, alongside personalized match scores.\n\nThe Big Takeaway: social connection drove interest in returning to the app, while AI created opportunities for a more personalized viewing experience.",
+        finding: "Users responded positively to the Friend's Feed, comparing it to Strava, Venmo, and Goodreads. AI-powered features were another highlight, particularly \u201cRefresh My Memory,\u201d a scene-recall tool loved by 5/6 testers, alongside personalized match scores.\n\nThe Big Takeaway: social connection drove interest in returning to the app, while AI created opportunities for a more personalized viewing experience.",
         quote: "Without the social layer, I'd probably forget the app exists.",
         quoteBy: "— Panthil Patel  |  Sprint 2, User Testing",
       },
@@ -180,7 +180,7 @@ window.CONTENT = {
         testers: 3,
         image: { src: "assets/samba/sprint3.jpg", alt: "Four prototype screens: live voting during Love Island, a hot-take poll, shoppable looks with a prediction market, and a Kalshi buy screen" },
         score: "3/3",
-        finding: "users expressed hesitation toward the Kalshi prediction-market integration, citing concerns around product fit, existing platform loyalty, and real-money transactions. Meanwhile, live voting, social trivia, and shoppable content showed greater promise for making TV viewing more interactive.",
+        finding: "Users expressed hesitation toward the Kalshi prediction-market integration, citing concerns around product fit, existing platform loyalty, and real-money transactions. Meanwhile, live voting, social trivia, and shoppable content showed greater promise for making TV viewing more interactive.",
       },
       {
         label: "Sprint 4 · All together",
