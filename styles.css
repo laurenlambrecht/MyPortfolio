@@ -555,3 +555,11 @@ a:hover { opacity: .78; }
 .sky-morning { --bot: color-mix(in oklab, var(--bg-morning) 50%, var(--bg-noon)); }
 .sky-noon { --top: color-mix(in oklab, var(--bg-noon) 50%, var(--bg-morning)); }
 .fade.f-noon { --from: color-mix(in oklab, var(--bg-morning) 50%, var(--bg-noon)); --to: var(--from); }
+
+/* Samba process: one row on anything wider than a phone, shrinking to fit */
+@media (min-width: 720px) {
+  .process { flex-wrap: nowrap; gap: clamp(6px, 1vw, 14px); }
+  .process-step { white-space: nowrap; font-size: clamp(13px, 1.35vw, 17px); padding: clamp(8px, 1vw, 14px) clamp(14px, 1.6vw, 22px) clamp(8px, 1vw, 14px) clamp(8px, 1vw, 14px); gap: clamp(8px, 1vw, 12px); }
+  .process-step .disp { width: clamp(28px, 2.6vw, 36px); height: clamp(28px, 2.6vw, 36px); flex: none; }
+  .process-arr { font-size: clamp(18px, 2vw, 26px); }
+}
