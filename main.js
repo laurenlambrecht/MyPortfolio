@@ -469,7 +469,7 @@
     <div class="moon" aria-hidden="true"></div>
     <div class="wrap contact-in">
       <h2 id="contact-h" class="disp contact-h rv">${acc(C.contact.heading, "accent")}</h2>
-      <p class="contact-line rv">${esc(C.contact.line)}</p>
+      ${C.contact.line ? `<p class="contact-line rv">${esc(C.contact.line)}</p>` : ""}
       <div class="actions center rv">
         ${emailBtn}
         <a class="btn btn-ghost" href="${esc(C.links.linkedin)}" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
