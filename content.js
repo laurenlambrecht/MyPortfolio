@@ -66,7 +66,7 @@ window.CONTENT = {
     problem: {
       heading: "The problem",
       body: [
-        "Pickup games mostly live in group chats and word of mouth. If you're new to a city, or just new to a sport, it's hard to know where games are, whether they're at your level, and whether enough people will show up for it to happen.",
+        "Pickup sports are supposed to be simple. But games are scattered across group chats, finding people at your skill level is difficult, and even when a game comes together, there's no guarantee everyone will show up. I wanted to build something that makes finding a game easier, but more importantly, makes showing up matter.",
       ],
       note: "TODO: Your story: what led you here. A personal moment, conversations with players, or anything you observed.",
       quote: "A game only works if people who say they're coming",
