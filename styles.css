@@ -687,3 +687,6 @@ a:hover { opacity: .78; }
 .sprint-quote footer { padding-left: clamp(24px, 4vw, 64px); white-space: pre; }
 .samba-quote.sprint-quote { width: fit-content; max-width: 100%; }
 .sprint-quote footer { padding-left: 0; text-align: right; }
+
+/* Sprint 2 quote: centered on the page */
+.samba-quote.sprint-quote { margin-inline: auto; }
