@@ -181,7 +181,7 @@ window.CONTENT = {
         testers: 3,
         image: { src: "assets/samba/sprint3.jpg", alt: "Four prototype screens: live voting during Love Island, a hot-take poll, shoppable looks with a prediction market, and a Kalshi buy screen" },
         score: "3/3",
-        finding: "were unenthusiastic about prediction markets. The weakest signal of the summer, and a clear call to cut it.",
+        finding: "users expressed hesitation toward the Kalshi prediction-market integration, citing concerns around product fit, existing platform loyalty, and real-money transactions. Meanwhile, live voting, social trivia, and shoppable content showed greater promise for making TV viewing more interactive.",
       },
       {
         label: "Sprint 4 · All together",
@@ -204,7 +204,7 @@ window.CONTENT = {
     ],
     signal: {
       build: ["Friend's Feed and social layer (6/6)", "Push notifications for new episodes (6/6)", "\"Refresh My Memory\" recap tool (5/6)", "Cross-platform recommendations, if kept fresh", "Opt-in rewards, once tiers are redesigned"],
-      cut: ["Kalshi prediction markets (3/3 unenthusiastic)", "Streak-style gamification", "Reward tiers as designed (6/6 confused)", "Favorites and Watchlist as two separate features"],
+      cut: ["Kalshi prediction markets (3/3 hesitant)", "Streak-style gamification", "Reward tiers as designed (6/6 confused)", "Favorites and Watchlist as two separate features"],
     },
     paperLabel: "Read my paper on this summer",
     privacy: "These are my discovery prototypes, not the shipped app. Samba ended up taking the product in a different direction.",
