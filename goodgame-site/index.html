@@ -721,6 +721,26 @@
   ::-webkit-scrollbar-track { background: var(--black); }
   ::-webkit-scrollbar-thumb { background: var(--border); }
   ::-webkit-scrollbar-thumb:hover { background: var(--gray); }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 760px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { display: none; }
+    .hero { min-height: auto; padding: 7.5rem 1.25rem 3.5rem; }
+    .hero-title { font-size: clamp(3.6rem, 19vw, 6rem); }
+    .hero-sub { margin: 1.5rem 0 2rem; }
+    .hero-actions { flex-wrap: wrap; }
+    .hero-stat-bar { position: static; flex-direction: row; gap: 2rem; margin-top: 2.75rem; }
+    .hero-stat { text-align: left; }
+    .hero-stat .num { font-size: 2.3rem; }
+    .hero-rule { display: none; }
+    .section, .features-section, .tiers-section { padding: 5rem 1.25rem; }
+    .hiw-section, .cities-section, .lockin-section { padding: 5rem 1.25rem; }
+    .cta-section { padding: 6rem 1.25rem; }
+    footer { padding: 2rem 1.25rem; flex-wrap: wrap; gap: 1rem; }
+    .problem-grid, .hiw-layout, .acc-outcomes, .features-grid,
+    .cities-layout, .tiers-grid, .lockin-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
