@@ -158,6 +158,7 @@ a:hover { opacity: .78; }
 .accent { color: var(--rust); }
 .hero-body { margin-top: 40px; max-width: 600px; font-size: clamp(18px, 1.6vw, 21px); line-height: 1.6; color: var(--ink-soft); }
 .hero-body strong { color: var(--ink); }
+.hero-body + .hero-body { margin-top: 16px; }
 .hero .actions { margin-top: 40px; }
 .hero .btn { min-height: 56px; padding: 0 30px; }
 .scroll-hint { margin-top: 96px; font-size: 14px; color: var(--brown); display: flex; align-items: center; gap: 10px; }

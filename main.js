@@ -36,7 +36,7 @@
     <div class="wrap hero-in">
       <p class="eyebrow rv">${h.eyebrow.map((e) => `<span>${esc(e)}</span>`).join(STAR)}</p>
       <h1 class="disp hero-h rv">${acc(h.headline, "accent")}</h1>
-      <p class="hero-body rv">Hi, I'm <strong>${esc(C.name)}</strong>, ${esc(h.body)}</p>
+      ${h.body.map((t, i) => `<p class="hero-body rv">${i ? "" : `Hi, I'm <strong>${esc(C.name)}</strong>, `}${esc(t)}</p>`).join("")}
       <div class="actions rv">
         <a class="btn btn-dark" href="#work">See my work <span aria-hidden="true">↓</span></a>
         <a class="btn btn-line" href="${esc(C.links.resume)}" target="_blank" rel="noopener">Resume</a>

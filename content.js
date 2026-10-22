@@ -18,8 +18,12 @@ window.CONTENT = {
   hero: {
     eyebrow: ["Product Strategy & Design Portfolio", "Claremont McKenna '27"],
     headline: "Building products that bring people _closer_ to the things they _love._",
-    body:
-      "a senior at Claremont McKenna College with a passion for the intersection of technology, product strategy, and data. I love turning ideas into tangible products, from identifying real-world problems and understanding user needs to designing solutions and bringing them to life. My experience spans product development, data analysis, and market research, and I'm especially interested in how technology can create meaningful, engaging experiences. Currently, I'm building GoodGame, a platform designed to connect people through recreational sports.",
+    // First paragraph follows "Hi, I'm <name>, ".
+    body: [
+      "a senior at Claremont McKenna College passionate about building products at the intersection of technology, strategy, and data.",
+      "I thrive in environments that turn fast-paced collaboration into real actionable products and solutions. I love understanding how and why people think, using data to inform strategy, and turning concepts into tangible/digital products that people love. My work spans product development, market strategy, data analytics, UI design, and interactive prototyping: combining big-picture strategy with results.",
+      "Below is a collection of projects I've worked on over the past four years, each reflecting a different part of how I think, build, and approach problems.",
+    ],
     scrollHint: "Keep scrolling. The day goes on.",
     interests: ["Consumer tech", "Sports", "Fitness", "Wearables"],
   },
