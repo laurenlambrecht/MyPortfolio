@@ -547,3 +547,11 @@ a:hover { opacity: .78; }
   .vine-stalk, .vine-curl { stroke-width: 1.1; }
 }
 @media (prefers-reduced-motion: reduce) { .vine-x { transition: none; } .vine-sway { animation: none; } }
+
+/* GoodGame runs on into the next section, so keep the gap between them about the size of a sub-section gap */
+#goodgame { padding-bottom: clamp(40px, 4vw, 60px); position: relative; z-index: 2; }
+.fade.f-noon { height: clamp(40px, 5vw, 80px); }
+/* With a short band here, the two sections meet at the halfway color so there's no visible seam */
+.sky-morning { --bot: color-mix(in oklab, var(--bg-morning) 50%, var(--bg-noon)); }
+.sky-noon { --top: color-mix(in oklab, var(--bg-noon) 50%, var(--bg-morning)); }
+.fade.f-noon { --from: color-mix(in oklab, var(--bg-morning) 50%, var(--bg-noon)); --to: var(--from); }
