@@ -35,14 +35,14 @@ window.CONTENT = {
     hint: "Tap a bubble to jump in.",
     // d = diameter in px, x = left edge as % of the stage, y = top in px (desktop starting spot; they drift from there)
     bubbles: [
-      { target: "goodgame", title: "GoodGame", sub: "Simplifying intramural sports games", tone: "morning", d: 355, x: 1, y: 50 },
+      { target: "goodgame", title: "GoodGame", sub: "Intramural Pickup Game App: Bringing accountability and ease of connection to anyone, anywhere.", tone: "morning", d: 355, x: 1, y: 50 },
       { target: "samba", title: "Samba TV", sub: "Building a social media for your TV habits", tone: "afternoon", d: 355, x: 33, y: 0 },
       { target: "p-hiki", title: "Hiki", sub: "Reimagining traditional online dating apps", tone: "night", d: 355, x: 64, y: 100 },
-      { target: "p-guppo", title: "Guppo", sub: "Track & connect over your next fishing catch", tone: "teal", d: 200, x: 85, y: 0 },
+      { target: "p-guppo", title: "Guppo", sub: "Social media tracking for your next fishing catch", tone: "teal", d: 200, x: 85, y: 0 },
       { target: "sports", title: "Sports Fan Dashboard", sub: "Tracking fan engagement across the NFL sports season", tone: "dusk", d: 260, x: 3, y: 480 },
-      { target: "p-massbids", title: "MassBids", sub: "Simplifying government procurement & bidding for contractors in Massachusetts", tone: "noon", d: 260, x: 30, y: 360 },
+      { target: "p-massbids", title: "MassBids", sub: "Zillow for Government Contractors", tone: "noon", d: 260, x: 30, y: 360 },
       { target: "urban", title: "Claremont Columns", sub: "A social app concept for Claremont residents to upload photos of places they love in Claremont — or places that could use engineering improvement.", tone: "pink", d: 260, x: 55, y: 480 },
-      { target: "p-jungle", title: "Jungle Quest", sub: "Jungle-themed, arcade-style brick breaker", tone: "jungle", d: 200, x: 84, y: 320 },
+      { target: "p-jungle", title: "Jungle Quest", sub: "Jungle-themed Brick Breaker Website", tone: "jungle", d: 200, x: 84, y: 320 },
       { target: "more", title: "Beyond the Build", sub: "Leadership, experiences & interests", tone: "evening", d: 165, x: 86, y: 600 },
     ],
   },
