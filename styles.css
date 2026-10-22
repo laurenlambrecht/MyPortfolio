@@ -3,13 +3,19 @@
 :root {
   --ink: #1A1206;
   --cream: #FFF3E2;
-  --dawn: #FFF3E2;
+  --dawn: #F7F2EE;
   --morning: #FFC94A;
   --noon: #FF7A3D;
   --afternoon: #C9285F;
   --dusk: #5A2AA0;
   --evening: #22226B;
   --night: #100C28;
+  /* Softer versions of the day colors for section backgrounds; the full-strength ones stay for accents */
+  --bg-morning: #F8DC98;
+  --bg-noon: #F98B5A;
+  --bg-afternoon: #BD3967;
+  --bg-dusk: #4E3C8E;
+  --bg-evening: #262A5C;
   --ink-soft: #4A3826;
   --brown: #6B5440;
   --rust: #B8410E;
@@ -132,25 +138,34 @@ a:hover { opacity: .78; }
 .navlinks a { padding: 12px 18px; text-decoration: none; font-weight: 600; font-size: 15px; }
 .nav-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; transform-origin: left center; background: linear-gradient(90deg, var(--morning), var(--noon), var(--afternoon), var(--dusk), var(--evening)); }
 
-/* Sky transitions between sections */
-.fade { height: clamp(120px, 16vw, 240px); }
-.f-dawn { background: linear-gradient(var(--dawn), var(--morning)); }
-.f-noon { background: linear-gradient(var(--morning), var(--noon)); }
-.f-afternoon { background: linear-gradient(var(--noon), var(--afternoon)); }
-.f-dusk { background: linear-gradient(var(--afternoon), var(--dusk)); }
-.f-evening { background: linear-gradient(var(--dusk), var(--evening)); }
-.f-night { background: linear-gradient(var(--evening), var(--night)); }
-.sky { padding-block: 20px clamp(100px, 10vw, 140px); }
-.sky-morning { background: var(--morning); padding-top: 40px; }
-.sky-noon { background: var(--noon); }
-.sky-afternoon { background: var(--afternoon); color: var(--cream); }
-.sky-dusk { background: var(--dusk); color: var(--violet-text); }
-.sky-evening { background: var(--evening); color: var(--indigo-text); }
+/* Sky transitions: one continuous gradient. Each section eases from a blend with the color before it
+   into its own color and out toward the next one, and the bands in between finish the blend (in oklab,
+   so mixes stay clean instead of going muddy). */
+.fade { height: clamp(160px, 20vw, 320px); background: linear-gradient(in oklab, var(--from), var(--to)); }
+.sky { --c: var(--bg-morning); --top: var(--c); --bot: var(--c); --ease: 35%;
+  background: linear-gradient(in oklab, var(--top), var(--c) var(--ease), var(--c) calc(100% - var(--ease)), var(--bot));
+  padding-block: 20px clamp(100px, 10vw, 140px); }
+.sky-morning { --c: var(--bg-morning); --top: color-mix(in oklab, var(--bg-morning) 60%, var(--dawn)); --bot: color-mix(in oklab, var(--bg-morning) 60%, var(--bg-noon)); padding-top: 40px; }
+.sky-noon { --c: var(--bg-noon); --top: color-mix(in oklab, var(--bg-noon) 60%, var(--bg-morning)); --bot: color-mix(in oklab, var(--bg-noon) 60%, var(--bg-afternoon)); }
+.sky-afternoon { --c: var(--bg-afternoon); --top: color-mix(in oklab, var(--bg-afternoon) 60%, var(--bg-noon)); --bot: color-mix(in oklab, var(--bg-afternoon) 60%, var(--bg-dusk)); color: var(--cream); }
+.sky-dusk { --c: var(--bg-dusk); color: var(--violet-text); }
+#sports { --top: color-mix(in oklab, var(--bg-dusk) 60%, var(--bg-afternoon)); }
+#urban { --bot: color-mix(in oklab, var(--bg-dusk) 60%, var(--bg-evening)); }
+.sky-evening { --c: var(--bg-evening); color: var(--indigo-text); }
+#playground { --top: color-mix(in oklab, var(--bg-evening) 60%, var(--bg-dusk)); }
+#more { --bot: color-mix(in oklab, var(--bg-evening) 60%, var(--night)); }
+:root { --pick-bot: color-mix(in oklab, var(--dawn) 80%, var(--bg-morning)); }
+.f-dawn { --from: var(--pick-bot); --to: color-mix(in oklab, var(--bg-morning) 60%, var(--dawn)); }
+.f-noon { --from: color-mix(in oklab, var(--bg-morning) 60%, var(--bg-noon)); --to: color-mix(in oklab, var(--bg-noon) 60%, var(--bg-morning)); }
+.f-afternoon { --from: color-mix(in oklab, var(--bg-noon) 60%, var(--bg-afternoon)); --to: color-mix(in oklab, var(--bg-afternoon) 60%, var(--bg-noon)); }
+.f-dusk { --from: color-mix(in oklab, var(--bg-afternoon) 60%, var(--bg-dusk)); --to: color-mix(in oklab, var(--bg-dusk) 60%, var(--bg-afternoon)); }
+.f-evening { --from: color-mix(in oklab, var(--bg-dusk) 60%, var(--bg-evening)); --to: color-mix(in oklab, var(--bg-evening) 60%, var(--bg-dusk)); }
+.f-night { --from: color-mix(in oklab, var(--bg-evening) 60%, var(--night)); --to: var(--night); }
 
 /* Dawn: hero */
 .hero { position: relative; overflow: hidden; padding-block: 160px 120px; background: var(--dawn); }
 .sun { position: absolute; border-radius: 50%; aspect-ratio: 1; }
-.sun-big { right: -6vw; top: 120px; width: clamp(260px, 38vw, 560px); background: var(--noon); }
+.sun-big { right: -6vw; top: 120px; width: clamp(260px, 38vw, 560px); background: linear-gradient(160deg, #FF9A72 10%, #F5838F 90%); }
 .sun-small { right: 8vw; top: 90px; width: clamp(90px, 10vw, 150px); background: var(--morning); mix-blend-mode: multiply; }
 .hero-in { position: relative; }
 .hero .eyebrow { color: var(--amber); }
@@ -169,7 +184,7 @@ a:hover { opacity: .78; }
 .tick-star { color: var(--noon); }
 
 /* Project picker: glossy bubbles that drift around a stage (motion in main.js) */
-.picker { position: relative; background: var(--dawn); padding-block: clamp(80px, 9vw, 110px) clamp(60px, 7vw, 100px); scroll-margin-top: 0; overflow: clip; }
+.picker { position: relative; background: linear-gradient(in oklab, var(--dawn) 55%, var(--pick-bot)); padding-block: clamp(80px, 9vw, 110px) clamp(60px, 7vw, 100px); scroll-margin-top: 0; overflow: clip; }
 .picker .intro { color: var(--ink-soft); }
 .stage { position: relative; height: 900px; margin-top: 40px; }
 .slot { position: absolute; will-change: transform; }
@@ -496,12 +511,38 @@ a:hover { opacity: .78; }
 
 /* Vine down the left gutter (drawn in main.js). Sits above section backgrounds, never takes clicks. */
 .vine { position: absolute; top: 0; left: 0; width: 100%; z-index: 20; pointer-events: none; overflow: visible; }
-.vine-stem { fill: none; stroke: #3E9B4F; stroke-width: 3; stroke-linecap: round; filter: drop-shadow(0 1px 0 rgba(255,243,226,.35)); }
-.vine-leaf { fill: #5CC46A; stroke: #2F7D3E; stroke-width: 1.2; }
-.vine-vein, .vine-curl { fill: none; stroke: #2F7D3E; stroke-width: 1.2; stroke-linecap: round; }
-.vine-curl { stroke: #3E9B4F; stroke-width: 2; }
-.vine-eye { fill: var(--ink); }
-.vine-x { opacity: 0; transition: opacity .5s ease; }
-.vine-x.on { opacity: 1; }
-@media (max-width: 640px) { .vine-stem { stroke-width: 2; } }
-@media (prefers-reduced-motion: reduce) { .vine-x { transition: none; } }
+.vine-stem, .vine-core, .vine-shine, .vine-twist, .vine-rib, .vine-stalk, .vine-curl, .vine-pvein, .vine-stamen { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.vine-stem { stroke: #1D5A2C; stroke-width: 11; }
+.vine-core { stroke: #3C8A3C; stroke-width: 7.5; }
+.vine-shine { stroke: #9BD67F; stroke-width: 2; opacity: .75; }
+.vine-twist { stroke-width: 3.2; }
+.vine-twist-back { stroke: #1D5A2C; }
+.vine-twist-front { stroke: #5DB053; }
+.vine-leaf { stroke: #1D5A2C; stroke-width: 1; }
+.vine-shade { fill: #0B3A1C; opacity: .24; }
+.vine-rib { stroke: #1D5A2C; stroke-width: 1.1; opacity: .7; }
+.vine-gloss { fill: #fff; opacity: .34; }
+.vine-stalk { stroke: #2E6E3A; stroke-width: 2.2; }
+.vine-curl { stroke: #3C8A3C; stroke-width: 2; }
+.vine-petal { stroke: rgba(90, 10, 40, .25); stroke-width: .8; }
+.vine-pvein { stroke: #fff; stroke-width: .8; opacity: .4; }
+.vine-throat { fill: #7A1838; }
+.vine-stamen { stroke: #FFF0C2; }
+.vine-pollen { fill: #FFD43B; }
+.vine-sepal { fill: #2E8B47; }
+/* Leaves and flowers pop open from where they join the stem, with a little overshoot */
+.vine-x, .vine-sway { transform-box: view-box; transform-origin: 0 0; }
+.vine-x { transform: scale(0); opacity: 0; transition: transform .6s cubic-bezier(.34, 1.7, .5, 1), opacity .2s ease; }
+.vine-x.on { transform: scale(1); opacity: 1; }
+.vine-sway { animation: ll-sway 4.5s ease-in-out infinite alternate; }
+.vine-x:not(.on) .vine-sway { animation-play-state: paused; }
+@keyframes ll-sway { from { transform: rotate(-6deg); } to { transform: rotate(6deg); } }
+@media (max-width: 640px) {
+  .vine-stem { stroke-width: 5; }
+  .vine-core { stroke-width: 3.4; }
+  .vine-shine { stroke-width: 1; }
+  .vine-twist { stroke-width: 1.4; }
+  .vine-leaf, .vine-rib, .vine-petal { stroke-width: .5; }
+  .vine-stalk, .vine-curl { stroke-width: 1.1; }
+}
+@media (prefers-reduced-motion: reduce) { .vine-x { transition: none; } .vine-sway { animation: none; } }

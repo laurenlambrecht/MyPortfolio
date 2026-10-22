@@ -422,11 +422,19 @@
   /* Vine: a hand-drawn stem that weaves down the page as you scroll. It runs in the side margins,
      crosses over in the empty color bands between sections, and curls around the sun,
      a few images, the portrait and the moon. On narrow screens it skips the curls that would cover content. */
+  // Vine is switched off for now; set SHOW_VINE to true to bring it back
+  const SHOW_VINE = false;
   const vine = $("vine");
   const NS = "http://www.w3.org/2000/svg";
   const BLOOMS = ["work", "goodgame", "samba", "sports", "urban", "playground", "about", "contact"];
   const PETALS = ["#FFC94A", "#FF7A3D", "#F58BB0", "#B79BFF", "#F58BB0", "#FFC94A", "#B79BFF", "#FF7A3D"];
-  let stem, stemLen = 0, samples = [], extras = [];
+  const GREENS = ["#2E8B47", "#3FA557", "#4FB862", "#2A7A4B", "#5CC46A", "#3B9A6B"];
+  let stem, stemLen = 0, samples = [], extras = [], strands = [], twists = [];
+  // Repeatable "random" numbers, so the vine looks the same on every visit
+  const rnd = (k, seed = 1) => {
+    const v = Math.sin(k * 12.9898 + seed * 78.233) * 43758.5453;
+    return v - Math.floor(v);
+  };
   const el = (tag, attrs) => {
     const n = document.createElementNS(NS, tag);
     for (const k in attrs) n.setAttribute(k, attrs[k]);
@@ -442,6 +450,7 @@
     return d;
   };
   const drawVine = () => {
+    if (!SHOW_VINE) return;
     const root = document.querySelector(".ll");
     const H = root.scrollHeight, W = root.clientWidth;
     const top = root.getBoundingClientRect().top;
@@ -456,7 +465,7 @@
     const wide = g > 90;
     const amp = Math.max(3, Math.min(36, g / 2 - 18));
     const X = { L: Math.max(8, g / 2), R: W - Math.max(8, g / 2) };
-    const leaf = Math.max(6, Math.min(20, g / 6));
+
     vine.setAttribute("viewBox", `0 0 ${W} ${H}`);
     vine.style.height = H + "px";
     vine.replaceChildren();
@@ -546,42 +555,149 @@
     run(H - 60);
     add(X[side], H - 40);
 
-    stem = el("path", { d: smooth(P), class: "vine-stem" });
-    vine.append(stem);
+    // The stem is three copies of one path (dark outline, mid-green core, light highlight),
+    // with a thinner strand twisting around it that dips behind and comes back in front.
+    const d = smooth(P);
+    stem = el("path", { d, class: "vine-stem" });
+    const core = el("path", { d, class: "vine-core" });
+    const shine = el("path", { d, class: "vine-shine", transform: wide ? "translate(-1.6 -1.3)" : "translate(-.6 -.5)" });
+    const backLayer = el("g", {}), frontLayer = el("g", {}), leafLayer = el("g", {}), flowerLayer = el("g", {});
+    vine.append(backLayer, stem, core, shine, frontLayer, leafLayer, flowerLayer);
     stemLen = stem.getTotalLength();
-    stem.style.strokeDasharray = stemLen;
     samples = [];
-    for (let s = 0; s <= stemLen; s += 16) samples.push([s, stem.getPointAtLength(s)]);
+    for (let s = 0; s <= stemLen; s += 8) samples.push([s, stem.getPointAtLength(s)]);
     const lenAtY = (y) => (samples.find(([, p]) => p.y >= y) || samples[samples.length - 1])[0];
-    extras = [];
-    // Leaves (and the odd curly tendril) along the stem, alternating sides, angled with the stem
-    for (let s = 70, k = 0; s < stemLen; s += 120, k++) {
-      const p = stem.getPointAtLength(s), q = stem.getPointAtLength(Math.min(stemLen, s + 2));
-      const ang = (Math.atan2(q.y - p.y, q.x - p.x) * 180) / Math.PI;
-      const sd = k % 2 ? 1 : -1;
-      const n = el("g", { class: "vine-x", transform: `translate(${p.x} ${p.y}) rotate(${ang + sd * 50})` });
-      if (k % 7 === 3) {
-        const t = leaf * 0.9;
-        n.append(el("path", { d: `M0 0 C ${t} ${-t * 0.2}, ${t * 2.2} ${t * 0.6}, ${t * 1.6} ${t * 1.3} S ${t * 0.7} ${t * 1.2}, ${t * 1.1} ${t * 0.7}`, class: "vine-curl" }));
-      } else {
-        const L = leaf * (0.8 + (0.4 * ((k * 37) % 10)) / 10);
-        n.append(el("path", { d: `M0 0 Q ${L} ${-L * 0.75} ${L * 2.1} 0 Q ${L} ${L * 0.75} 0 0 Z`, class: "vine-leaf" }));
-        n.append(el("path", { d: `M0 0 L ${L * 1.6} 0`, class: "vine-vein" }));
+    const at = (s) => {
+      const i = Math.min(samples.length - 2, Math.max(0, Math.round(s / 8)));
+      const p = samples[i][1], q = samples[i + 1][1];
+      return { x: p.x, y: p.y, ang: (Math.atan2(q.y - p.y, q.x - p.x) * 180) / Math.PI };
+    };
+    // The twist is cut into short pieces at each crossing: front pieces lie over the stem, back pieces
+    // under it. Each piece grows on its own once the stem reaches it.
+    const A = wide ? 6 : 2.4, wave = wide ? 46 : 30;
+    twists = [];
+    let seg = null, prev = null;
+    samples.forEach(([s, p], i) => {
+      const q = samples[Math.min(i + 1, samples.length - 1)][1], o = samples[Math.max(i - 1, 0)][1];
+      const m = Math.hypot(q.x - o.x, q.y - o.y) || 1, ph = (s / wave) * Math.PI * 2, off = A * Math.sin(ph);
+      const x = p.x - ((q.y - o.y) / m) * off, y = p.y + ((q.x - o.x) / m) * off, f = Math.cos(ph) > 0;
+      if (!seg || seg.f !== f) {
+        seg = { f, s0: prev ? prev.s : s, pts: prev ? [prev] : [] };
+        twists.push(seg);
       }
-      vine.append(n);
-      extras.push({ s, n });
+      prev = { x, y, s };
+      seg.pts.push(prev);
+      seg.s1 = s;
+    });
+    twists.forEach((t) => {
+      t.n = el("path", { d: "M " + t.pts.map((q) => `${q.x.toFixed(1)} ${q.y.toFixed(1)}`).join(" L "), class: `vine-twist vine-twist-${t.f ? "front" : "back"}` });
+      t.len = t.pts.reduce((a, q, i) => a + (i ? Math.hypot(q.x - t.pts[i - 1].x, q.y - t.pts[i - 1].y) : 0), 0) + 1;
+      t.n.style.strokeDasharray = t.len;
+      t.shown = -1;
+      delete t.pts;
+      (t.f ? frontLayer : backLayer).append(t.n);
+    });
+    strands = [stem, core, shine];
+    strands.forEach((n) => (n.style.strokeDasharray = stemLen));
+
+    // Leaves, buds and flowers. Each sits in its own group at the stem, pops open from that point
+    // when the vine reaches it, and some sway.
+    extras = [];
+    const leaf = wide ? Math.max(9, Math.min(15, g / 9)) : 3.4;
+    const piece = (layer, x, y, rot, s, sway) => {
+      const o = el("g", { transform: `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rot.toFixed(1)})` });
+      const pop = el("g", { class: "vine-x" });
+      let inner = pop;
+      if (sway) {
+        inner = el("g", { class: "vine-sway", style: `animation-delay:${(-rnd(s, 4) * 5).toFixed(2)}s; animation-duration:${(3.6 + rnd(s, 6) * 2).toFixed(2)}s` });
+        pop.append(inner);
+      }
+      o.append(pop);
+      layer.append(o);
+      extras.push({ s, n: pop });
+      return inner;
+    };
+    const leafShape = (gr, kind, L, k) => {
+      const fill = GREENS[Math.floor(rnd(k, 5) * GREENS.length)];
+      if (kind === "curl") {
+        const t = L * 1.1;
+        gr.append(el("path", { d: `M0 0 C ${t} ${-t * 0.2}, ${t * 2.2} ${t * 0.6}, ${t * 1.6} ${t * 1.3} S ${t * 0.7} ${t * 1.2}, ${t * 1.1} ${t * 0.7}`, class: "vine-curl" }));
+      } else if (kind === "fern") {
+        const F = L * 3.4, yAt = (t) => 2 * (1 - t) * t * -F * 0.1 + t * t * F * 0.06;
+        gr.append(el("path", { d: `M0 0 Q ${F * 0.5} ${-F * 0.1} ${F} ${F * 0.06}`, class: "vine-stalk" }));
+        for (let t = 0.14; t < 0.98; t += 0.1) {
+          const b = L * 0.6 * (1.08 - t), x = F * t, y = yAt(t);
+          for (const sd of [-1, 1]) gr.append(el("ellipse", { cx: x + b * 0.55, cy: y + sd * b * 0.6, rx: b, ry: b * 0.3, fill, class: "vine-leaf", transform: `rotate(${sd * 55} ${x} ${y})` }));
+        }
+      } else if (kind === "heart") {
+        const s0 = L * 0.6, H = L * 2.3;
+        const half = (sd) => `C ${s0 - H * 0.2} ${sd * H * 0.42}, ${s0 + H * 0.32} ${sd * H * 0.62}, ${s0 + H * 0.58} ${sd * H * 0.38} C ${s0 + H * 0.8} ${sd * H * 0.2}, ${s0 + H * 0.94} ${sd * H * 0.06}, ${s0 + H} 0`;
+        gr.append(el("path", { d: `M0 0 L ${s0} 0`, class: "vine-stalk" }));
+        gr.append(el("path", { d: `M ${s0} 0 ${half(-1)} C ${s0 + H * 0.94} ${H * 0.06}, ${s0 + H * 0.8} ${H * 0.2}, ${s0 + H * 0.58} ${H * 0.38} C ${s0 + H * 0.32} ${H * 0.62}, ${s0 - H * 0.2} ${H * 0.42}, ${s0} 0 Z`, fill, class: "vine-leaf" }));
+        gr.append(el("path", { d: `M ${s0} 0 ${half(1)} Z`, class: "vine-shade" }));
+        let v = `M ${s0} 0 L ${s0 + H * 0.92} 0`;
+        for (const sd of [-1, 1]) v += ` M ${s0} 0 Q ${s0 + H * 0.2} ${sd * H * 0.12} ${s0 + H * 0.46} ${sd * H * 0.36} M ${s0 + H * 0.1} 0 Q ${s0 + H * 0.02} ${sd * H * 0.2} ${s0 + H * 0.06} ${sd * H * 0.36}`;
+        gr.append(el("path", { d: v, class: "vine-rib" }));
+        if (wide) gr.append(el("ellipse", { cx: s0 + H * 0.42, cy: -H * 0.28, rx: H * 0.14, ry: H * 0.06, class: "vine-gloss", transform: `rotate(-20 ${s0 + H * 0.42} ${-H * 0.28})` }));
+      } else {
+        const Lx = L * 2.3, w = L * 0.78;
+        gr.append(el("path", { d: `M0 0 C ${Lx * 0.25} ${-w}, ${Lx * 0.72} ${-w * 0.85}, ${Lx} 0 C ${Lx * 0.72} ${w * 0.85}, ${Lx * 0.25} ${w}, 0 0 Z`, fill, class: "vine-leaf" }));
+        gr.append(el("path", { d: `M0 0 C ${Lx * 0.25} ${w}, ${Lx * 0.72} ${w * 0.85}, ${Lx} 0 Z`, class: "vine-shade" }));
+        let v = `M0 0 Q ${Lx * 0.5} ${-w * 0.06} ${Lx * 0.94} 0`;
+        if (wide) for (const t of [0.26, 0.46, 0.66]) for (const sd of [-1, 1]) v += ` M ${Lx * t} 0 Q ${Lx * (t + 0.08)} ${sd * w * 0.22} ${Lx * (t + 0.17)} ${sd * w * 0.6 * (1.1 - t)}`;
+        gr.append(el("path", { d: v, class: "vine-rib" }));
+        if (wide) gr.append(el("ellipse", { cx: Lx * 0.4, cy: -w * 0.42, rx: Lx * 0.16, ry: w * 0.1, class: "vine-gloss", transform: `rotate(-8 ${Lx * 0.4} ${-w * 0.42})` }));
+      }
+    };
+    const blossom = (gr, b, color) => {
+      const c = b * 1.3;
+      gr.append(el("path", { d: `M0 0 L ${c} 0`, class: "vine-stalk" }));
+      for (let a = 0; a < 5; a++) gr.append(el("path", { d: `M ${c} 0 q ${b * 0.42} ${-b * 0.5} 0 ${-b * 1.15} q ${-b * 0.42} ${b * 0.5} 0 ${b * 1.15} Z`, fill: color, class: "vine-petal", transform: `rotate(${a * 72} ${c} 0)` }));
+      gr.append(el("circle", { cx: c, cy: 0, r: b * 0.3, class: "vine-pollen" }));
+    };
+    const bud = (gr, b, color) => {
+      const c = b * 0.8;
+      gr.append(el("path", { d: `M0 0 L ${c} 0`, class: "vine-stalk" }));
+      gr.append(el("path", { d: `M ${c} 0 C ${c + b * 0.2} ${-b * 0.55}, ${c + b * 1.1} ${-b * 0.35}, ${c + b * 1.5} 0 C ${c + b * 1.1} ${b * 0.35}, ${c + b * 0.2} ${b * 0.55}, ${c} 0 Z`, fill: color, class: "vine-petal" }));
+      gr.append(el("path", { d: `M ${c - b * 0.05} 0 L ${c + b * 0.5} ${-b * 0.34} L ${c + b * 0.3} 0 L ${c + b * 0.5} ${b * 0.34} Z`, class: "vine-sepal" }));
+    };
+    const hibiscus = (gr, r, color) => {
+      const petal = `M0 0 C ${-r * 0.55} ${-r * 0.15}, ${-r * 0.8} ${-r * 0.7}, ${-r * 0.5} ${-r} Q ${-r * 0.36} ${-r * 1.16} ${-r * 0.18} ${-r * 1.04} Q ${-r * 0.04} ${-r * 1.2} ${r * 0.12} ${-r * 1.06} Q ${r * 0.3} ${-r * 1.18} ${r * 0.46} ${-r} C ${r * 0.8} ${-r * 0.7}, ${r * 0.55} ${-r * 0.15}, 0 0 Z`;
+      for (let a = 0; a < 5; a++) {
+        gr.append(el("path", { d: petal, fill: color, class: "vine-petal", transform: `rotate(${a * 72})` }));
+        if (wide) gr.append(el("path", { d: `M0 0 L ${-r * 0.2} ${-r * 0.8} M0 0 L 0 ${-r * 0.88} M0 0 L ${r * 0.2} ${-r * 0.8}`, class: "vine-pvein", transform: `rotate(${a * 72})` }));
+      }
+      gr.append(el("circle", { r: r * 0.46, class: "vine-throat", opacity: 0.35 }));
+      gr.append(el("circle", { r: r * 0.24, class: "vine-throat" }));
+      const tx = r * 0.66, ty = -r * 0.8;
+      gr.append(el("path", { d: `M0 0 Q ${r * 0.24} ${-r * 0.4} ${tx} ${ty}`, class: "vine-stamen", "stroke-width": Math.max(1, r * 0.08) }));
+      [[0, 0], [-0.1, -0.06], [0.08, -0.1], [0.12, 0.04], [-0.04, 0.1], [0.02, -0.18]].forEach(([dx, dy]) => gr.append(el("circle", { cx: tx + dx * r, cy: ty + dy * r, r: r * 0.065, class: "vine-pollen" })));
+    };
+
+    // Leaves about every 64px (sparser on phones), alternating sides, often doubled on the other side
+    const stepLen = wide ? 64 : 96;
+    for (let s = 40, k = 0; s < stemLen - 20; s += stepLen, k++) {
+      const { x, y, ang } = at(s), sd = k % 2 ? 1 : -1, r = rnd(k);
+      const kind = k % 11 === 5 ? "curl" : wide && k % 13 === 8 ? "fern" : r < 0.24 ? "heart" : "leaf";
+      const L = leaf * (0.85 + 0.45 * rnd(k, 7));
+      leafShape(piece(leafLayer, x, y, ang + sd * (kind === "fern" ? 62 : 44 + r * 18), s, k % 3 === 0), kind, L, k);
+      if (rnd(k, 2) < (wide ? 0.45 : 0.1)) {
+        leafShape(piece(leafLayer, x, y, ang - sd * (48 + rnd(k, 8) * 14), s + 4, false), rnd(k, 3) < 0.3 ? "heart" : "leaf", L * 0.78, k + 100);
+      }
+      if (k % (wide ? 5 : 9) === 2) {
+        const b = wide ? leaf * 0.55 : 2.6, color = PETALS[k % PETALS.length];
+        const gr = piece(flowerLayer, x, y, ang - sd * 70, s + 6, true);
+        (k % 2 ? bud : blossom)(gr, b, color);
+      }
     }
-    // A flower on the stem where each project starts
+    // A hibiscus on the stem where each project starts, framed by a couple of leaves
     BLOOMS.forEach((id, k) => {
       const b = box("#" + id);
       if (!b) return;
-      const s = lenAtY(b.t + 60), p = stem.getPointAtLength(s);
-      const r = Math.max(5, Math.min(11, g / 12));
-      const n = el("g", { class: "vine-x", transform: `translate(${p.x} ${p.y})` });
-      for (let a = 0; a < 5; a++) n.append(el("ellipse", { cx: 0, cy: -r, rx: r * 0.62, ry: r, fill: PETALS[k], transform: `rotate(${a * 72})` }));
-      n.append(el("circle", { r: r * 0.55, class: "vine-eye" }));
-      vine.append(n);
-      extras.push({ s, n });
+      const s = lenAtY(b.t + 60), { x, y, ang } = at(s);
+      const r = wide ? Math.max(16, Math.min(30, g / 4.5)) : 7;
+      if (wide) for (const sd of [-1, 1]) leafShape(piece(leafLayer, x, y, ang + sd * 128, s - 2, false), "leaf", r * 0.62, k + 200 + sd);
+      hibiscus(piece(flowerLayer, x, y, rnd(k, 9) * 72, s, true), r, PETALS[k]);
     });
     vine.lenAtY = lenAtY;
     growVine();
@@ -591,7 +707,14 @@
     const H = parseFloat(vine.style.height);
     const reach = matchMedia("(prefers-reduced-motion: reduce)").matches ? H : scrollY + innerHeight * 0.85;
     const s = reach >= H ? stemLen : vine.lenAtY(reach);
-    stem.style.strokeDashoffset = stemLen - s;
+    strands.forEach((n) => (n.style.strokeDashoffset = stemLen - s));
+    twists.forEach((t) => {
+      const v = s <= t.s0 ? 0 : s >= t.s1 ? 1 : (s - t.s0) / (t.s1 - t.s0);
+      if (v !== t.shown) {
+        t.shown = v;
+        t.n.style.strokeDashoffset = t.len * (1 - v);
+      }
+    });
     extras.forEach((e) => e.n.classList.toggle("on", e.s <= s));
   };
   addEventListener("scroll", () => requestAnimationFrame(growVine), { passive: true });
