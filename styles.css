@@ -705,3 +705,6 @@ a:hover { opacity: .78; }
 .story-cols p { margin: 0 0 1em; }
 @media (min-width: 900px) { .story-cols { grid-template-columns: 1fr 1fr; } }
 .problem-story > .label { margin-bottom: 16px; }
+.story-end { margin-top: clamp(8px, 1.5vw, 20px); }
+.story-end { max-width: none; }
+.story-end { text-wrap: balance; }

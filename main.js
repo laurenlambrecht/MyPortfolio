@@ -118,7 +118,7 @@
         </div>
         <blockquote class="pull rv"><p class="ser">“${esc(g.problem.quote)} <mark>${esc(g.problem.quoteHighlight)}</mark>”</p></blockquote>
       </div>
-      ${g.problem.story ? `<div class="problem-story"><h3 class="disp label rv">${esc(g.problem.storyHeading)}</h3><div class="story-cols">${g.problem.story.map((p) => `<p class="body-lg rv">${esc(p).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}</p>`).join("")}</div></div>` : ""}
+      ${g.problem.story ? `<div class="problem-story"><h3 class="disp label rv">${esc(g.problem.storyHeading)}</h3><div class="story-cols">${g.problem.story.map((p) => `<p class="body-lg rv">${esc(p).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}</p>`).join("")}</div>${g.problem.storyEnd ? `<p class="body-lg story-end rv">${esc(g.problem.storyEnd).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}</p>` : ""}</div>` : ""}
 
       <div class="role-card rv">
         <h3 class="disp">${esc(g.role.heading)}</h3>
