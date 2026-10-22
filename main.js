@@ -390,7 +390,7 @@
   // flowing: each section eases in from the color before it and out toward the next one.
   const TONES = { noon: "#F3875A", night: "#24326E", teal: "#57CBBE", jungle: "#74C47E" };
   const DARK = { night: true };
-  const DUSK = "var(--bg-dusk)", EVE = "var(--bg-evening)";
+  const DUSK = "var(--bg-pink)", EVE = "var(--bg-evening)";
   const mix = (a, b) => `color-mix(in oklab, ${a} 60%, ${b})`;
   const cols = pg.items.map((it) => TONES[it.tone]);
   const projShots = (it) => `<div class="proj-shots ${it.phones ? "phones" : it.images.length > 1 ? "two" : "one"} rv">${it.images.map(shot).join("")}</div>`;

@@ -150,7 +150,6 @@ a:hover { opacity: .78; }
 .sky-afternoon { --c: var(--bg-afternoon); --top: color-mix(in oklab, var(--bg-afternoon) 60%, var(--bg-noon)); --bot: color-mix(in oklab, var(--bg-afternoon) 60%, var(--bg-dusk)); color: var(--cream); }
 .sky-dusk { --c: var(--bg-dusk); color: var(--violet-text); }
 #sports { --top: color-mix(in oklab, var(--bg-dusk) 60%, var(--bg-afternoon)); }
-#urban { --bot: color-mix(in oklab, var(--bg-dusk) 60%, var(--bg-evening)); }
 .sky-evening { --c: var(--bg-evening); color: var(--indigo-text); }
 #more { --bot: color-mix(in oklab, var(--bg-evening) 60%, var(--night)); }
 :root { --pick-bot: color-mix(in oklab, var(--dawn) 80%, var(--bg-morning)); }
@@ -661,3 +660,14 @@ a:hover { opacity: .78; }
 .fs .actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
 .fs .actions .pill-lilac { margin-top: 0; }
 .fs-note { margin-top: 18px; max-width: 700px; font-size: 14px; line-height: 1.5; color: var(--lilac); }
+
+/* Urban / Claremont Columns: pink, like its bubble. Dark plum text; the lilac tokens are remapped for pink. */
+:root { --bg-pink: #F39BBE; }
+#sports { --bot: color-mix(in oklab, var(--bg-dusk) 60%, var(--bg-pink)); }
+.f-pink { --from: color-mix(in oklab, var(--bg-dusk) 60%, var(--bg-pink)); --to: color-mix(in oklab, var(--bg-pink) 60%, var(--bg-dusk)); }
+.sky-pink { --c: var(--bg-pink); --top: color-mix(in oklab, var(--bg-pink) 60%, var(--bg-dusk)); color: #3A0A1F;
+  --lilac: #8A1E4E; --lilac-text: #4E1230; --violet-text: #3A0A1F; --lilac-ink: #FFF0F5; --hob-pink: #7A0E36; }
+.sky-pink .eyebrow { color: #7A0E36; }
+#urban .proto-steps .disp { color: #FF9CC2; }
+#urban .proto-hyp { background: rgba(255,255,255,.28); border-color: rgba(58,10,31,.22); }
+#urban .todo-box { border-color: #3A0A1F; }
