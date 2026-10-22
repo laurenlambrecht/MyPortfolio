@@ -697,3 +697,6 @@ a:hover { opacity: .78; }
 /* Hero: "data" gets extra weight and a soft orange underline */
 .hero-data { -webkit-text-stroke: .025em currentColor; background: linear-gradient(var(--rust), var(--rust)) no-repeat 0 92% / 100% .065em; padding-bottom: .02em; }
 .hero-data { color: var(--rust); }
+
+/* GoodGame origin story: its own block under the problem */
+.problem-story { margin-top: clamp(40px, 5vw, 64px); padding-top: clamp(28px, 3vw, 40px); border-top: 1.5px solid rgba(26,18,8,.18); }
