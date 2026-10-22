@@ -33,16 +33,17 @@ window.CONTENT = {
   picker: {
     heading: "Pick a _project._",
     hint: "Tap a bubble to jump in.",
+    // d = diameter in px, x = left edge as % of the stage, y = top in px (desktop starting spot; they drift from there)
     bubbles: [
-      { target: "goodgame", title: "GoodGame", sub: "Featured app prototype", tone: "morning", size: "xl" },
-      { target: "samba", title: "Samba TV", sub: "Product internship · 2026", tone: "afternoon", size: "l" },
-      { target: "p-hiki", title: "Hiki", sub: "Rethinking matching", tone: "night", size: "m" },
-      { target: "sports", title: "Sports Fan Dashboard", sub: "Data project", tone: "dusk", size: "m" },
-      { target: "p-massbids", title: "MassBids", sub: "Gov contracts, mapped", tone: "noon", size: "m" },
-      { target: "p-jungle", title: "Jungle Quest", sub: "Built with Cursor", tone: "jungle", size: "s" },
-      { target: "p-guppo", title: "Guppo", sub: "Fishing, but social", tone: "teal", size: "s" },
-      { target: "urban", title: "Claremont Columns", sub: "Live civic app + 2 more prototypes", tone: "pink", size: "m" },
-      { target: "more", title: "Along the way", sub: "Other experience", tone: "evening", size: "s" },
+      { target: "goodgame", title: "GoodGame", sub: "Featured app prototype", tone: "morning", d: 320, x: 2, y: 70 },
+      { target: "samba", title: "Samba TV", sub: "Product internship · 2026", tone: "afternoon", d: 260, x: 32, y: 10 },
+      { target: "p-hiki", title: "Hiki", sub: "Rethinking matching", tone: "night", d: 210, x: 57, y: 130 },
+      { target: "p-guppo", title: "Guppo", sub: "Fishing, but social", tone: "teal", d: 180, x: 79, y: 20 },
+      { target: "sports", title: "Sports Fan Dashboard", sub: "Data project", tone: "dusk", d: 230, x: 7, y: 470 },
+      { target: "p-massbids", title: "MassBids", sub: "Gov contracts, mapped", tone: "noon", d: 220, x: 30, y: 330 },
+      { target: "urban", title: "Claremont Columns", sub: "Live civic app + 2 more prototypes", tone: "pink", d: 240, x: 50, y: 440 },
+      { target: "p-jungle", title: "Jungle Quest", sub: "Built with Cursor", tone: "jungle", d: 180, x: 76, y: 290 },
+      { target: "more", title: "Along the way", sub: "Other experience", tone: "evening", d: 180, x: 83, y: 560 },
     ],
   },
 
