@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claremont Columns</title>
+  <meta name="description" content="A community app for Claremont residents to share places they love and places that could use engineering improvements.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a href="#/map" class="brand" aria-label="Claremont Columns home">
+        <svg class="brand-icon" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M4 9 16 3l12 6v2H4z" fill="currentColor"/>
+          <rect x="6" y="12" width="3" height="13" rx="1" fill="currentColor"/>
+          <rect x="14.5" y="12" width="3" height="13" rx="1" fill="currentColor"/>
+          <rect x="23" y="12" width="3" height="13" rx="1" fill="currentColor"/>
+          <rect x="3" y="26" width="26" height="3" rx="1" fill="currentColor"/>
+        </svg>
+        <span>
+          <strong>Claremont Columns</strong>
+          <small>by Claremont Engineering</small>
+        </span>
+      </a>
+      <nav class="toplinks">
+        <a href="#/featured" data-route="featured">Featured</a>
+        <a href="#/about" data-route="about">Process</a>
+      </nav>
+    </header>
+
+    <main id="view" tabindex="-1"></main>
+
+    <nav class="tabbar" aria-label="App">
+      <a href="#/map" data-route="map"><span class="ic" data-ic="pin"></span>Map</a>
+      <a href="#/feed" data-route="feed"><span class="ic" data-ic="feed"></span>Feed</a>
+      <a href="#/add" data-route="add" class="add"><span class="plus">+</span><span class="sr">Add</span></a>
+      <a href="#/notifs" data-route="notifs"><span class="ic" data-ic="mail"></span>Notifs<b id="badge" hidden></b></a>
+      <a href="#/profile" data-route="profile"><span class="ic" data-ic="user"></span>Profile</a>
+    </nav>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

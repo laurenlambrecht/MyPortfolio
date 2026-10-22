@@ -312,7 +312,7 @@ window.CONTENT = {
         ],
         app: {
           heading: "Try it _live_",
-          live: "https://laurenlambrecht.github.io/ClaremontColumns_HCD/",
+          live: "claremont-columns/",
           body: "The paper prototype and the Featured Posts idea, built as a working web app. Tap a pin, scroll the feed, add a post in four steps. It runs right here, or open it full screen.",
           note: "Sample posts, usernames and engineer replies are made up for the demo.",
           screens: [
