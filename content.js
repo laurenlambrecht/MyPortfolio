@@ -57,7 +57,7 @@ window.CONTENT = {
       ["Stack", "React Native, Expo, TypeScript"],
     ],
     links: [
-      { label: "Live demo", href: "" }, // TODO: hosted web build of the Expo app
+      { label: "Live demo", href: "goodgame-demo/" }, // browser build from the goodgame-app online-demo branch
       { label: "Code on GitHub", href: "https://github.com/laurenlambrecht/Goodgame-app" },
       { label: "Website", href: "https://laurenlambrecht.github.io/GoodGames/" },
     ],
