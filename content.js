@@ -280,7 +280,7 @@ window.CONTENT = {
   urban: {
     tag: "04 · Urban Design Project · Claremont, CA",
     title: "Urban planning, _as a game_",
-    lead: "How do city engineers hear from the people who actually live in Claremont, especially students? Three prototypes tried three answers: a social app you can click through right here, a board game and a dinner. Each one was tested and changed between rounds.",
+    lead: "How can city engineers better understand the needs and perspectives of Claremont residents, particularly students? Three prototypes explored different answers: a social, reddit-like app for locals to post favorite spots and places in need of improvement, a board game to increase civic discourse, and a card game played over dinner that brings students and a city engineer into conversation. Each was tested, refined, and iterated on between rounds.",
     role: "Worked alongside engineers from Claremont City Hall to design a more accessible and engaging approach to urban planning. Developed as part of my Human-Centered Product Design course.",
     prototypes: [
       {
