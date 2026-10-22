@@ -253,6 +253,16 @@
         <div class="chart-card tr">${d.image.src ? `<img src="${esc(d.image.src)}" alt="${esc(d.image.alt)}">` : `<div class="phone-ph">${esc(d.image.alt)}</div>`}</div>
         <figcaption>${esc(d.image.caption)}</figcaption>
       </figure>
+      ${d.teams ? `<div class="teams">
+        <figure class="teams-fig rv">
+          <div class="chart-card">${`<img src="${esc(d.teams.image.src)}" alt="${esc(d.teams.image.alt)}">`}</div>
+          <figcaption>${esc(d.teams.image.caption)}${d.teams.data ? ` <a href="${esc(d.teams.data)}" download>Download the data (CSV)</a>` : ""}</figcaption>
+        </figure>
+        <div class="teams-text rv">
+          <h3 class="disp label">${esc(d.teams.label)}</h3>
+          ${d.teams.body.map((t) => `<p>${esc(t)}</p>`).join("")}
+        </div>
+      </div>` : ""}
       <div class="sp-cols">
         <div>
           <h3 class="disp label rv">The question</h3>

@@ -219,12 +219,27 @@ window.CONTENT = {
     tag: "03 · Data Analytics · Passion Project",
     title: "Sports Fan _Engagement_ Dashboard",
     pitch: "Analyzing NFL search behavior to identify audience interest trends, engagement spikes, and opportunities for data-driven marketing strategy.",
-    chips: ["Python · pandas · pytrends · matplotlib", "12 months, US", "NFL, Super Bowl, Chiefs, 49ers"],
+    chips: ["Python · Pandas · Pytrends · Matplotlib", "12 months, US", "NFL, Super Bowl, Chiefs, 49ers"],
     repo: "https://github.com/laurenlambrecht/Sports-Fan-Engagement-Dashboard",
     image: {
       src: "assets/sports/engagement_trends.png",
       alt: "Line chart of Google Trends interest over 12 months for NFL, Super Bowl, Kansas City Chiefs and San Francisco 49ers. Super Bowl spikes to 100 in early February; NFL rises from September through January.",
       caption: "Relative search interest (0–100), Feb 2025 to Feb 2026",
+    },
+    // Second, smaller chart: the two teams compared on their own, from Lauren's Google Trends export (assets/sports/chiefs_vs_49ers.csv)
+    teams: {
+      label: "Zooming in on the teams",
+      image: {
+        src: "assets/sports/chiefs_vs_49ers.png",
+        alt: "Line chart of Google Trends interest for the Kansas City Chiefs and San Francisco 49ers, Feb 2025 to Feb 2026. Chiefs interest runs well above the 49ers from September to late December; the 49ers are higher in most weeks from late December to mid-January.",
+        caption: "Chiefs vs 49ers only, relative search interest (0–100), Feb 2025 to Feb 2026. Google Trends, US.",
+      },
+      body: [
+        "In the main chart, the Super Bowl spike squeezes both team lines to almost zero. So I pulled the two teams as their own comparison, which puts them back on a readable scale.",
+        "Seen this way, the Chiefs drew far more search interest than the 49ers through the regular season. That flipped in the final weeks: from late December into mid-January, the 49ers were higher in most weeks.",
+        "Each team's attention follows its own season, not just the league calendar. Timing a team campaign means watching that team's curve.",
+      ],
+      data: "assets/sports/chiefs_vs_49ers.csv",
     },
     question: "When do sports fans pay attention, and what drives their interest?",
     why: "Understanding how fan attention fluctuates can help sports organizations make smarter decisions about content, campaigns, and product launches.",
@@ -338,7 +353,7 @@ window.CONTENT = {
       {
         id: "p-massbids",
         title: "MassBids",
-        kind: "05 · Product & Business Development Intern · Summer 2025",
+        kind: "05 · Product & Business Development Intern",
         tone: "noon",
         pitch: "Zillow, but for local government contracts in Massachusetts.",
         body: "A clickable demo of the idea: pick a city on the map to see its open bids, then filter by category or search. The data in the demo is illustrative.",

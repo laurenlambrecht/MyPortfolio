@@ -619,3 +619,13 @@ a:hover { opacity: .78; }
 .proj-role { margin-top: 18px; font-size: 18px; font-weight: 600; }
 .proj-role .label { display: block; margin-bottom: 4px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; opacity: .65; }
 .urban-role { margin-top: 18px; max-width: 700px; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; color: var(--lilac); }
+/* Sports: second chart, the two teams on their own scale */
+.teams { margin-top: 56px; display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: center; }
+.teams-fig { flex: 1.25 1 420px; min-width: 0; margin: 0; }
+.teams-fig .chart-card { border-radius: 22px; padding: clamp(10px, 1.4vw, 20px); box-shadow: 0 30px 70px rgba(20,8,50,.4); }
+.teams-fig .chart-card img { width: 100%; height: auto; display: block; border-radius: 10px; }
+.teams-fig figcaption { margin-top: 18px; font-size: 15px; color: var(--lilac); }
+.teams-fig figcaption a { color: inherit; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+.teams-text { flex: 1 1 300px; min-width: 0; }
+.teams-text p { margin-top: 14px; font-size: 17px; line-height: 1.6; }
+.teams-text p:last-child { font-weight: 600; }
