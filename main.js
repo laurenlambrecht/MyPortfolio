@@ -311,10 +311,10 @@
             <p class="disp proto-n">${esc(p.n)}</p>
             <div><h3 class="disp">${esc(p.name)}</h3><p class="ser proto-sub">${esc(p.sub)}</p></div>
           </header>
-          ${p.intro ? `<p class="proto-intro rv">${esc(p.intro)}</p>` : ""}
           ${p.app ? `<div class="proto-app">
             <div class="proto-live">
               <div class="proto-app-text rv">
+                ${p.intro ? `<p class="proto-intro">${esc(p.intro)}</p>` : ""}
                 <h4 class="disp">${acc(p.app.heading)}</h4>
                 <p>${esc(p.app.body)}</p>
                 <div class="actions">${(p.links || []).map((l, i) => ext(l.href, l.label, i === 0 ? "pill-lilac" : "pill-line")).join("")}</div>

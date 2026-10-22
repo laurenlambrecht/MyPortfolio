@@ -715,3 +715,4 @@ a:hover { opacity: .78; }
 @media (min-width: 720px) { .role-card h3 { padding-right: clamp(32px, 4vw, 64px); } }
 /* Claremont Columns: overview in its own box under the title */
 .proto-intro { margin-top: clamp(24px, 3vw, 36px); max-width: 860px; padding: clamp(20px, 2.4vw, 30px) clamp(22px, 2.8vw, 36px); border: 1.5px solid rgba(255,255,255,.7); border-radius: 22px; background: rgba(255,255,255,.18); font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; }
+.proto-app-text .proto-intro { margin: 0 0 clamp(28px, 3vw, 40px); max-width: none; font-size: clamp(16px, 1.3vw, 18px); }
