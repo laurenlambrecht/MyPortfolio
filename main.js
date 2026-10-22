@@ -311,6 +311,7 @@
             <p class="disp proto-n">${esc(p.n)}</p>
             <div><h3 class="disp">${esc(p.name)}</h3><p class="ser proto-sub">${esc(p.sub)}</p></div>
           </header>
+          ${p.intro ? `<p class="proto-intro rv">${esc(p.intro)}</p>` : ""}
           ${p.app ? `<div class="proto-app">
             <div class="proto-live">
               <div class="proto-app-text rv">
@@ -335,14 +336,15 @@
             .join("")}</div>
           <div class="proto-text">
             <div>
-              <p class="proto-what rv">${esc(p.what)}</p>
+              ${p.stepsFirst ? `<ol class="proto-steps rv">${p.steps.map(step).join("")}</ol>` : ""}
+              ${p.what ? `<p class="proto-what rv">${esc(p.what)}</p>` : ""}
               ${p.hypothesis ? `<p class="proto-hyp rv"><span class="label disp">Hypothesis</span>${esc(p.hypothesis)}</p>` : ""}
               ${p.test ? `<p class="proto-test rv">${esc(p.test)}</p>` : ""}
               ${p.links && !p.app ? `<div class="actions rv">${p.links.map((l) => ext(l.href, l.label, "pill-lilac")).join("")}</div>` : ""}
             </div>
             <div>
               ${p.heard ? `<h4 class="disp label rv">What testers asked for</h4><ul class="found rv">${p.heard.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
-              <ol class="proto-steps rv">${p.steps.map(step).join("")}</ol>
+              ${p.stepsFirst ? "" : `<ol class="proto-steps rv">${p.steps.map(step).join("")}</ol>`}
               ${p.changed ? `<p class="proto-changed rv">${esc(p.changed)}</p>` : ""}
             </div>
           </div>
