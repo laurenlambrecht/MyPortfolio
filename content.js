@@ -379,6 +379,7 @@ window.CONTENT = {
         tone: "noon",
         pitch: "Think Zillow, but for local government contracts in Massachusetts.",
         body: "MassBids solves the problem of fragmented and inaccessible public procurement opportunities. Traditionally, public bids are scattered across individual municipal websites, making it difficult and time-consuming for businesses to find relevant opportunities. The data in the demo is illustrative.",
+        bodyMore: "This project came out of my summer 2025 internship.",
         images: [{ src: "assets/projects/massbids.jpg", alt: "MassBids demo: a map of Massachusetts with city pins, and Boston selected in the side panel showing 4 active opportunities (demo data), starting with a municipal fleet EV charging bid" }],
         links: [{ label: "Live demo", href: "massbids/" }, { label: "Code on GitHub", href: "https://github.com/laurenlambrecht/MassBids-Demo" }],
       },

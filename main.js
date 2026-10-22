@@ -426,6 +426,7 @@
           ${it.introBelow ? `<p class="proj-body proj-intro proj-intro-below rv">${esc(it.introBelow)}</p>` : ""}
           <div class="proj-foot rv">
             ${it.body ? (isTodo(it.body) ? note(it.body) : `<p class="proj-body">${esc(it.body)}</p>`) : ""}
+            ${it.bodyMore ? `<p class="proj-body proj-body-more">${esc(it.bodyMore)}</p>` : ""}
             ${it.role ? (isTodo(it.role) ? note(it.role) : `<p class="proj-role"><span class="label disp">My role</span>${esc(it.role)}</p>`) : ""}
             ${it.links.length ? `<div class="play-links">${it.links.map((l, i) => ext(l.href, l.label, i === 0 ? "pill-proj" : "pill-line")).join("")}</div>` : ""}
           </div>
