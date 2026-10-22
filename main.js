@@ -456,7 +456,7 @@
     const wide = g > 90;
     const amp = Math.max(3, Math.min(36, g / 2 - 18));
     const X = { L: Math.max(8, g / 2), R: W - Math.max(8, g / 2) };
-    const leaf = Math.max(6, Math.min(20, g / 6));
+    const leaf = wide ? Math.max(14, Math.min(32, g / 3.6)) : Math.max(6, Math.min(9, g / 3));
     vine.setAttribute("viewBox", `0 0 ${W} ${H}`);
     vine.style.height = H + "px";
     vine.replaceChildren();
@@ -546,52 +546,141 @@
     run(H - 60);
     add(X[side], H - 40);
 
-    stem = el("path", { d: smooth(P), class: "vine-stem" });
-    vine.append(stem);
+    vine.classList.toggle("narrow", !wide);
+    const d = smooth(P);
+    // A thick woody stem: dark outline, green core, light highlight, all growing together
+    stem = el("path", { d, class: "vine-stem" });
+    const core = el("path", { d, class: "vine-core" });
+    const shine = el("path", { d, class: "vine-shine" });
+    vine.append(stem, core, shine);
     stemLen = stem.getTotalLength();
-    stem.style.strokeDasharray = stemLen;
     samples = [];
     for (let s = 0; s <= stemLen; s += 16) samples.push([s, stem.getPointAtLength(s)]);
     const lenAtY = (y) => (samples.find(([, p]) => p.y >= y) || samples[samples.length - 1])[0];
+    // A thinner liana that twists around the main stem
+    const tw = [];
+    const twAmp = wide ? 7 : 3;
+    for (let i = 1; i < samples.length - 1; i++) {
+      const [s, p] = samples[i], q = samples[i + 1][1], o = samples[i - 1][1];
+      const dx = q.x - o.x, dy = q.y - o.y, m = Math.hypot(dx, dy) || 1;
+      const w = Math.sin(s / 38) * twAmp;
+      tw.push([Math.round((p.x - (dy / m) * w) * 10) / 10, Math.round((p.y + (dx / m) * w) * 10) / 10]);
+    }
+    const twin = el("path", { d: smooth(tw), class: "vine-twin" });
+    vine.insertBefore(twin, core);
+    strands = [stem, core, shine, twin].map((n) => {
+      const len = n.getTotalLength();
+      n.style.strokeDasharray = len;
+      return { n, len };
+    });
     extras = [];
-    // Leaves (and the odd curly tendril) along the stem, alternating sides, angled with the stem
-    for (let s = 70, k = 0; s < stemLen; s += 120, k++) {
-      const p = stem.getPointAtLength(s), q = stem.getPointAtLength(Math.min(stemLen, s + 2));
-      const ang = (Math.atan2(q.y - p.y, q.x - p.x) * 180) / Math.PI;
-      const sd = k % 2 ? 1 : -1;
-      const n = el("g", { class: "vine-x", transform: `translate(${p.x} ${p.y}) rotate(${ang + sd * 50})` });
-      if (k % 7 === 3) {
-        const t = leaf * 0.9;
-        n.append(el("path", { d: `M0 0 C ${t} ${-t * 0.2}, ${t * 2.2} ${t * 0.6}, ${t * 1.6} ${t * 1.3} S ${t * 0.7} ${t * 1.2}, ${t * 1.1} ${t * 0.7}`, class: "vine-curl" }));
-      } else {
-        const L = leaf * (0.8 + (0.4 * ((k * 37) % 10)) / 10);
-        n.append(el("path", { d: `M0 0 Q ${L} ${-L * 0.75} ${L * 2.1} 0 Q ${L} ${L * 0.75} 0 0 Z`, class: "vine-leaf" }));
-        n.append(el("path", { d: `M0 0 L ${L * 1.6} 0`, class: "vine-vein" }));
-      }
+
+    // Pieces that pop in as the stem reaches them: a placed group > a pop group > a sway group
+    const put = (s, rot, k, cls = "") => {
+      const p = stem.getPointAtLength(s);
+      const n = el("g", { class: "vine-x " + cls, transform: `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) rotate(${rot.toFixed(1)})` });
+      const pop = el("g", { class: "vine-pop" });
+      const sway = el("g", { class: cls || k % 3 === 0 ? "vine-sway" : "vine-still" });
+      sway.style.animationDelay = `${-((k * 0.73) % 6).toFixed(2)}s`;
+      pop.append(sway);
+      n.append(pop);
       vine.append(n);
       extras.push({ s, n });
+      return sway;
+    };
+    const angAt = (s) => {
+      const p = stem.getPointAtLength(Math.max(0, s - 2)), q = stem.getPointAtLength(Math.min(stemLen, s + 2));
+      return (Math.atan2(q.y - p.y, q.x - p.x) * 180) / Math.PI;
+    };
+    const GREENS = ["#2E8B47", "#3FA35A", "#1F7A3D", "#57B868", "#2A9A4E", "#6CC46E"];
+    const f = (v) => v.toFixed(1);
+    // Glossy pointed leaf with a shaded half and side veins
+    const ovalLeaf = (g, L, c) => {
+      g.append(el("path", { d: `M0 0 L ${f(L * 0.3)} 0`, class: "vine-petiole" }));
+      const b = L * 0.3;
+      g.append(el("path", { d: `M${f(b)} 0 C ${f(b + L * 0.3)} ${f(-L * 0.5)}, ${f(b + L * 1.3)} ${f(-L * 0.55)}, ${f(b + L * 2)} 0 C ${f(b + L * 1.3)} ${f(L * 0.55)}, ${f(b + L * 0.3)} ${f(L * 0.5)}, ${f(b)} 0 Z`, fill: c, class: "vine-leaf" }));
+      g.append(el("path", { d: `M${f(b)} 0 C ${f(b + L * 0.3)} ${f(L * 0.5)}, ${f(b + L * 1.3)} ${f(L * 0.55)}, ${f(b + L * 2)} 0 Z`, class: "vine-shade" }));
+      let v = `M${f(b)} 0 L ${f(b + L * 1.85)} 0`;
+      for (const x of [0.45, 0.85, 1.25]) v += ` M${f(b + L * x)} 0 l ${f(L * 0.28)} ${f(-L * 0.3)} M${f(b + L * x)} 0 l ${f(L * 0.28)} ${f(L * 0.3)}`;
+      g.append(el("path", { d: v, class: "vine-vein" }));
+    };
+    // Big heart-shaped philodendron leaf
+    const heartLeaf = (g, L, c) => {
+      const b = L * 0.55;
+      g.append(el("path", { d: `M0 0 Q ${f(L * 0.3)} ${f(-L * 0.12)} ${f(b)} 0`, class: "vine-petiole" }));
+      g.append(el("path", { d: `M${f(b)} 0 C ${f(b - L * 0.45)} ${f(-L * 0.7)}, ${f(b + L * 0.75)} ${f(-L * 0.95)}, ${f(b + L * 1.9)} ${f(L * 0.05)} C ${f(b + L * 0.75)} ${f(L * 0.95)}, ${f(b - L * 0.45)} ${f(L * 0.7)}, ${f(b)} 0 Z`, fill: c, class: "vine-leaf" }));
+      g.append(el("path", { d: `M${f(b)} 0 C ${f(b - L * 0.45)} ${f(L * 0.7)}, ${f(b + L * 0.75)} ${f(L * 0.95)}, ${f(b + L * 1.9)} ${f(L * 0.05)} Z`, class: "vine-shade" }));
+      let v = `M${f(b)} 0 Q ${f(b + L)} ${f(-L * 0.04)} ${f(b + L * 1.75)} ${f(L * 0.05)}`;
+      for (const x of [0.25, 0.65, 1.05]) v += ` M${f(b + L * x)} 0 q ${f(L * 0.2)} ${f(-L * 0.25)} ${f(L * 0.45)} ${f(-L * 0.42)} M${f(b + L * x)} 0 q ${f(L * 0.2)} ${f(L * 0.25)} ${f(L * 0.45)} ${f(L * 0.42)}`;
+      g.append(el("path", { d: v, class: "vine-vein" }));
+    };
+    // Fern frond: a curved rib with leaflets shrinking toward the tip
+    const frond = (g, L, c) => {
+      const len = L * 2.6, n = 8;
+      g.append(el("path", { d: `M0 0 Q ${f(len * 0.5)} ${f(-L * 0.25)} ${f(len)} ${f(L * 0.15)}`, class: "vine-petiole" }));
+      for (let i = 1; i <= n; i++) {
+        const t = i / (n + 1), x = len * t, y = -L * 0.25 * 2 * t * (1 - t) * 2 + L * 0.15 * t * t;
+        const sz = L * 0.42 * (1 - t * 0.7);
+        for (const sd of [-1, 1]) g.append(el("ellipse", { cx: f(x + sz * 0.35), cy: f(y + sd * sz * 0.7), rx: f(sz * 0.32), ry: f(sz * 0.8), fill: c, class: "vine-leaflet", transform: `rotate(${sd * -35} ${f(x + sz * 0.35)} ${f(y + sd * sz * 0.7)})` }));
+      }
+    };
+    const curl = (g, t) => g.append(el("path", { d: `M0 0 C ${f(t)} ${f(-t * 0.2)}, ${f(t * 2.2)} ${f(t * 0.6)}, ${f(t * 1.6)} ${f(t * 1.3)} S ${f(t * 0.7)} ${f(t * 1.2)}, ${f(t * 1.1)} ${f(t * 0.7)}`, class: "vine-curl" }));
+    // Hibiscus: five ruffled petals, a deep throat and a long stamen
+    const hibiscus = (g, r, c) => {
+      for (let a = 0; a < 5; a++) g.append(el("path", { d: `M0 0 C ${f(-r * 0.95)} ${f(-r * 0.35)}, ${f(-r * 0.8)} ${f(-r * 1.55)}, ${f(-r * 0.15)} ${f(-r * 1.4)} Q 0 ${f(-r * 1.25)} ${f(r * 0.15)} ${f(-r * 1.42)} C ${f(r * 0.8)} ${f(-r * 1.55)}, ${f(r * 0.95)} ${f(-r * 0.35)}, 0 0 Z`, fill: c, class: "vine-petal", transform: `rotate(${a * 72 + 10})` }));
+      g.append(el("circle", { r: f(r * 0.42), class: "vine-throat" }));
+      g.append(el("path", { d: `M0 0 Q ${f(r * 0.3)} ${f(-r * 0.6)} ${f(r * 0.55)} ${f(-r * 1.15)}`, class: "vine-stamen" }));
+      for (const [x, y] of [[0.55, -1.15], [0.68, -1.05], [0.45, -1.25], [0.62, -1.25]]) g.append(el("circle", { cx: f(r * x), cy: f(r * y), r: f(Math.max(1, r * 0.08)), class: "vine-pollen" }));
+    };
+    // Little star blossom
+    const blossom = (g, r, c) => {
+      for (let a = 0; a < 5; a++) g.append(el("ellipse", { cx: 0, cy: f(-r * 0.7), rx: f(r * 0.45), ry: f(r * 0.75), fill: c, class: "vine-petal", transform: `rotate(${a * 72})` }));
+      g.append(el("circle", { r: f(r * 0.3), class: "vine-pollen" }));
+    };
+    const bud = (g, r, c) => {
+      g.append(el("path", { d: `M0 0 L ${f(r * 0.6)} 0`, class: "vine-petiole" }));
+      g.append(el("path", { d: `M${f(r * 0.5)} 0 C ${f(r * 0.9)} ${f(-r * 0.6)}, ${f(r * 1.9)} ${f(-r * 0.3)}, ${f(r * 2.1)} 0 C ${f(r * 1.9)} ${f(r * 0.3)}, ${f(r * 0.9)} ${f(r * 0.6)}, ${f(r * 0.5)} 0 Z`, fill: c, class: "vine-petal" }));
+      g.append(el("path", { d: `M${f(r * 0.5)} 0 C ${f(r * 0.8)} ${f(-r * 0.4)}, ${f(r * 1.1)} ${f(-r * 0.3)}, ${f(r * 1.2)} 0 C ${f(r * 1.1)} ${f(r * 0.3)}, ${f(r * 0.8)} ${f(r * 0.4)}, ${f(r * 0.5)} 0 Z`, class: "vine-sepal" }));
+    };
+
+    // Leaves along the stem: dense, alternating, sometimes paired, with fronds, curls, buds and blossoms mixed in
+    const step = wide ? 64 : 110;
+    for (let s = 40, k = 0; s < stemLen - 20; s += step + ((k * 23) % 3) * 10, k++) {
+      const ang = angAt(s), sd = k % 2 ? 1 : -1;
+      const c = GREENS[(k * 5) % GREENS.length];
+      const L = leaf * (0.75 + (0.5 * ((k * 37) % 10)) / 10);
+      if (k % 9 === 4) curl(put(s, ang + sd * 45, k), leaf * 0.9);
+      else if (wide && k % 11 === 7) frond(put(s, ang + sd * 55, k), L, c);
+      else if (k % 4 === 1) heartLeaf(put(s, ang + sd * 60, k), L * 1.1, c);
+      else ovalLeaf(put(s, ang + sd * 50, k), L, c);
+      // A second leaf on the other side, so the stem looks full
+      if (wide && k % 3 === 0) ovalLeaf(put(s + 8, ang - sd * 65, k + 3), L * 0.8, GREENS[(k * 5 + 2) % GREENS.length]);
+      if (k % 6 === 2) blossom(put(s + 18, ang - sd * 30, k + 1, "vine-flower"), wide ? leaf * 0.7 : 4.5, PETALS[k % PETALS.length]);
+      else if (wide && k % 6 === 5) bud(put(s + 14, ang - sd * 40, k + 2), leaf * 0.5, PETALS[(k + 3) % PETALS.length]);
     }
-    // A flower on the stem where each project starts
+    // A big hibiscus where each project starts, framed by a couple of leaves
     BLOOMS.forEach((id, k) => {
       const b = box("#" + id);
       if (!b) return;
-      const s = lenAtY(b.t + 60), p = stem.getPointAtLength(s);
-      const r = Math.max(5, Math.min(11, g / 12));
-      const n = el("g", { class: "vine-x", transform: `translate(${p.x} ${p.y})` });
-      for (let a = 0; a < 5; a++) n.append(el("ellipse", { cx: 0, cy: -r, rx: r * 0.62, ry: r, fill: PETALS[k], transform: `rotate(${a * 72})` }));
-      n.append(el("circle", { r: r * 0.55, class: "vine-eye" }));
-      vine.append(n);
-      extras.push({ s, n });
+      const s = lenAtY(b.t + 60), ang = angAt(s);
+      const r = wide ? Math.max(14, Math.min(26, g / 5.5)) : Math.max(6, Math.min(9, g / 3));
+      if (wide) {
+        heartLeaf(put(s - 6, ang - 55, k + 11), leaf * 1.1, GREENS[k % GREENS.length]);
+        ovalLeaf(put(s - 4, ang + 125, k + 13), leaf, GREENS[(k + 3) % GREENS.length]);
+      }
+      hibiscus(put(s, (k * 47) % 360, k + 5, "vine-flower"), r, PETALS[k]);
     });
     vine.lenAtY = lenAtY;
     growVine();
   };
+  let strands = [];
   const growVine = () => {
     if (!stem) return;
     const H = parseFloat(vine.style.height);
     const reach = matchMedia("(prefers-reduced-motion: reduce)").matches ? H : scrollY + innerHeight * 0.85;
     const s = reach >= H ? stemLen : vine.lenAtY(reach);
-    stem.style.strokeDashoffset = stemLen - s;
+    const t = stemLen ? s / stemLen : 1;
+    strands.forEach(({ n, len }) => (n.style.strokeDashoffset = len * (1 - t)));
     extras.forEach((e) => e.n.classList.toggle("on", e.s <= s));
   };
   addEventListener("scroll", () => requestAnimationFrame(growVine), { passive: true });
