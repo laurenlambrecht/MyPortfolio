@@ -17,7 +17,7 @@ window.CONTENT = {
 
   hero: {
     eyebrow: ["Product Strategy & Design Portfolio", "Claremont McKenna '27"],
-    headline: "Building products backed by *data*, creating brands that people _love._",
+    headline: "Building products backed by *data*. Creating brands that people _love._",
     // First paragraph follows "Hi, I'm <name>, ".
     body: [
       "a senior at Claremont McKenna College passionate about building products at the intersection of technology, strategy, and data.",
