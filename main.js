@@ -229,10 +229,11 @@
           ? `<div class="sprint-shot"><div class="sprint-screens">${sp.screens.map((sc) => `<button type="button" class="zoomable" data-full="${esc(sc.src)}" aria-label="Enlarge: ${esc(sc.alt)}"><img src="${esc(sc.src)}" alt="${esc(sc.alt)}" loading="lazy"></button>`).join("")}</div></div>`
           : `<div class="sprint-shot"><img src="${esc(sp.image.src)}" alt="${esc(sp.image.alt)}"></div>`}
         ${sp.finding ? `<div class="wrap">${isTodo(sp.finding) ? note(sp.finding) : `<p class="sprint-find"><span class="disp">${esc(sp.score)}</span>${esc(sp.finding)}</p>`}</div>` : ""}
+        ${sp.quote ? `<div class="wrap"><blockquote class="samba-quote sprint-quote"><p class="ser">“${esc(sp.quote)}”</p><footer>${esc(sp.quoteBy)}</footer></blockquote></div>` : ""}
       </article>`)
       .join("")}</div>
     <div class="wrap">
-      <blockquote class="samba-quote rv"><p class="ser">“${esc(s.quote)}”</p><footer>${esc(s.quoteBy)}</footer></blockquote>
+      ${s.quote ? `<blockquote class="samba-quote rv"><p class="ser">“${esc(s.quote)}”</p><footer>${esc(s.quoteBy)}</footer></blockquote>` : ""}
       <div class="signal rv">
         <div><h3 class="disp label">Strong signal: build</h3><ul>${s.signal.build.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
         <div><h3 class="disp label">Weak signal: reconsider</h3><ul>${s.signal.cut.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>

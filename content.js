@@ -172,6 +172,8 @@ window.CONTENT = {
         image: { src: "assets/samba/sprint2.jpg", alt: "Five prototype screens: a title page with a match score, reviews, a Refresh My Memory recap tool, an episode tracker and the home feed" },
         score: "6/6",
         finding: "users responded positively to the Friend's Feed, comparing it to Strava, Venmo, and Goodreads. AI-powered features were another highlight, particularly \u201cRefresh My Memory,\u201d a scene-recall tool loved by 5/6 testers, alongside personalized match scores. The big takeaway: social connection drove interest in returning to the app, while AI created opportunities for a more personalized viewing experience.",
+        quote: "Without the social layer, I'd probably forget the app exists.",
+        quoteBy: "A Sprint 2 tester",
       },
       {
         label: "Sprint 3 · Interactive",
@@ -200,8 +202,6 @@ window.CONTENT = {
         ],
       },
     ],
-    quote: "Without the social layer, I'd probably forget the app exists.",
-    quoteBy: "A Sprint 2 tester",
     signal: {
       build: ["Friend's Feed and social layer (6/6)", "Push notifications for new episodes (6/6)", "\"Refresh My Memory\" recap tool (5/6)", "Cross-platform recommendations, if kept fresh", "Opt-in rewards, once tiers are redesigned"],
       cut: ["Kalshi prediction markets (3/3 unenthusiastic)", "Streak-style gamification", "Reward tiers as designed (6/6 confused)", "Favorites and Watchlist as two separate features"],

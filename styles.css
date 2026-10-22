@@ -679,3 +679,5 @@ a:hover { opacity: .78; }
 .scroll-tag.on { opacity: 1; transform: translate(0, -50%); }
 @media (prefers-reduced-motion: reduce) { .scroll-tag { transition: opacity .2s ease; transform: translate(0, -50%); } }
 @media (min-width: 720px) { .decisions { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.samba-quote.sprint-quote { margin-top: clamp(36px, 4vw, 56px); }
+.samba-quote.sprint-quote p { font-size: clamp(30px, 3.6vw, 50px); }
