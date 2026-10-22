@@ -363,7 +363,7 @@ window.CONTENT = {
       {
         id: "p-hiki",
         title: "Hiki",
-        kind: "06 · Founder & developer",
+        kind: "06 · Hiki: Redesigning Online Dating Project",
         tone: "night",
         pitch: "Redesigning how people match on Hiki, a dating and friendship app for neurodivergent people.",
         body: "We prototyped two new ways to browse: Hiki Grids, a daily board that sorts people by traits and neurodivergence filters instead of photos, and an infinite-zoom canvas where you explore profiles in space.",
