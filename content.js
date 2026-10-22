@@ -273,7 +273,6 @@ window.CONTENT = {
         { src: "assets/sports/fansignal-map.jpg", alt: "FanSignal geographic discovery card: a purple US state map labeled as illustrative, with an Upload geography CSV button" },
       ],
       caption: "Screens from the prototype running on its built-in illustrative demo data.",
-      note: "Prototype: the demo values are made up and clearly labeled in the app. Upload real Google Trends CSVs to explore real patterns. No backend, live API or campaign results.",
       links: [
         { label: "Try FanSignal", href: "fansignal/" },
         { label: "Product guide on GitHub", href: "https://github.com/laurenlambrecht/Sports-Fan-Engagement-Dashboard/tree/feature/fansignal-product-layer" },

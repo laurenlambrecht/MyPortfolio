@@ -296,7 +296,7 @@
         </figure>
         <ul class="fs-features">${f.features.map(([k, t]) => `<li class="rv"><h4 class="disp">${esc(k)}</h4><p>${esc(t)}</p></li>`).join("")}</ul>
         <div class="actions rv">${f.links.map((l, i) => ext(l.href, l.label, i === 0 ? "pill-lilac" : "pill-line")).join("")}</div>
-        <p class="fs-note rv">${esc(f.note)}</p>
+        ${f.note ? `<p class="fs-note rv">${esc(f.note)}</p>` : ""}
       </div>`;
       })() : ""}
     </div>`;
