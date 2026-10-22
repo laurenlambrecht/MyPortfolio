@@ -708,3 +708,4 @@ a:hover { opacity: .78; }
 .story-end { margin-top: clamp(8px, 1.5vw, 20px); }
 .story-end { max-width: none; }
 .story-end { text-wrap: balance; }
+.story-end { max-width: none; text-wrap: pretty; }
