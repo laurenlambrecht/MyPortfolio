@@ -710,3 +710,4 @@ a:hover { opacity: .78; }
 .story-end { text-wrap: balance; }
 .story-end { max-width: none; text-wrap: pretty; }
 .story-end { margin-top: clamp(32px, 4vw, 56px); }
+.role-card { align-items: center; }
