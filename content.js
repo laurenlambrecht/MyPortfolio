@@ -384,7 +384,7 @@ window.CONTENT = {
         tone: "noon",
         pitch: "Zillow, but for local government contracts in Massachusetts.",
         body: "A clickable demo of the idea: pick a city on the map to see its open bids, then filter by category or search. The data in the demo is illustrative.",
-        images: [{ src: "assets/projects/massbids.jpg", alt: "MassBids demo showing a map of Massachusetts with Boston-area cities and a bid detail panel" }],
+        images: [{ src: "assets/projects/massbids.jpg", alt: "MassBids demo: a map of Massachusetts with city pins, and Boston selected in the side panel showing 4 active opportunities (demo data), starting with a municipal fleet EV charging bid" }],
         links: [{ label: "Try the demo", href: "massbids/" }],
       },
       {
