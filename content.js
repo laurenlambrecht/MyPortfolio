@@ -293,7 +293,7 @@ window.CONTENT = {
         name: "Claremont Columns",
         intro: "Claremont Columns reimagines how residents connect with their city through a social, interactive platform for civic engagement. Users can pin locations on a map, share photos and ideas for community improvements, and engage with others through likes and comments. City engineers can respond directly, creating an open dialogue between residents and local government. The goal? Make civic participation more accessible, engaging, and collaborative, especially for younger residents.",
         sub: "A social app for illuminating engineering needs",
-        stepsFirst: true, // Iteration 2 sits where the description used to be
+        stepsFirst: true, // steps (Iteration 2) sit in the left column, under the test note
         hypothesis: "We believe a low-effort social app like Claremont Columns will encourage residents to engage in civic participation by highlighting places personal to them.",
         test: "Tested as paper wireframes. Testers used it out loud, then answered six questions about what was missing, confusing or worth adding.",
         heard: [

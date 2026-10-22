@@ -342,10 +342,10 @@
             .join("")}</div>
           <div class="proto-text">
             <div>
-              ${p.stepsFirst ? `<ol class="proto-steps rv">${p.steps.map(step).join("")}</ol>` : ""}
               ${p.what ? `<p class="proto-what rv">${esc(p.what)}</p>` : ""}
               ${p.hypothesis ? `<p class="proto-hyp rv"><span class="label disp">Hypothesis</span>${esc(p.hypothesis)}</p>` : ""}
               ${p.test ? `<p class="proto-test rv">${esc(p.test)}</p>` : ""}
+              ${p.stepsFirst ? `<ol class="proto-steps proto-steps-end rv">${p.steps.map(step).join("")}</ol>` : ""}
               ${p.links && !p.app ? `<div class="actions rv">${p.links.map((l) => ext(l.href, l.label, "pill-lilac")).join("")}</div>` : ""}
             </div>
             <div>
