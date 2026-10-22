@@ -419,7 +419,7 @@ window.CONTENT = {
         kind: "07 · Product Strategy & Marketing Lead",
         tone: "teal",
         pitch: "Catch, scan, collect. Point your phone at a fish and Guppo identifies it, then adds it to your collection.",
-        intro: "Guppo solves two problems: identifying fish species in real time and making fishing more interactive, rewarding, and engaging. Having helped shape the original concept, I now work on Guppo's branding, marketing strategy, and go-to-market planning. From building its social media presence to developing its brand identity and growth strategy, I'm helping turn an idea into a product that anglers are excited to use.",
+        introBelow: "Guppo solves two problems: identifying fish species in real time and making fishing more interactive, rewarding, and engaging. Having helped shape the original concept, I now work on Guppo's branding, marketing strategy, and go-to-market planning. From building its social media presence to developing its brand identity and growth strategy, I'm helping turn an idea into a product that anglers are excited to use.",
         body: "Every species you scan unlocks a card in the GuppoDex (144 to find), earns XP toward angler tiers, and lands in your catch log and on a map. Weekly challenges give you a reason to go back out.",
         phones: true,
         images: [

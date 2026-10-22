@@ -416,6 +416,7 @@
           <p class="lead rv">${esc(it.pitch)}</p>
           ${it.intro ? `<p class="proj-body proj-intro rv">${esc(it.intro)}</p>` : ""}
           ${projShots(it)}
+          ${it.introBelow ? `<p class="proj-body proj-intro proj-intro-below rv">${esc(it.introBelow)}</p>` : ""}
           <div class="proj-foot rv">
             ${it.body ? (isTodo(it.body) ? note(it.body) : `<p class="proj-body">${esc(it.body)}</p>`) : ""}
             ${it.role ? (isTodo(it.role) ? note(it.role) : `<p class="proj-role"><span class="label disp">My role</span>${esc(it.role)}</p>`) : ""}
