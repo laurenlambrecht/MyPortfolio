@@ -202,8 +202,18 @@ window.CONTENT = {
         name: "The full app, end to end",
         // Put a YouTube, Loom or Vimeo link here and it plays right on the page
         demo: { label: "Demo video", href: "" },
-        image: { src: "assets/samba/sprint4.jpg", alt: "Nine prototype screens of the combined app: home with Recommendation of the Day, a Big Bang Theory title page, an episode tracker for The Voice, live voting during Love Island, a rewards balance, gift card redemption, a friends activity feed, and a library with watch tracking and viewing habits" },
-        finding: "TODO: the headline finding from the final sprint (what testers said about the combined app)",
+        // Each screen grows on hover, and opens full size on click or tap
+        screens: [
+          { src: "assets/samba/s4/screen1.jpg", alt: "Home with Recommendation of the Day and Recommended For You" },
+          { src: "assets/samba/s4/screen2.jpg", alt: "Title page for The Big Bang Theory with match score" },
+          { src: "assets/samba/s4/screen3.jpg", alt: "Episode tracker for The Voice" },
+          { src: "assets/samba/s4/screen4.jpg", alt: "Live voting during Love Island USA" },
+          { src: "assets/samba/s4/screen5.jpg", alt: "Rewards balance with ways to earn points" },
+          { src: "assets/samba/s4/screen6.jpg", alt: "Redeeming points for gift cards" },
+          { src: "assets/samba/s4/screen7.jpg", alt: "Friends activity feed" },
+          { src: "assets/samba/s4/screen8.jpg", alt: "Library: shows in progress" },
+          { src: "assets/samba/s4/screen9.jpg", alt: "Library: your viewing habits" },
+        ],
       },
     ],
     quote: "Without the social layer, I'd probably forget the app exists.",

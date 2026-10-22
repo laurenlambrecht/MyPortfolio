@@ -576,3 +576,20 @@ a:hover { opacity: .78; }
 .demo-ph { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: rgba(0,0,0,.18); border: 2px dashed var(--cream); box-shadow: none; text-align: center; padding: 24px; font-size: 17px; }
 .demo-play { display: inline-flex; align-items: center; justify-content: center; width: clamp(64px, 8vw, 96px); height: clamp(64px, 8vw, 96px); border-radius: 50%; background: var(--cream); color: var(--afternoon); font-size: clamp(24px, 3vw, 36px); padding-left: 6px; }
 .demo-link { margin-top: 28px; }
+
+/* Sprint 4: separate screens on the cream card; each one grows on hover and opens full size on click */
+.sprint-screens { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: clamp(8px, 1.2vw, 16px); min-width: 760px; max-width: 1200px; padding: clamp(14px, 2vw, 28px); border-radius: 22px; background: #F5DBC2; box-shadow: 0 30px 70px rgba(60,0,20,.4); box-sizing: border-box; }
+.zoomable { all: unset; display: block; min-width: 0; position: relative; cursor: zoom-in; border-radius: 16px; background: #111; padding: 4px; transition: transform .35s cubic-bezier(.2,.9,.25,1.2), box-shadow .35s ease; transform-origin: center; }
+.sprint-shot .zoomable img { display: block; width: 100%; min-width: 0; max-width: none; border-radius: 12px; box-shadow: none; }
+@media (hover: hover) {
+  .zoomable:hover { transform: scale(1.9); z-index: 5; box-shadow: 0 24px 50px rgba(0,0,0,.45); }
+  .sprint-screens .zoomable:first-child:hover { transform-origin: left center; }
+  .sprint-screens .zoomable:last-child:hover { transform-origin: right center; }
+}
+.zoomable:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; }
+.sprint-shot:has(.sprint-screens) { overflow: visible; padding-block: 8px; }
+@media (max-width: 820px) { .sprint-shot:has(.sprint-screens) { overflow-x: auto; } }
+.lightbox { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; background: rgba(10, 6, 20, .82); cursor: zoom-out; }
+.lightbox[hidden] { display: none; }
+.lightbox img { max-height: 90vh; max-width: 92vw; border-radius: 22px; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+@media (prefers-reduced-motion: reduce) { .zoomable { transition: none; } }

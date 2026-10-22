@@ -225,8 +225,10 @@
           <h3 class="disp">${esc(sp.name)}</h3>
         </div>
         ${sp.demo ? `<div class="wrap">${demoVideo(sp.demo)}</div>` : ""}
-        <div class="sprint-shot"><img src="${esc(sp.image.src)}" alt="${esc(sp.image.alt)}"></div>
-        <div class="wrap">${isTodo(sp.finding) ? note(sp.finding) : `<p class="sprint-find"><span class="disp">${esc(sp.score)}</span>${esc(sp.finding)}</p>`}</div>
+        ${sp.screens
+          ? `<div class="sprint-shot"><div class="sprint-screens">${sp.screens.map((sc) => `<button type="button" class="zoomable" data-full="${esc(sc.src)}" aria-label="Enlarge: ${esc(sc.alt)}"><img src="${esc(sc.src)}" alt="${esc(sc.alt)}" loading="lazy"></button>`).join("")}</div></div>`
+          : `<div class="sprint-shot"><img src="${esc(sp.image.src)}" alt="${esc(sp.image.alt)}"></div>`}
+        ${sp.finding ? `<div class="wrap">${isTodo(sp.finding) ? note(sp.finding) : `<p class="sprint-find"><span class="disp">${esc(sp.score)}</span>${esc(sp.finding)}</p>`}</div>` : ""}
       </article>`)
       .join("")}</div>
     <div class="wrap">
@@ -826,6 +828,24 @@
     requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
+
+  /* Click or tap a zoomable screen to see it full size; click anywhere or press Escape to close */
+  const lightbox = document.createElement("div");
+  lightbox.className = "lightbox";
+  lightbox.hidden = true;
+  lightbox.innerHTML = `<img alt="">`;
+  document.body.append(lightbox);
+  const closeLightbox = () => (lightbox.hidden = true);
+  document.addEventListener("click", (e) => {
+    const z = e.target.closest(".zoomable");
+    if (z) {
+      const img = z.querySelector("img");
+      lightbox.firstChild.src = z.dataset.full;
+      lightbox.firstChild.alt = img.alt;
+      lightbox.hidden = false;
+    } else if (!lightbox.hidden) closeLightbox();
+  });
+  addEventListener("keydown", (e) => e.key === "Escape" && closeLightbox());
 
   /* Screens strip arrows */
   const strip = $("strip");
