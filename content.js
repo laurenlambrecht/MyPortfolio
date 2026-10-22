@@ -216,9 +216,9 @@ window.CONTENT = {
   },
 
   sports: {
-    tag: "03 · Data Analytics Passion Project",
+    tag: "03 · Data Analytics · Passion Project",
     title: "Sports Fan _Engagement_ Dashboard",
-    pitch: "Using Google Trends as a stand-in for fan attention across an NFL season.",
+    pitch: "Analyzing NFL search behavior to identify audience interest trends, engagement spikes, and opportunities for data-driven marketing strategy.",
     chips: ["Python · pandas · pytrends · matplotlib", "12 months, US", "NFL, Super Bowl, Chiefs, 49ers"],
     repo: "https://github.com/laurenlambrecht/Sports-Fan-Engagement-Dashboard",
     image: {
@@ -226,12 +226,12 @@ window.CONTENT = {
       alt: "Line chart of Google Trends interest over 12 months for NFL, Super Bowl, Kansas City Chiefs and San Francisco 49ers. Super Bowl spikes to 100 in early February; NFL rises from September through January.",
       caption: "Relative search interest (0–100), Feb 2025 to Feb 2026",
     },
-    question: "When do fans pay attention, and what drives the spikes?",
-    why: "That timing matters to anyone planning content, campaigns or launches.",
+    question: "When do sports fans pay attention, and what drives their interest?",
+    why: "Understanding how fan attention fluctuates can help sports organizations make smarter decisions about content, campaigns, and product launches.",
     found: [
-      "The Super Bowl is a huge, short spike far above everything else.",
-      "League-wide interest climbs steadily from September through the playoffs.",
-      "Because Trends scales every term to the biggest one, the team lines get flattened next to the Super Bowl. Charting teams on their own is my next step.",
+      "Major events drive concentrated attention. Super Bowl searches generate dramatic, short-lived spikes compared with baseline NFL interest.",
+      "Audience interest follows the season. NFL search activity rises during the regular season and intensifies around high-stakes playoff moments.",
+      "Timing creates strategic opportunities. Identifying when audience attention peaks can inform content calendars, marketing campaigns, and product launch strategies.",
     ],
   },
 
