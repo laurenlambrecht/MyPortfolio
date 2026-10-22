@@ -163,7 +163,7 @@ window.CONTENT = {
         testers: 6,
         image: { src: "assets/samba/sprint1.jpg", alt: "Five prototype screens: recommendation of the day, trending by streaming service, a 260-point rewards ring, a top 10 list and a gift card redemption screen" },
         score: "6/6",
-        finding: "were confused by how reward tiers connect to points and payouts. The reward mechanics broke before the rewards themselves did.",
+        finding: "users expressed confusion over reward tiers. The next iteration needed to answer a fundamental question: How are points, tiers, and payouts connected? Beyond clarity, the challenge was ensuring rewards felt valuable, achievable, and compelling enough to bring users back to the app.",
       },
       {
         label: "Sprint 2 · Engagement",
