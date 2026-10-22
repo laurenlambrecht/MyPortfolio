@@ -66,6 +66,11 @@
 
   /* Project picker: glossy bubbles that drift, bump into each other and slow down under the cursor */
   // Little rising bubbles behind the big ones: [left %, top px, size, color, seconds, delay]
+  // Subtitle size: scales with the bubble, and steps down for longer descriptions so they wrap to a few tidy lines
+  const subSize = (b) => {
+    const fit = 0.72 * b.d * Math.sqrt(0.5 / (b.sub.length * 0.7));
+    return Math.max(11, Math.min(b.sub.length > 60 ? 13 : 15, b.d * 0.075, fit)).toFixed(1);
+  };
   const MINIS = [[6, 780, 34, "morning", 16, -3], [27, 800, 18, "afternoon", 12, -8], [46, 790, 26, "dusk", 19, -1], [63, 810, 14, "teal", 11, -6], [72, 780, 40, "noon", 21, -12], [90, 800, 22, "evening", 14, -4], [16, 800, 12, "jungle", 10, -2]];
   const pk = C.picker;
   $("work").innerHTML = `
@@ -79,7 +84,7 @@
         ${pk.bubbles
           .map((b, i) => `<div class="slot" style="left:${b.x}%; top:${b.y}px">
             <div class="bob" style="animation-duration:${(3.4 + ((i * 0.53) % 1.5)).toFixed(1)}s; animation-delay:${-(i * 0.7) % 3}s">
-              <a class="bubble bub tone-${b.tone}" href="#${esc(b.target)}" style="--s:${b.d}px; --t:${Math.round(b.d * (b.title.length > 13 ? 0.13 : 0.155))}px">
+              <a class="bubble bub tone-${b.tone}" href="#${esc(b.target)}" style="--s:${b.d}px; --t:${Math.round(b.d * (b.title.length > 13 ? 0.13 : 0.155))}px; --st:${subSize(b)}px">
                 <span class="bub-shine" aria-hidden="true"></span>
                 <span class="disp bubble-t">${esc(b.title)}</span>
                 <span class="bubble-s">${esc(b.sub)}</span>
