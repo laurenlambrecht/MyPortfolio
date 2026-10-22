@@ -279,7 +279,7 @@
         <div>
           <h3 class="disp label rv">What I found</h3>
           <ul class="found">${d.found.map((f) => `<li class="rv">${esc(f)}</li>`).join("")}</ul>
-          <a class="pill pill-lilac rv" href="${esc(d.repo)}" target="_blank" rel="noopener">View the repo <span aria-hidden="true">↗</span></a>
+          <a class="pill pill-lilac rv" href="${esc(d.repo)}" target="_blank" rel="noopener">Code on GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       ${d.fansignal ? (() => {
