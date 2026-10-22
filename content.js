@@ -339,15 +339,6 @@ window.CONTENT = {
           { src: "assets/urban/teams.jpg", alt: "A crowd of testers around the map with Lego, playing in teams", ratio: 1.37 },
           { src: "assets/urban/spinners.jpg", alt: "Three paper spinners labeled Users, Needs and Constraints", ratio: 2.73 },
         ],
-        scenario: {
-          label: "One test round, start to finish",
-          prompt: "A Pomona student needs to be creatively inspired when thirsty.",
-          rounds: [
-            "A creative water fountain that quenches thirst with a wheel turning air particles chemically into creative juices at Pomona.",
-            "Water fountain in natural green spaces so that people can enjoy being inspired for a more sustained amount of time.",
-            "Consider the drought factor: maybe the fountain tells you how much water you've drunk, or bottles you've saved.",
-          ],
-        },
       },
       {
         n: "03",
