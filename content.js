@@ -207,7 +207,7 @@ window.CONTENT = {
       cut: ["Kalshi prediction markets (3/3 hesitant)", "Streak-style gamification", "Reward tiers as designed (6/6 confused)", "Favorites and Watchlist as two separate features"],
     },
     paperLabel: "Read my paper on this summer",
-    privacy: "These are my discovery prototypes, not the shipped app. Samba ended up taking the product in a different direction.",
+    privacy: "These are my discovery prototypes, not the shipped app. Samba's final app excluded some features in my final version here.",
   },
 
   sports: {
