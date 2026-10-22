@@ -24,7 +24,7 @@ window.CONTENT = {
       "I thrive in environments that turn fast-paced collaboration into real actionable products and solutions. I love understanding how and why people think, using data to inform strategy, and turning concepts into tangible/digital products that people love. My work spans product development, market strategy, data analytics, UI design, and interactive prototyping: combining big-picture strategy with results.",
       "Below is a collection of projects I've worked on over the past four years, each reflecting a different part of how I think, build, and approach problems.",
     ],
-    scrollHint: "Keep scrolling. The day goes on.",
+    scrollHint: "Keep scrolling. More ahead!",
     interests: ["Consumer tech", "Sports", "Fitness", "Wearables"],
     showTicker: false, // the scrolling interests band; hidden for now
   },
