@@ -305,9 +305,8 @@ window.CONTENT = {
           { src: "assets/urban/wire-add.jpg", alt: "Paper wireframes: a post in the feed and the four steps to add one", ratio: 1.33 },
         ],
         links: [
-          { label: "Live site", href: "https://laurenlambrecht.github.io/ClaremontColumns_HCD/" },
+          { label: "Live demo", href: "https://laurenlambrecht.github.io/ClaremontColumns_HCD/" },
           { label: "Code on GitHub", href: "https://github.com/laurenlambrecht/ClaremontColumns_HCD" },
-          { label: "Demo video", href: "" },
         ],
         app: {
           heading: "Try it _live_",
