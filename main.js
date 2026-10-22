@@ -181,7 +181,7 @@
       .join("")}</ul>
     <div class="wrap">
       <div class="sub">
-        <h3 class="disp h-xl rv">${acc(g.decisions.heading)}</h3>
+        <h3 class="disp dec-h rv">${acc(g.decisions.heading)}</h3>
         <div class="decisions">${g.decisions.items
           .map((d, i) => `<div class="dec rv">
             <p class="disp dec-n">${String(i + 1).padStart(2, "0")}</p>
