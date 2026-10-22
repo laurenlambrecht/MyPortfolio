@@ -338,7 +338,7 @@ window.CONTENT = {
       {
         id: "p-massbids",
         title: "MassBids",
-        kind: "05 · Internship · Summer 2025",
+        kind: "05 · Product & Business Development Intern · Summer 2025",
         tone: "noon",
         pitch: "Zillow, but for local government contracts in Massachusetts.",
         body: "A clickable demo of the idea: pick a city on the map to see its open bids, then filter by category or search. The data in the demo is illustrative.",
