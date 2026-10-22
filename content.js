@@ -148,7 +148,7 @@ window.CONTENT = {
   },
 
   samba: {
-    tag: "02 · Internship",
+    tag: "02 · Product Management Intern",
     company: "Samba _TV_",
     title: "Product Management Intern",
     place: "San Francisco",
