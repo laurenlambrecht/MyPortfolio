@@ -57,9 +57,9 @@ window.CONTENT = {
       ["Stack", "React Native, Expo, TypeScript"],
     ],
     links: [
-      { label: "Live site", href: "https://laurenlambrecht.github.io/GoodGames/" },
-      { label: "Code on GitHub", href: "https://github.com/laurenlambrecht/GoodGame" },
-      { label: "Demo video", href: "" }, // TODO: link to a screen recording (Loom, YouTube, etc.)
+      { label: "Live demo", href: "" }, // TODO: hosted web build of the Expo app
+      { label: "Code on GitHub", href: "https://github.com/laurenlambrecht/Goodgame-app" },
+      { label: "Website", href: "https://laurenlambrecht.github.io/GoodGames/" },
     ],
     hero: { src: "assets/goodgame/play.jpg", alt: "GoodGame Play tab on an iPhone", title: "Play tab", need: "Screenshot: Play tab, iPhone portrait" },
 

@@ -26,7 +26,7 @@
   const ext = (href, label, cls) =>
     href
       ? `<a class="pill ${cls}" href="${esc(href)}" target="_blank" rel="noopener">${esc(label)} <span aria-hidden="true">↗</span></a>`
-      : `<span class="pill pill-dashed">${esc(label)} <span class="todo-inline">${/video/i.test(label) ? "In progress" : "link needed"}</span></span>`;
+      : `<span class="pill pill-dashed">${esc(label)} <span class="todo-inline">${/video|demo/i.test(label) ? "In progress" : "link needed"}</span></span>`;
 
   // Phone frame with a screenshot or a marked placeholder
   const phone = (m, cls = "") =>
