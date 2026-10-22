@@ -216,7 +216,7 @@ window.CONTENT = {
   },
 
   sports: {
-    tag: "03 · Data project",
+    tag: "03 · Data Analytics Passion Project",
     title: "Sports Fan _Engagement_ Dashboard",
     pitch: "Using Google Trends as a stand-in for fan attention across an NFL season.",
     chips: ["Python · pandas · pytrends · matplotlib", "12 months, US", "NFL, Super Bowl, Chiefs, 49ers"],
