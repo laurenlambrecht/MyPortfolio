@@ -70,7 +70,7 @@ window.CONTENT = {
       storyHeading: "Why I built it",
       story: [
         "Growing up, I was always on the move, constantly finding myself at tryouts for new schools and teams. I played tennis, soccer, and volleyball, and quickly learned that sports were one of the easiest ways to make friends and find my place. In college, I played a variety of intramural sports and noticed how difficult organizing games could be, especially when attendance was unreliable.",
-        "That frustration followed me to San Francisco during my summer internship. I wanted to join a recreational league or even just find someone to play tennis with, but I had no idea where to start. Conversations with recently graduated friends revealed a similar struggle: moving to new cities, wanting to meet people, and not knowing where to find opportunities to play.",
+        "That frustration followed me to San Francisco during my summer internship. I wanted to join a recreational league or even just find someone to play pickleball with, but I had no idea where to start. Conversations with recently graduated friends revealed a similar struggle: moving to new cities, wanting to meet people, and not knowing where to find opportunities to play.",
       ],
       storyEnd: "**That's what inspired GoodGame:** making it easier to find games, bring people together, and build community through sports.",
       quote: "The game only works if people who say they're coming",
