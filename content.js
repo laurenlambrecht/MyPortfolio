@@ -37,7 +37,7 @@ window.CONTENT = {
     bubbles: [
       { target: "goodgame", title: "GoodGame", sub: "Intramural Pickup Game App: Bringing accountability and ease of connection to anyone, anywhere.", tone: "morning", d: 355, x: 1, y: 50 },
       { target: "samba", title: "Samba TV", sub: "Building a social media for your TV habits", tone: "afternoon", d: 355, x: 33, y: 0 },
-      { target: "p-hiki", title: "Hiki", sub: "Reimagining traditional online dating apps", tone: "night", d: 355, x: 64, y: 100 },
+      { target: "p-hiki", title: "Hiki", sub: "Traditional swiping reimagined for online dating apps", tone: "night", d: 355, x: 64, y: 100 },
       { target: "p-guppo", title: "Guppo", sub: "Social media tracking for your next fishing catch", tone: "teal", d: 200, x: 85, y: 0 },
       { target: "sports", title: "Sports Fan Dashboard", sub: "Tracking fan engagement across the NFL sports season", tone: "dusk", d: 260, x: 3, y: 480 },
       { target: "p-massbids", title: "MassBids", sub: "Zillow for government procurement/bidding in Massachusetts", tone: "noon", d: 260, x: 30, y: 360 },
