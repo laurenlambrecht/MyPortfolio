@@ -696,3 +696,4 @@ a:hover { opacity: .78; }
 @media (min-width: 900px) { .samba-quote.sprint-quote p { font-size: clamp(24px, 3.1vw, 46px); } }
 /* Hero: "data" gets extra weight and a soft orange underline */
 .hero-data { -webkit-text-stroke: .025em currentColor; background: linear-gradient(var(--rust), var(--rust)) no-repeat 0 92% / 100% .065em; padding-bottom: .02em; }
+.hero-data { color: var(--rust); }
