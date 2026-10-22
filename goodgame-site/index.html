@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoodGame — Go Play Outside</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFE500;
+    --black: #0A0A0A;
+    --dark: #111111;
+    --card: #181818;
+    --border: #2a2a2a;
+    --gray: #888888;
+    --white: #F5F5F0;
+    --red: #FF3333;
+    --green: #00D67F;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--yellow); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--yellow); }
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--yellow);
+    color: var(--black);
+    border: none;
+    padding: 0.6rem 1.4rem;
+    cursor: crosshair;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .nav-cta:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--white); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(255,229,0,0.06) 0%, transparent 70%),
+      repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.025) 79px, rgba(255,255,255,0.025) 80px),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.025) 79px, rgba(255,255,255,0.025) 80px);
+  }
+  .hero-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    background: rgba(255,229,0,0.1);
+    border: 1px solid rgba(255,229,0,0.3);
+    display: inline-block;
+    padding: 0.35rem 0.8rem;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 14vw, 13rem);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+    color: var(--white);
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-title .yellow { color: var(--yellow); }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--gray);
+    max-width: 480px;
+    line-height: 1.6;
+    margin: 2rem 0 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; align-items: center;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--yellow);
+    color: var(--black);
+    border: 2px solid var(--yellow);
+    padding: 0.85rem 2.2rem;
+    cursor: crosshair;
+    transition: transform 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover { transform: translate(-3px,-3px); box-shadow: 5px 5px 0 var(--white); }
+  .btn-secondary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--border);
+    padding: 0.85rem 2.2rem;
+    cursor: crosshair;
+    transition: border-color 0.2s, color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); }
+
+  .hero-stat-bar {
+    position: absolute; right: 3rem; bottom: 5rem;
+    display: flex; flex-direction: column; gap: 1.5rem;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .hero-stat { text-align: right; }
+  .hero-stat .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: var(--yellow);
+    line-height: 1;
+  }
+  .hero-stat .label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  .hero-rule {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--border), transparent);
+    margin: 0 auto;
+  }
+
+  /* ─── PROBLEM ─── */
+  .section { padding: 8rem 3rem; }
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 1.5rem;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+  .section-title .yellow { color: var(--yellow); }
+  .section-title .red { color: var(--red); }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 4rem;
+  }
+  .problem-card {
+    background: var(--dark);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .problem-card:hover { background: #1a1a1a; }
+  .problem-card::before {
+    content: attr(data-num);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 7rem;
+    color: rgba(255,229,0,0.05);
+    position: absolute; top: -1rem; right: 1rem;
+    line-height: 1;
+    transition: color 0.3s;
+  }
+  .problem-card:hover::before { color: rgba(255,229,0,0.1); }
+  .problem-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.03em;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+  .problem-card p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+  .problem-quote {
+    grid-column: 1/-1;
+    background: var(--yellow);
+    padding: 2rem 2.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .problem-quote p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--black);
+    letter-spacing: 0.02em;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .hiw-section {
+    padding: 8rem 3rem;
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .hiw-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+    margin-top: 4rem;
+  }
+  .hiw-steps { display: flex; flex-direction: column; gap: 0; }
+  .hiw-step {
+    display: flex; gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .hiw-step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    color: var(--yellow);
+    background: rgba(255,229,0,0.1);
+    border: 1px solid rgba(255,229,0,0.3);
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+  .step-content h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .step-content p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+  /* Accountability card */
+  .accountability-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    position: sticky;
+    top: 7rem;
+  }
+  .acc-header {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 1.5rem;
+  }
+  .acc-deposit {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.5rem;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+  .acc-deposit span { color: var(--yellow); }
+  .acc-deposit-label {
+    font-size: 0.82rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .acc-outcomes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-bottom: 2rem;
+  }
+  .acc-yes, .acc-no {
+    padding: 1.25rem;
+  }
+  .acc-yes { background: rgba(0,214,127,0.07); }
+  .acc-no { background: rgba(255,51,51,0.07); }
+  .acc-verdict {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+  .acc-yes .acc-verdict { color: var(--green); }
+  .acc-no .acc-verdict { color: var(--red); }
+  .acc-detail { font-size: 0.78rem; color: var(--gray); line-height: 1.5; }
+  .acc-detail span { display: block; }
+  .acc-detail .pos { color: var(--green); }
+  .acc-detail .neg { color: var(--red); }
+  .penalty-tiers h5 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 1rem;
+  }
+  .tier { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 0.85rem; }
+  .tier-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .tier-text { font-size: 0.82rem; color: var(--gray); line-height: 1.4; }
+  .tier-text strong { color: var(--white); font-weight: 600; }
+
+  /* ─── FEATURES ─── */
+  .features-section { padding: 8rem 3rem; }
+  .features-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .feature-card {
+    background: var(--dark);
+    padding: 2.5rem 2rem;
+    transition: background 0.2s;
+  }
+  .feature-card:hover { background: #1c1c1c; }
+  .feature-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+  .feature-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  .tag-core { background: rgba(255,229,0,0.12); color: var(--yellow); }
+  .tag-accountability { background: rgba(255,51,51,0.12); color: #FF6666; }
+  .tag-enforcement { background: rgba(255,120,0,0.12); color: #FF9933; }
+  .tag-retention { background: rgba(0,214,127,0.12); color: var(--green); }
+  .tag-auto { background: rgba(100,160,255,0.12); color: #80AAFF; }
+  .feature-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+  }
+  .feature-card p {
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.65;
+  }
+
+  /* ─── CITIES ─── */
+  .cities-section {
+    padding: 8rem 3rem;
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .cities-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 4rem;
+    align-items: start;
+  }
+  .city-list { display: flex; flex-direction: column; gap: 0; }
+  .city-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: padding-left 0.2s;
+  }
+  .city-item:hover { padding-left: 0.5rem; }
+  .city-name-block h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
+  }
+  .city-name-block span {
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+  .city-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid;
+  }
+  .badge-live { border-color: var(--green); color: var(--green); background: rgba(0,214,127,0.08); }
+  .badge-soon { border-color: var(--border); color: var(--gray); }
+  .cities-callout {
+    background: rgba(255,229,0,0.06);
+    border: 1px solid rgba(255,229,0,0.25);
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+  .cities-callout h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--yellow);
+    margin-bottom: 0.75rem;
+  }
+  .cities-callout p {
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.65;
+  }
+  .map-placeholder {
+    background: var(--card);
+    border: 1px solid var(--border);
+    height: 420px;
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .map-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 35% 55%, rgba(255,229,0,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 40% at 65% 40%, rgba(0,214,127,0.05) 0%, transparent 50%),
+      repeating-linear-gradient(0deg, transparent, transparent 29px, rgba(255,255,255,0.03) 29px, rgba(255,255,255,0.03) 30px),
+      repeating-linear-gradient(90deg, transparent, transparent 29px, rgba(255,255,255,0.03) 29px, rgba(255,255,255,0.03) 30px);
+  }
+  /* Dot nodes on the map */
+  .map-node {
+    position: absolute;
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  }
+  .map-node .dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 2px solid;
+    position: relative;
+  }
+  .map-node .dot.live { border-color: var(--green); background: rgba(0,214,127,0.3); }
+  .map-node .dot.soon { border-color: var(--gray); background: rgba(136,136,136,0.15); }
+  .map-node .dot.live::after {
+    content: '';
+    position: absolute; inset: -5px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,214,127,0.3);
+    animation: pulse 2s infinite;
+  }
+  .map-node label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
+    white-space: nowrap;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0; transform: scale(1.8); }
+  }
+
+  /* ─── TIERS ─── */
+  .tiers-section { padding: 8rem 3rem; }
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 4rem;
+  }
+  .tier-card {
+    background: var(--dark);
+    padding: 2.5rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+  .tier-card:hover { background: #1a1a1a; }
+  .tier-range {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .tier-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .tier-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.55; margin-bottom: 1.5rem; }
+  .tier-access {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid;
+    display: inline-block;
+  }
+  .t-elite .tier-range, .t-elite .tier-name { color: var(--yellow); }
+  .t-elite .tier-access { border-color: var(--yellow); color: var(--yellow); background: rgba(255,229,0,0.08); }
+  .t-solid .tier-range, .t-solid .tier-name { color: var(--green); }
+  .t-solid .tier-access { border-color: var(--green); color: var(--green); background: rgba(0,214,127,0.08); }
+  .t-developing .tier-range, .t-developing .tier-name { color: #FF9933; }
+  .t-developing .tier-access { border-color: #FF9933; color: #FF9933; background: rgba(255,153,51,0.08); }
+  .t-risk .tier-range, .t-risk .tier-name { color: var(--red); }
+  .t-risk .tier-access { border-color: var(--red); color: var(--red); background: rgba(255,51,51,0.08); }
+  .tiers-note {
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--yellow);
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+  .tiers-note strong { color: var(--yellow); }
+
+  /* ─── LOCK-IN ─── */
+  .lockin-section {
+    padding: 8rem 3rem;
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .lockin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 4rem;
+  }
+  .lockin-card {
+    background: var(--card);
+    padding: 3rem 2.5rem;
+    position: relative;
+  }
+  .lockin-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: rgba(255,229,0,0.08);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .lockin-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .lockin-card p { font-size: 0.875rem; color: var(--gray); line-height: 1.65; }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    padding: 10rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,229,0,0.07) 0%, transparent 70%),
+      repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.015) 79px, rgba(255,255,255,0.015) 80px),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.015) 79px, rgba(255,255,255,0.015) 80px);
+  }
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.9;
+    color: var(--white);
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .cta-title .yellow { color: var(--yellow); }
+  .cta-sub {
+    font-size: 1.1rem;
+    color: var(--gray);
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    position: relative;
+  }
+  .cta-actions { display: flex; justify-content: center; gap: 1rem; position: relative; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--dark);
+  }
+  footer .foot-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+  }
+  footer .foot-logo span { color: var(--yellow); }
+  footer p {
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--border); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gray); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>GOOD</span>GAME</a>
+  <ul class="nav-links">
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#cities">Cities</a></li>
+    <li><a href="#tiers">Tiers</a></li>
+  </ul>
+  <button class="nav-cta">Get Early Access</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-tag">Pickup Sports — Reimagined</div>
+  <h1 class="hero-title">GO PLAY<br><span class="yellow">OUTSIDE.</span></h1>
+  <p class="hero-sub">Flaking has a cost. Showing up has a reward. GoodGame is the platform that makes pickup sports reliable, competitive, and consistent — in every city.</p>
+  <div class="hero-actions">
+    <a href="#" class="btn-primary">Join the Waitlist</a>
+    <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+  </div>
+  <div class="hero-stat-bar">
+    <div class="hero-stat">
+      <div class="num">$0</div>
+      <div class="label">If you show up</div>
+    </div>
+    <div class="hero-rule"></div>
+    <div class="hero-stat">
+      <div class="num">5+</div>
+      <div class="label">Launch regions</div>
+    </div>
+    <div class="hero-rule"></div>
+    <div class="hero-stat">
+      <div class="num">91%</div>
+      <div class="label">Avg reliability</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section" id="problem">
+  <div class="section-label">The Problem</div>
+  <h2 class="section-title">THIS ISN'T A<br>DISCOVERY PROBLEM.<br>IT'S A <span class="yellow">DEPENDABILITY</span> ONE.</h2>
+  <div class="problem-grid reveal">
+    <div class="problem-card" data-num="01">
+      <h3>Uncertain Turnout</h3>
+      <p>You show up to the court. Three people show up. The run never happens. Group chats lie. The app doesn't.</p>
+    </div>
+    <div class="problem-card" data-num="02">
+      <h3>Mismatched Skill Levels</h3>
+      <p>No way to know who you're playing with until you're already there. Competitive players stuck babysitting. Beginners getting clowned on.</p>
+    </div>
+    <div class="problem-card" data-num="03">
+      <h3>Lack of Accountability</h3>
+      <p>No-shows face zero consequences. The same people flake every week. Everyone suffers. Nobody says anything. Until now.</p>
+    </div>
+    <div class="problem-quote">
+      <p>"This isn't a discovery problem — it's a dependability one."</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="hiw-section" id="how-it-works">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-title">FLAKING HAS A <span class="red">COST.</span><br>SHOWING UP HAS<br>A <span class="yellow">REWARD.</span></h2>
+  <div class="hiw-layout">
+    <div class="hiw-steps reveal">
+      <div class="hiw-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Sign Up & RSVP to a Game</h4>
+          <p>Browse open games near you, join with one tap. A small deposit ($2–$10, set by the host) is held at booking — not charged, just held.</p>
+        </div>
+      </div>
+      <div class="hiw-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>24-Hour Confirmation</h4>
+          <p>You get a push reminder 24 hours before. Confirm your spot or it opens to the waitlist automatically — no drama, no ghost-spots.</p>
+        </div>
+      </div>
+      <div class="hiw-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Game Day Check-In</h4>
+          <p>Show up, tap check-in, game happens. That's it. The system handles everything else. Your score updates. Your rep grows.</p>
+        </div>
+      </div>
+      <div class="hiw-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Post-Game Bar Deals</h4>
+          <p>After the run, the app surfaces nearby bar deals for GoodGame players. First round on the bar. Bars get a built-in crowd. Everyone wins.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accountability-card reveal">
+      <div class="acc-header">The Accountability System</div>
+      <div class="acc-deposit"><span>$5</span> Held</div>
+      <div class="acc-deposit-label">Refundable deposit — held, not charged, until game day.</div>
+      <div class="acc-outcomes">
+        <div class="acc-yes">
+          <div class="acc-verdict">YES</div>
+          <div class="acc-detail">
+            <span>✓ Deposit refunded</span>
+            <span class="pos">+2 pts — on time</span>
+            <span class="pos">+1 pt — on game</span>
+          </div>
+        </div>
+        <div class="acc-no">
+          <div class="acc-verdict">NO</div>
+          <div class="acc-detail">
+            <span class="neg">✗ Deposit forfeited</span>
+            <span class="neg">−3 pts score drop</span>
+            <span>Penalty tier applied</span>
+          </div>
+        </div>
+      </div>
+      <div class="penalty-tiers">
+        <h5>Penalty Tiers</h5>
+        <div class="tier">
+          <div class="tier-icon">⚠️</div>
+          <div class="tier-text"><strong>1st Offense — Warning:</strong> Score drops. Eligible to earn back immediately with good attendance.</div>
+        </div>
+        <div class="tier">
+          <div class="tier-icon">🔒</div>
+          <div class="tier-text"><strong>2nd Offense — 1-Week Restriction:</strong> Booking locked for 7 days. You can still browse and waitlist, not RSVP.</div>
+        </div>
+        <div class="tier">
+          <div class="tier-icon">🚫</div>
+          <div class="tier-text"><strong>3rd Offense — Low Priority Access:</strong> Permanently last on waitlists until score recovers.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="features-header">
+    <div>
+      <div class="section-label">Platform Features</div>
+      <h2 class="section-title">EVERYTHING THE<br>GROUP CHAT<br>NEVER HAD.</h2>
+    </div>
+  </div>
+  <div class="features-grid reveal">
+    <div class="feature-card">
+      <span class="feature-icon">📊</span>
+      <span class="feature-tag tag-core">Core Mechanic</span>
+      <h3>Reliability Score</h3>
+      <p>Your show-up rate over a rolling 6-month window, visible to every game host. Earn +2 pts for on-time arrival, +1 pt for playing. Last-minute drops hurt double.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">💰</span>
+      <span class="feature-tag tag-accountability">Accountability</span>
+      <h3>Deposit System</h3>
+      <p>Hosts set a $2–$10 deposit at game creation. Held — not charged — until game day. Show up and it's refunded. Ghost and it's forfeited.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⚡</span>
+      <span class="feature-tag tag-auto">Auto-Fill</span>
+      <h3>Smart Waitlist</h3>
+      <p>Waitlists are ordered by reliability score, not sign-up time. When someone drops, the most dependable person waiting gets the spot first.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⚡</span>
+      <span class="feature-tag tag-enforcement">Enforcement</span>
+      <h3>Strike System</h3>
+      <p>3 unexcused no-shows = temporary ban. Strikes expire with 90 days of clean attendance. Hosts can flag disputes. Excused absences don't count.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🍺</span>
+      <span class="feature-tag tag-retention">Retention</span>
+      <h3>Post-Game Bar Deals</h3>
+      <p>After a game ends, the app surfaces partner bar deals nearby. First round on the bar. Bars get a built-in crowd. Players stay in the ecosystem.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🌦️</span>
+      <span class="feature-tag tag-auto">Smart Alerts</span>
+      <h3>Weather-Aware Games</h3>
+      <p>Outdoor games auto-flag rain 12h out. Host gets an alert to cancel or move. Deposits stay held until a call is made — no money moves unfairly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CITIES -->
+<section class="cities-section" id="cities">
+  <div class="section-label">Launch Regions</div>
+  <h2 class="section-title">ONE APP.<br>EVERY <span class="yellow">CITY.</span><br>YOUR REP TRAVELS.</h2>
+  <div class="cities-layout">
+    <div>
+      <div class="city-list reveal">
+        <div class="city-item">
+          <div class="city-name-block">
+            <h3>Southern California</h3>
+            <span>LA · SD · OC — Subdivided by neighborhood</span>
+          </div>
+          <span class="city-badge badge-live">Live</span>
+        </div>
+        <div class="city-item">
+          <div class="city-name-block">
+            <h3>Northern California</h3>
+            <span>SF · SJ · Oakland</span>
+          </div>
+          <span class="city-badge badge-live">Live</span>
+        </div>
+        <div class="city-item">
+          <div class="city-name-block">
+            <h3>Chicago</h3>
+            <span>CHI · Evanston — Midwest Launch</span>
+          </div>
+          <span class="city-badge badge-soon">Coming Soon</span>
+        </div>
+        <div class="city-item">
+          <div class="city-name-block">
+            <h3>New York City</h3>
+            <span>Manhattan · Brooklyn</span>
+          </div>
+          <span class="city-badge badge-soon">Coming Soon</span>
+        </div>
+        <div class="city-item">
+          <div class="city-name-block">
+            <h3>Atlanta</h3>
+            <span>ATL · Decatur</span>
+          </div>
+          <span class="city-badge badge-soon">Coming Soon</span>
+        </div>
+      </div>
+      <div class="cities-callout reveal">
+        <h4>🌐 Your Score Travels With You</h4>
+        <p>Graduate and move to NYC? Switch regions instantly. Same score, same reputation, new city. You're not starting over — your reliability follows you everywhere.</p>
+      </div>
+    </div>
+    <div class="map-placeholder reveal">
+      <div class="map-bg"></div>
+      <!-- Map nodes positioned roughly geographically -->
+      <div class="map-node" style="left:22%;top:42%;">
+        <div class="dot live"></div>
+        <label>SoCal</label>
+      </div>
+      <div class="map-node" style="left:17%;top:30%;">
+        <div class="dot live"></div>
+        <label>NorCal</label>
+      </div>
+      <div class="map-node" style="left:54%;top:30%;">
+        <div class="dot soon"></div>
+        <label>Chicago</label>
+      </div>
+      <div class="map-node" style="left:75%;top:22%;">
+        <div class="dot soon"></div>
+        <label>NYC</label>
+      </div>
+      <div class="map-node" style="left:62%;top:55%;">
+        <div class="dot soon"></div>
+        <label>Atlanta</label>
+      </div>
+      <div class="map-node" style="left:33%;top:37%;">
+        <div class="dot soon"></div>
+        <label>Denver</label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="tiers-section" id="tiers">
+  <div class="section-label">Reliability Tiers</div>
+  <h2 class="section-title">YOUR ATTENDANCE.<br>YOUR <span class="yellow">REPUTATION.</span></h2>
+  <p style="color:var(--gray);font-size:0.9rem;max-width:500px;line-height:1.6;margin-top:1rem;">Every game attended moves you up. Every no-show moves you down. Rolling 6-month window — so you can always recover.</p>
+  <div class="tiers-grid reveal">
+    <div class="tier-card t-elite">
+      <div class="tier-range">90–100%</div>
+      <div class="tier-name">Elite</div>
+      <p class="tier-desc">You show up. Period. You're the reason the run stays together. First access to every game, every competitive run.</p>
+      <span class="tier-access">Priority Everything</span>
+    </div>
+    <div class="tier-card t-solid">
+      <div class="tier-range">75–89%</div>
+      <div class="tier-name">Solid</div>
+      <p class="tier-desc">Reliable, respected. Standard access to all games on the platform. You're the backbone of the community.</p>
+      <span class="tier-access">Full Access</span>
+    </div>
+    <div class="tier-card t-developing">
+      <div class="tier-range">60–74%</div>
+      <div class="tier-name">Developing</div>
+      <p class="tier-desc">A few slips. Some games may have minimum score requirements. Focus on attendance and you'll climb fast.</p>
+      <span class="tier-access">Limited Access</span>
+    </div>
+    <div class="tier-card t-risk">
+      <div class="tier-range">Under 60%</div>
+      <div class="tier-name">At Risk</div>
+      <p class="tier-desc">Restricted from competitive games. Waitlist priority drops to the bottom. Clean attendance is the only path back up.</p>
+      <span class="tier-access">Restricted</span>
+    </div>
+  </div>
+  <div class="tiers-note reveal">
+    <strong>Forfeited deposits go to:</strong> Local Park Fund · Org credits split · Host's pick. The goal is to protect the quality of the run for everyone else. Your score is your reputation.
+  </div>
+</section>
+
+<!-- LOCK IN -->
+<section class="lockin-section">
+  <div class="section-label">Ecosystem Lock-In</div>
+  <h2 class="section-title">WHY YOU CAN'T<br>JUST <span class="yellow">GHOST</span> THE APP.</h2>
+  <p style="color:var(--gray);font-size:0.9rem;max-width:500px;line-height:1.6;margin-top:1rem;">"Can't people just get each other's numbers and leave?" — We thought of that.</p>
+  <div class="lockin-grid reveal">
+    <div class="lockin-card">
+      <div class="lockin-num">01</div>
+      <h3>Your Score Lives Here.</h3>
+      <p>Not in your texts. Not in the group chat. Your reliability score, your strike history, your perks — they only exist inside GoodGame. The moment you go rogue, it's gone.</p>
+    </div>
+    <div class="lockin-card">
+      <div class="lockin-num">02</div>
+      <h3>Priority Access Disappears.</h3>
+      <p>Elite players get first access to competitive runs and invite-only games. That only works through the app. Leave, and you're back to showing up and hoping there's room.</p>
+    </div>
+    <div class="lockin-card">
+      <div class="lockin-num">03</div>
+      <h3>No App = Flaking Comes Back.</h3>
+      <p>Without the deposit system, people ghost again. The whole reason your run is reliable is because everyone in it is accountable. Off-app groups lose that instantly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <h2 class="cta-title">YOUR PLAYGROUND<br><span class="yellow">IN YOUR POCKET.</span></h2>
+  <p class="cta-sub">Stop hoping people show up. Start knowing they will. Join the waitlist today and get early access when we launch in your city.</p>
+  <div class="cta-actions">
+    <a href="#" class="btn-primary">Join the Waitlist</a>
+    <a href="#features" class="btn-secondary">See All Features</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo"><span>GOOD</span>GAME</div>
+  <p>© 2025 GoodGame · Pickup Sports Reimagined</p>
+  <p>SoCal · NorCal · Chicago → NYC → ATL</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 200) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--yellow)' : '';
+    });
+  });
+</script>
+</body>
+</html>
