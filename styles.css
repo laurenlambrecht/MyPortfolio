@@ -681,3 +681,4 @@ a:hover { opacity: .78; }
 @media (min-width: 720px) { .decisions { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .samba-quote.sprint-quote { margin-top: clamp(36px, 4vw, 56px); }
 .samba-quote.sprint-quote p { font-size: clamp(30px, 3.6vw, 50px); }
+.samba-quote.sprint-quote p { max-width: 34ch; text-wrap: balance; }
