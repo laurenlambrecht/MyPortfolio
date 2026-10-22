@@ -269,10 +269,11 @@ a:hover { opacity: .78; }
 .role-card p { flex: 2 1 400px; min-width: 0; font-size: 18px; line-height: 1.65; color: #3A2A1A; }
 
 /* Noon: GoodGame continued */
-.tabs { margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 28px; }
-.tab-card { background: var(--cream); border-radius: 28px; padding: 34px; min-height: 280px; height: 100%; }
+.tabs { margin-top: 56px; display: grid; grid-template-columns: 1fr; gap: clamp(16px, 2vw, 28px); }
+@media (min-width: 720px) { .tabs { grid-template-columns: repeat(3, 1fr); } }
+.tab-card { background: var(--cream); border-radius: 28px; padding: clamp(22px, 2.6vw, 34px); min-height: 280px; height: 100%; }
 .num { display: inline-flex; width: 48px; height: 48px; border-radius: 50%; background: var(--morning); align-items: center; justify-content: center; font-weight: 800; font-size: 20px; }
-.tab-card h4 { margin: 22px 0 0; font-size: 44px; font-weight: 800; }
+.tab-card h4 { margin: 22px 0 0; font-size: clamp(30px, 3.2vw, 44px); font-weight: 800; }
 .tab-q { margin-top: 6px; font-size: 26px; color: var(--rust-2); }
 .tab-b { margin-top: 14px; font-size: 17px; line-height: 1.6; color: var(--ink-soft); }
 .legend { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }

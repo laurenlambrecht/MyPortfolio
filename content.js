@@ -58,7 +58,7 @@ window.CONTENT = {
       ["Status", "Evolving"],
     ],
     links: [
-      { label: "Live site", href: "https://nile842ll.github.io/GoodGames/" },
+      { label: "Live site", href: "https://laurenlambrecht.github.io/GoodGames/" },
       { label: "Code on GitHub", href: "https://github.com/laurenlambrecht/GoodGame" },
       { label: "Demo video", href: "" }, // TODO: link to a screen recording (Loom, YouTube, etc.)
     ],
