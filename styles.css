@@ -718,3 +718,5 @@ a:hover { opacity: .78; }
 .proto-app-text .proto-intro { margin: 0 0 clamp(28px, 3vw, 40px); max-width: none; font-size: clamp(16px, 1.3vw, 18px); }
 
 #urban .urban-end .samba-quote { margin-top: 56px; }
+.proj-light .pill-line { border-color: var(--ink); color: var(--ink); background: transparent; }
+.proj-dark .pill-line { border-color: #F2F5FF; color: #F2F5FF; background: transparent; }
