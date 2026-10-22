@@ -152,7 +152,7 @@ window.CONTENT = {
     title: "Product Management Intern",
     place: "San Francisco",
     dates: "Summer 2026",
-    blurb: "Samba TV is a TV data and analytics company. My summer had one question: _what belongs in v2_ of its consumer app? I ran it as two-week sprints, each one a working prototype built on live viewership data.",
+    blurb: "Samba TV is a TV data and analytics company. My summer had one question: _what belongs in v2_ of its consumer app? I ran it as 4 two-week sprints:",
     process: ["Build it in Claude Code", "Test with 3–6 people", "Keep, kill or change"],
     did: [
       { k: "8 Weeks", s: "Product Sprints", t: "Worked through four rapid development sprints, taking product concepts from initial ideas to functional prototypes and user-tested recommendations." },
