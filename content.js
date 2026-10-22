@@ -452,7 +452,7 @@ window.CONTENT = {
         title: "La Vicuñita brochure",
         kind: "Internship · Cusco, 2024",
         pitch: "An attention-grabbing brochure for an alpaca clothing brand, placed in Cusco travel agencies.",
-        body: "It walks travelers through the brand's story, the alpaca farm visit, animal welfare and community work, and the difference between alpaca, vicuña and guanaco fiber.",
+        body: "This brochure was developed alongside a business pitch to expand La Vicuñita’s presence in Cusco’s tourism market through strategic partnerships with hotels and travel agencies. I combined brand story with strategy to highlight the company’s unique alpaca farm experiences, ethical practices, and luxury products.",
         images: [
           { src: "assets/vicunita/cover.jpg", alt: "La Vicuñita brochure cover with two models in alpaca knitwear" },
           { src: "assets/vicunita/alpaca.jpg", alt: "Brochure page about the alpaca farm experience" },
