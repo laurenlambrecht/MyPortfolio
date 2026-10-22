@@ -237,7 +237,7 @@ window.CONTENT = {
 
   // Urban planning: three prototypes, all from Lauren's class slides. Only facts shown on those slides.
   urban: {
-    tag: "04 · Design project · Claremont, CA",
+    tag: "04 · Urban Design Project · Claremont, CA",
     title: "Urban planning, _as a game_",
     lead: "How do city engineers hear from the people who actually live in Claremont, especially students? Three prototypes tried three answers: a social app you can click through right here, a board game and a dinner. Each one was tested and changed between rounds.",
     role: "TODO: your role and team, and the class this was for",
