@@ -94,7 +94,7 @@ window.CONTENT = {
       heading: "What I built",
       intro: "Three tabs, each answering _one question_ a player has.",
       tabs: [
-        { name: "Play", q: "What am I playing next?", body: "Your next game with a one-tap check-in, plus a filterable list of runs near you." },
+        { name: "Play", q: "What am I playing next?", body: "Your next game with a one-tap check-in, plus a filterable list of games near you." },
         { name: "Maps", q: "Where are games happening?", body: "An Apple Maps view with sport-colored pins, region pills and a game card for the selected pin." },
         { name: "Profile", q: "Can people count on me?", body: "A reliability score, your last 10 games, your home region and upcoming games." },
       ],
@@ -114,10 +114,10 @@ window.CONTENT = {
 
     // San Francisco first
     screens: [
-      { src: "assets/goodgame/map-norcal.jpg", alt: "Map of the Bay Area with sport-colored pins in San Francisco, Oakland and San José", title: "Maps", caption: "runs around the Bay, colored by sport" },
+      { src: "assets/goodgame/map-norcal.jpg", alt: "Map of the Bay Area with sport-colored pins in San Francisco, Oakland and San José", title: "Maps", caption: "games around the Bay, colored by sport" },
       { src: "assets/goodgame/join-sf.jpg", alt: "Join sheet for Saturday pickup soccer at Dolores Park, explaining the $5 deposit", title: "Join", caption: "the $5 hold, explained up front" },
       { src: "assets/goodgame/profile-sf.jpg", alt: "Profile with a reliability score of 92 and home region Northern California", title: "Profile", caption: "reliability score, home region San Francisco" },
-      { src: "assets/goodgame/play.jpg", alt: "Play tab with tonight's game, a check-in button and runs near you", title: "Play", caption: "next game and nearby runs" },
+      { src: "assets/goodgame/play.jpg", alt: "Play tab with tonight's game, a check-in button and games near you", title: "Play", caption: "next game and nearby games" },
       { src: "assets/goodgame/map-us.jpg", alt: "Map of North America with run counts for NorCal, SoCal and Chicago", title: "All US", caption: "three launch regions in the prototype" },
       { src: "assets/goodgame/map-socal.jpg", alt: "Map of Southern California with clustered pins in LA, Orange County and San Diego", title: "SoCal", caption: "LA to San Diego" },
       { src: "assets/goodgame/profile-la.jpg", alt: "Profile with home region Southern California", title: "Switch region", caption: "same score in LA or SF" },
