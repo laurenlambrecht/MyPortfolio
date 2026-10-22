@@ -120,11 +120,6 @@
       </div>
       ${g.problem.story ? `<div class="problem-story"><h3 class="disp label rv">${esc(g.problem.storyHeading)}</h3><div class="story-cols">${g.problem.story.map((p) => `<p class="body-lg rv">${esc(p).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}</p>`).join("")}</div>${g.problem.storyEnd ? `<p class="body-lg story-end rv">${esc(g.problem.storyEnd).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}</p>` : ""}</div>` : ""}
 
-      <div class="role-card rv">
-        <h3 class="disp">${esc(g.role.heading)}</h3>
-        <p>${esc(g.role.body)}</p>
-      </div>
-
       <figure class="browser rv">
         <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i></div>
         <img src="${esc(g.web.src)}" alt="${esc(g.web.alt)}">
@@ -151,6 +146,19 @@
         ${g.solution.sports.map((s) => `<span class="pin"><span class="dot dot-${SPORT[s]}" aria-hidden="true"></span>${esc(s)}</span>`).join("")}
       </div>
 
+      <div class="sub strip-head">
+        <h3 class="disp h-l rv">${["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"][g.screens.length] || g.screens.length} screens</h3>
+        <div class="strip-ctl">
+          <span class="muted-s">Swipe sideways</span>
+          <button type="button" class="ctl" data-dir="-1" aria-label="Previous screens">←</button>
+          <button type="button" class="ctl" data-dir="1" aria-label="Next screens">→</button>
+        </div>
+      </div>
+    </div>
+    <ul class="strip" id="strip" tabindex="0" aria-label="GoodGame screens, scroll sideways">${g.screens
+      .map((s) => `<li>${phone(s)}<p class="strip-cap"><strong>${esc(s.title)}</strong> · ${esc(s.caption)}</p></li>`)
+      .join("")}</ul>
+    <div class="wrap">
       <div class="sub">
         <h3 class="disp h-xl rv">${acc(L.heading)}</h3>
         <p class="intro rv">${esc(L.intro)}</p>
@@ -167,19 +175,6 @@
         </div>
       </div>
 
-      <div class="sub strip-head">
-        <h3 class="disp h-l rv">${["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"][g.screens.length] || g.screens.length} screens</h3>
-        <div class="strip-ctl">
-          <span class="muted-s">Swipe sideways</span>
-          <button type="button" class="ctl" data-dir="-1" aria-label="Previous screens">←</button>
-          <button type="button" class="ctl" data-dir="1" aria-label="Next screens">→</button>
-        </div>
-      </div>
-    </div>
-    <ul class="strip" id="strip" tabindex="0" aria-label="GoodGame screens, scroll sideways">${g.screens
-      .map((s) => `<li>${phone(s)}<p class="strip-cap"><strong>${esc(s.title)}</strong> · ${esc(s.caption)}</p></li>`)
-      .join("")}</ul>
-    <div class="wrap">
       <div class="sub">
         <h3 class="disp dec-h rv">${acc(g.decisions.heading)}</h3>
         <div class="decisions">${g.decisions.items
@@ -200,6 +195,11 @@
           <li class="rv"><span class="ser" aria-hidden="true">→</span>${esc(g.next.action)}</li>
         </ol>
       </div>` : ""}
+
+      <div class="role-card rv">
+        <h3 class="disp">${esc(g.role.heading)}</h3>
+        <p>${esc(g.role.body)}</p>
+      </div>
     </div>`;
 
   /* Afternoon: Samba TV */

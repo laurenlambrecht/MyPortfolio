@@ -59,7 +59,7 @@ window.CONTENT = {
     links: [
       { label: "Live demo", href: "goodgame-demo/" }, // browser build from the goodgame-app online-demo branch
       { label: "Code on GitHub", href: "https://github.com/laurenlambrecht/Goodgame-app" },
-      { label: "Website", href: "https://laurenlambrecht.github.io/GoodGames/" },
+      { label: "Website", href: "https://laurenlambrecht.github.io/GoodGames-web/" },
     ],
     hero: { src: "assets/goodgame/play.jpg", alt: "GoodGame Play tab on an iPhone", title: "Play tab", need: "Screenshot: Play tab, iPhone portrait" },
 
