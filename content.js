@@ -145,16 +145,6 @@ window.CONTENT = {
       ],
       note: "TODO: In your own words: why you chose the deposit model, and anything you tried and dropped.",
     },
-
-    next: {
-      heading: "What I'd _validate_ next",
-      questions: [
-        "Would players actually accept a $5 hold to join a free pickup game?",
-        "Does a visible score change who shows up, or just who signs up?",
-        "Who starts a game: an organizer with a regular crew, or anyone with a court?",
-      ],
-      action: "Run a few real games through the app with a small group before building a backend.",
-    },
   },
 
   samba: {

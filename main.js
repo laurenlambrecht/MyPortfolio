@@ -193,13 +193,13 @@
         ${note(g.decisions.note)}
       </div>
 
-      <div class="sub next">
+      ${g.next ? `<div class="sub next">
         <h3 class="disp h-l2 rv">${acc(g.next.heading)}</h3>
         <ol class="qs">
           ${g.next.questions.map((q) => `<li class="rv"><span class="ser" aria-hidden="true">?</span>${esc(q)}</li>`).join("")}
           <li class="rv"><span class="ser" aria-hidden="true">→</span>${esc(g.next.action)}</li>
         </ol>
-      </div>
+      </div>` : ""}
     </div>`;
 
   /* Afternoon: Samba TV */
