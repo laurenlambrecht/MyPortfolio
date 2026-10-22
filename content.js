@@ -86,7 +86,7 @@ window.CONTENT = {
     role: {
       heading: "My role, and where it is",
       body:
-        "This is my own project. I came up with the concept, designed the flows as a clickable prototype, then built a native version in React Native and Expo using AI coding tools. It runs in Expo Go on the iOS Simulator. Every game, player and score in it is sample data, state resets when the app reloads, and there is no backend or real payment processing yet.",
+        "GoodGame is an independent passion project that I've taken from initial concept to a working mobile prototype. I identified the problem, developed the product strategy, designed the user experience, and built the app using React Native, Expo, and AI-assisted development tools. The app currently runs in the iOS Simulator, with interactive features and simulated user data. I'm continuing to refine the experience, explore the technical infrastructure, and work toward a fully functional launch within next couple of months.",
     },
 
     solution: {
