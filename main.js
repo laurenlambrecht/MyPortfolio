@@ -115,7 +115,7 @@
         <div class="problem-text">
           <h3 class="disp label rv">${esc(g.problem.heading)}</h3>
           ${g.problem.body.map((p) => `<p class="body-lg rv">${esc(p)}</p>`).join("")}
-          ${note(g.problem.note)}
+          ${(g.problem.story || []).map((p) => `<p class="body-lg rv">${esc(p).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}</p>`).join("")}
         </div>
         <blockquote class="pull rv"><p class="ser">“${esc(g.problem.quote)} <mark>${esc(g.problem.quoteHighlight)}</mark>”</p></blockquote>
       </div>
