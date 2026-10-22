@@ -330,6 +330,7 @@ window.CONTENT = {
         n: "02",
         name: "Urban Design Roulette",
         sub: "A city building challenge",
+        stepsLeft: true, // rounds sit right under the description
         what: "A hand-drawn map of Claremont, three spinners and a bin of Lego. Spin a user, a need and a constraint, build a fix anywhere on the map, then label it with a sticky note.",
         steps: [
           ["Round 1", "Open-ended design. No limits, any idea is welcome."],

@@ -343,6 +343,7 @@
           <div class="proto-text">
             <div>
               ${p.what ? `<p class="proto-what rv">${esc(p.what)}</p>` : ""}
+              ${p.stepsLeft ? `<ol class="proto-steps proto-steps-end rv">${p.steps.map(step).join("")}</ol>` : ""}
               ${p.hypothesis ? `<p class="proto-hyp rv"><span class="label disp">Hypothesis</span>${esc(p.hypothesis)}</p>` : ""}
               ${p.test ? `<p class="proto-test rv">${esc(p.test)}</p>` : ""}
               ${p.stepsFirst ? `<ol class="proto-steps proto-steps-end rv">${p.steps.map(step).join("")}</ol>` : ""}
@@ -350,7 +351,7 @@
             </div>
             <div>
               ${p.heard ? `<h4 class="disp label rv">What testers asked for</h4><ul class="found rv">${p.heard.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
-              ${p.stepsFirst ? "" : `<ol class="proto-steps rv">${p.steps.map(step).join("")}</ol>`}
+              ${p.stepsFirst || p.stepsLeft ? "" : `<ol class="proto-steps rv">${p.steps.map(step).join("")}</ol>`}
               ${p.changed ? `<p class="proto-changed rv">${esc(p.changed)}</p>` : ""}
             </div>
           </div>
