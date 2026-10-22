@@ -690,3 +690,4 @@ a:hover { opacity: .78; }
 
 /* Sprint 2 quote: centered on the page */
 .samba-quote.sprint-quote { margin-inline: auto; }
+.samba-quote.sprint-quote { margin-top: clamp(64px, 7vw, 104px); }
