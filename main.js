@@ -304,7 +304,7 @@
       <h2 id="urban-h" class="disp sp-title rv">${acc(u.title)}</h2>
       <p class="lead rv">${esc(u.lead)}</p>
       ${isTodo(u.role) ? note(u.role) : `<p class="urban-role rv">${esc(u.role)}</p>`}
-      <div class="actions rv">${u.links.map((l) => ext(l.href, l.label, "pill-lilac")).join("")}</div>
+      ${u.links.length ? `<div class="actions rv">${u.links.map((l) => ext(l.href, l.label, "pill-lilac")).join("")}</div>` : ""}
       ${u.prototypes
         .map((p) => `<article class="proto">
           <header class="proto-head rv">

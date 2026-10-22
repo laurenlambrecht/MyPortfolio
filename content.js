@@ -363,7 +363,7 @@ window.CONTENT = {
     ],
     heardLabel: "From the testing table",
     quote: "Human interaction is vital: having people around the table.",
-    links: [{ label: "Pitch video", href: "" }],
+    links: [],
     aside: "Also learned: Claremont residents were very against roundabouts. The city's older residents, a big share of the town, find them harder to use as they age.",
   },
 
