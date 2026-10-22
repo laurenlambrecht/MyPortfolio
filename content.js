@@ -171,7 +171,7 @@ window.CONTENT = {
         testers: 6,
         image: { src: "assets/samba/sprint2.jpg", alt: "Five prototype screens: a title page with a match score, reviews, a Refresh My Memory recap tool, an episode tracker and the home feed" },
         score: "6/6",
-        finding: "users responded positively to the Friend's Feed, comparing it to Strava, Venmo, and Goodreads. AI-powered features were another highlight, particularly \u201cRefresh My Memory,\u201d a scene-recall tool loved by 5/6 testers, alongside personalized match scores. The big takeaway: social connection drove interest in returning to the app, while AI created opportunities for a more personalized viewing experience.",
+        finding: "users responded positively to the Friend's Feed, comparing it to Strava, Venmo, and Goodreads. AI-powered features were another highlight, particularly \u201cRefresh My Memory,\u201d a scene-recall tool loved by 5/6 testers, alongside personalized match scores.\n\nThe big takeaway: social connection drove interest in returning to the app, while AI created opportunities for a more personalized viewing experience.",
         quote: "Without the social layer, I'd probably forget the app exists.",
         quoteBy: "A Sprint 2 tester",
       },

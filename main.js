@@ -228,7 +228,7 @@
         ${sp.screens
           ? `<div class="sprint-shot"><div class="sprint-screens">${sp.screens.map((sc) => `<button type="button" class="zoomable" data-full="${esc(sc.src)}" aria-label="Enlarge: ${esc(sc.alt)}"><img src="${esc(sc.src)}" alt="${esc(sc.alt)}" loading="lazy"></button>`).join("")}</div></div>`
           : `<div class="sprint-shot"><img src="${esc(sp.image.src)}" alt="${esc(sp.image.alt)}"></div>`}
-        ${sp.finding ? `<div class="wrap">${isTodo(sp.finding) ? note(sp.finding) : `<p class="sprint-find"><span class="disp">${esc(sp.score)}</span>${esc(sp.finding)}</p>`}</div>` : ""}
+        ${sp.finding ? `<div class="wrap">${isTodo(sp.finding) ? note(sp.finding) : `<div class="sprint-find"><span class="disp">${esc(sp.score)}</span><div>${sp.finding.split("\n\n").map((t) => `<p>${esc(t)}</p>`).join("")}</div></div>`}</div>` : ""}
         ${sp.quote ? `<div class="wrap"><blockquote class="samba-quote sprint-quote"><p class="ser">“${esc(sp.quote)}”</p><footer>${esc(sp.quoteBy)}</footer></blockquote></div>` : ""}
       </article>`)
       .join("")}</div>
