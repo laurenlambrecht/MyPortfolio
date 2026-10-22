@@ -123,22 +123,21 @@ window.CONTENT = {
       heading: "Decisions _and_ tradeoffs",
       items: [
         {
-          title: "A small deposit instead of a free RSVP",
-          body: "Joining holds $5, refunded on check-in. Leaving more than 24 hours out returns it; leaving later forfeits it.",
-          tradeoff: "adds friction at sign-up and depends on real payments to work beyond a prototype.",
+          title: "Deposits over RSVPs",
+          body: "Free RSVPs are easy to ignore. A refundable $5 deposit, returned on check-in, gives players a reason to show up.",
+          tradeoff: "a little more friction at sign-up.",
         },
         {
-          title: "A reliability score that unlocks access",
-          body: "Showing up earns +2 and a no-show costs 3. Some runs are gated, and your score travels with you if you switch cities.",
-          tradeoff: "rewards consistency, but can feel punitive to new users and assumes trust carries across communities.",
+          title: "Rewarding reliability",
+          body: "Players build a reputation by showing up, and reliable players unlock more games.",
+          tradeoff: "it can feel strict to new players still earning trust.",
         },
         {
-          title: "Native maps and sample data first",
-          body: "I moved from the web prototype's simple world outline to Apple Maps and kept data in memory so I could test the core flows before building a backend.",
-          tradeoff: "feels more real on a phone, but nothing persists yet and it's iOS-first for now.",
+          title: "Prototype before scaling",
+          body: "I validated the core discovery flows with sample data before investing in backend infrastructure.",
+          tradeoff: "faster learning now, real data and payments later.",
         },
       ],
-      note: "TODO: In your own words: why you chose the deposit model, and anything you tried and dropped.",
     },
   },
 
