@@ -26,6 +26,7 @@ window.CONTENT = {
     ],
     scrollHint: "Keep scrolling. The day goes on.",
     interests: ["Consumer tech", "Sports", "Fitness", "Wearables"],
+    showTicker: false, // the scrolling interests band; hidden for now
   },
 
   // The bubbles under "See my work". `target` is the section id each one opens.

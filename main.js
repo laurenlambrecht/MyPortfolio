@@ -44,9 +44,14 @@
       <p class="scroll-hint bob"><span aria-hidden="true"></span>${esc(h.scrollHint)}</p>
     </div>`;
 
-  const tickRun = h.interests.map((i) => `<span>${esc(i)}</span><span class="tick-star">✦</span>`).join("");
-  $("ticker").setAttribute("aria-label", "Interests: " + h.interests.join(", "));
-  $("ticker").innerHTML = `<div class="tick disp" aria-hidden="true">${tickRun.repeat(4)}</div>`;
+  // Interests band under the hero. Set showTicker: true in content.js to bring it back.
+  if (h.showTicker) {
+    const tickRun = h.interests.map((i) => `<span>${esc(i)}</span><span class="tick-star">✦</span>`).join("");
+    $("ticker").setAttribute("aria-label", "Interests: " + h.interests.join(", "));
+    $("ticker").innerHTML = `<div class="tick disp" aria-hidden="true">${tickRun.repeat(4)}</div>`;
+  } else {
+    $("ticker").remove();
+  }
 
   /* Project picker */
   const pk = C.picker;
