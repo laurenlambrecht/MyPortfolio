@@ -442,7 +442,7 @@ window.CONTENT = {
         kind: "08 · Gaming Side Project",
         tone: "jungle",
         pitch: "A jungle-themed brick-breaker I built with Cursor.",
-        body: "An experiment in building a game end to end with an AI coding tool. Click anywhere to drop the ball.",
+        body: "This project is a fun adaptation of the classic game ‘Brick-Breaker.’ The idea was an offline computer game that one can play mindlessly, mixing an Angry Birds-style level system with a kind of Candy Crush brick game.",
         images: [{ src: "assets/projects/jungle-quest.jpg", alt: "Jungle Quest title screen with a brick wall and a Play Now button" }],
         links: [{ label: "Play it", href: "https://laurenlambrecht.github.io/CursorPlay2/" }],
       },
