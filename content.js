@@ -219,7 +219,7 @@ window.CONTENT = {
     tag: "03 · Data Analytics · Passion Project",
     title: "Sports Fan _Engagement_ Dashboard",
     pitch: "Analyzing NFL search behavior to identify audience interest trends, engagement spikes, and opportunities for data-driven marketing strategy.",
-    chips: ["Python · Pandas · Pytrends · Matplotlib", "12 months, US", "NFL, Super Bowl, Chiefs, 49ers"],
+    chips: ["Python · Pandas · Pytrends · Matplotlib"],
     repo: "https://github.com/laurenlambrecht/Sports-Fan-Engagement-Dashboard",
     image: {
       src: "assets/sports/engagement_trends.png",
