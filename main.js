@@ -200,7 +200,7 @@
       <ol class="process rv" aria-label="How I worked">${s.process
         .map((p, i) => `${i ? '<li aria-hidden="true" class="process-arr">→</li>' : ""}<li class="process-step"><span class="disp">${i + 1}</span>${esc(p)}</li>`)
         .join("")}</ol>
-      <div class="pillars">${s.did.map((d) => `<div class="rv"><p class="disp pillar-k">${esc(d.k)}</p><p>${esc(d.t)}</p></div>`).join("")}</div>
+      <div class="pillars">${s.did.map((d) => `<div class="rv"><p class="disp pillar-k">${esc(d.k)}</p>${d.s ? `<p class="pillar-s">${esc(d.s)}</p>` : ""}<p>${esc(d.t)}</p></div>`).join("")}</div>
     </div>
     <div class="sprints">${s.sprints
       .map((sp) => `<article class="sprint rv">

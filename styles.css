@@ -563,3 +563,9 @@ a:hover { opacity: .78; }
   .process-step .disp { width: clamp(28px, 2.6vw, 36px); height: clamp(28px, 2.6vw, 36px); flex: none; }
   .process-arr { font-size: clamp(18px, 2vw, 26px); }
 }
+
+/* Samba stats: three in a row, number, subtitle, then detail */
+.pillars { grid-template-columns: 1fr; gap: clamp(20px, 3vw, 40px); }
+@media (min-width: 720px) { .pillars { grid-template-columns: repeat(3, 1fr); } }
+.pillar-k { font-size: clamp(32px, 3.6vw, 48px); }
+.pillar-s { margin-top: 10px; font-size: clamp(17px, 1.6vw, 21px); font-weight: 700; color: var(--pink-soft); }

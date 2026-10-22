@@ -167,10 +167,9 @@ window.CONTENT = {
     blurb: "Samba TV is a TV data and analytics company. My summer had one question: _what belongs in v2_ of its consumer app? I ran it as two-week sprints, each one a working prototype built on live viewership data.",
     process: ["Build it in Claude Code", "Test with 3–6 people", "Keep, kill or change"],
     did: [
-      { k: "Build", t: "Built and tested working mobile app prototypes with Claude Code, Firebase and Databricks." },
-      { k: "Data", t: "Brought live viewership data into prototypes with personalized recommendations, rewards and social features." },
-      { k: "15+", t: "Scripted and ran moderated user-testing sessions on usability and consumer preferences." },
-      { k: "Focus", t: "Used that feedback and a competitive review to prioritize features and shape product direction." },
+      { k: "8 Weeks", s: "Product Sprints", t: "Worked through four rapid development sprints, taking product concepts from initial ideas to functional prototypes and user-tested recommendations." },
+      { k: "4 Prototypes", s: "Built with Real Data", t: "Developed functional mobile app prototypes using Claude Code, Firebase, and Databricks, integrating live viewership data and interactive features." },
+      { k: "15+ Interviews", s: "User Research & Strategy", t: "Conducted moderated usability sessions, translating consumer feedback into actionable insights and prioritized product recommendations." },
     ],
     // One card per sprint: prototype screens + the headline finding
     sprints: [
