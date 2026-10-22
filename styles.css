@@ -700,3 +700,8 @@ a:hover { opacity: .78; }
 
 /* GoodGame origin story: its own block under the problem */
 .problem-story { margin-top: clamp(40px, 5vw, 64px); padding-top: clamp(28px, 3vw, 40px); border-top: 1.5px solid rgba(26,18,8,.18); }
+/* "Why I built it": full width under the problem, two paragraphs side by side on desktop */
+.story-cols { display: grid; gap: 0 clamp(32px, 4vw, 64px); }
+.story-cols p { margin: 0 0 1em; }
+@media (min-width: 900px) { .story-cols { grid-template-columns: 1fr 1fr; } }
+.problem-story > .label { margin-bottom: 16px; }
