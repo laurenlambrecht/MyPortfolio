@@ -53,7 +53,6 @@ window.CONTENT = {
     pitch: "A pickup-sports app prototype for finding, joining and _actually showing up_ to local games.",
     statline: [
       ["Stage", "Working prototype"],
-      ["Role", "Solo: concept, design, build"],
       ["Stack", "React Native, Expo, TypeScript"],
     ],
     links: [
