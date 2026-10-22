@@ -185,6 +185,18 @@
             <p class="dec-t"><strong>Tradeoff:</strong> ${esc(d.tradeoff)}</p>
           </div>`)
           .join("")}</div>
+        ${g.decisions.reward ? ((r, n) => `<div class="dec-reward rv">
+          <div class="dec-reward-l">
+            <p class="disp dec-n">${n}</p>
+            <h4 class="disp">${esc(r.title)}</h4>
+            <p class="dec-tag">${esc(r.tag)}</p>
+          </div>
+          <div class="dec-reward-r">
+            <p class="dec-b">${esc(r.body)}</p>
+            <ul class="dec-pts">${r.points.map(([k, v]) => `<li><strong>${esc(k)}:</strong> ${esc(v)}</li>`).join("")}</ul>
+            <p class="dec-t"><strong>Tradeoff:</strong> ${esc(r.tradeoff)}</p>
+          </div>
+        </div>`)(g.decisions.reward, String(g.decisions.items.length + 1).padStart(2, "0")) : ""}
         ${note(g.decisions.note)}
       </div>
 

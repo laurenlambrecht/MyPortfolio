@@ -36,11 +36,11 @@ window.CONTENT = {
     // d = diameter in px, x = left edge as % of the stage, y = top in px (desktop starting spot; they drift from there)
     bubbles: [
       { target: "goodgame", title: "GoodGame", sub: "Intramural Pickup Game App: Bringing accountability and ease of connection to anyone, anywhere.", tone: "morning", d: 355, x: 1, y: 50 },
-      { target: "samba", title: "Samba TV", sub: "Building a social media for your TV habits", tone: "afternoon", d: 355, x: 33, y: 0 },
+      { target: "samba", title: "Samba TV", sub: "Internship '26: Building a social media for your TV habits", tone: "afternoon", d: 355, x: 33, y: 0 },
       { target: "p-hiki", title: "Hiki", sub: "Traditional swiping reimagined for online dating apps", tone: "night", d: 355, x: 64, y: 100 },
       { target: "p-guppo", title: "Guppo", sub: "Social media tracking for your next fishing catch", tone: "teal", d: 200, x: 85, y: 0 },
       { target: "sports", title: "Sports Fan Dashboard", sub: "Tracking fan engagement across the NFL sports season", tone: "dusk", d: 260, x: 3, y: 480 },
-      { target: "p-massbids", title: "MassBids", sub: "Zillow for government procurement/bidding in Massachusetts", tone: "noon", d: 260, x: 30, y: 360 },
+      { target: "p-massbids", title: "MassBids", sub: "Internship '25: A Zillow platform for government contractors", tone: "noon", d: 260, x: 30, y: 360 },
       { target: "urban", title: "Claremont Columns", sub: "Local Claremont 'Reddit' feed for residents and students to share favorite places and express desired changes in town planning", tone: "pink", d: 260, x: 55, y: 480 },
       { target: "p-jungle", title: "Jungle Quest", sub: "Jungle-themed Brick Breaker Website", tone: "jungle", d: 200, x: 84, y: 320 },
       { target: "more", title: "Beyond the Build", sub: "Leadership, experiences & interests", tone: "evening", d: 165, x: 86, y: 600 },
@@ -142,6 +142,18 @@ window.CONTENT = {
           tradeoff: "faster learning now, real data and payments later.",
         },
       ],
+      // Full-width 4th card. From the GoodGame website (Post-Game Bar Deals); not built in the prototype.
+      reward: {
+        title: "The reward",
+        tag: "Planned · not in the prototype yet",
+        body: "Deposits make flaking cost something. The other half is making showing up pay off. After a game, GoodGame surfaces deals at partner bars nearby, so the first round is on the bar.",
+        points: [
+          ["Players", "a reason to hang out after the game and keep playing together."],
+          ["Bars", "a built-in crowd after every game."],
+          ["GoodGame", "players stay in the app instead of drifting to a group chat."],
+        ],
+        tradeoff: "it depends on signing partner bars in each city, and it only works for players 21 and up.",
+      },
     },
   },
 
