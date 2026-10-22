@@ -253,7 +253,7 @@ window.CONTENT = {
     fansignal: {
       label: "From analysis to product",
       title: "Fan_Signal_",
-      pitch: "I turned the research into FanSignal, a B2B product prototype: an audience-intelligence workspace for NFL teams' marketing, content and partnership staff.",
+      pitch: "I turned this research into FanSignal: A B2B audience-intelligence workspace for NFL teams' marketing, content, and partnership staff.",
       problem: "Search-interest charts show when attention moves, but they don't tell a marketer where to focus, when to launch, or what to test. FanSignal is built for that next step.",
       flow: ["Explore interest", "Interpret momentum", "Compare teams", "Propose an experiment", "Export a decision brief"],
       features: [
