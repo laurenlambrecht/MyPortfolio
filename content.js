@@ -473,9 +473,9 @@ window.CONTENT = {
     heading: "Why people do what they do, _then the data._",
     photo: { src: "assets/about/lauren.jpg", alt: "Portrait of Lauren Lambrecht", need: "A photo of you, portrait or candid" },
     body: [
-      "I study International Relations and History at Claremont McKenna, which trained me to ask why people do what they do. That shows up in how I work on products: I start with the why, and then check it against the data.",
-      "Outside class I'm an Athenaeum Fellow, which means introducing speakers to rooms of 100+ people a few times a week. I've gotten comfortable asking good questions in public.",
-      "I'm especially drawn to products in sports, fitness and wearables, the kind of thing you'd find on your wrist or finger, because they're so close to how people actually live.",
+      "I'm studying International Relations and History at Claremont McKenna College, and I've always been passionate about understanding people: what drives their decisions, shapes their interests, and influences how they interact with the world. Through courses in product strategy, internships, and my own projects, I've discovered how much I love bringing that curiosity into the world of technology and product development.",
+      "What I love most about product is the opportunity to turn ideas into something real. I'm passionate about the entire process: identifying a problem, building a prototype, testing it with real users, and using feedback and data to make it better. There's something incredibly rewarding about seeing an idea evolve into something people actually want to use.",
+      "I'm especially interested in consumer technology, sports, fitness, and wearables. Ultimately, I want to build products that don't just work well, but become something people genuinely love using.",
     ],
     hobbies: ["Skiing", "Running", "Line dancing", "The Rolling Stones, at length"],
   },
