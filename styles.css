@@ -758,3 +758,4 @@ a:hover { opacity: .78; }
 @media (min-width: 900px) { .dec-pts { grid-template-columns: repeat(3, 1fr); } }
 .dec-pts li { background: rgba(26,18,6,.06); border-radius: 12px; padding: 10px 12px; font-size: 14px; line-height: 1.45; }
 .dec-reward .dec-t { color: var(--rust); border-top-color: rgba(26,18,6,.18); font-size: 14px; }
+.demo-soon { font-size: 15px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }

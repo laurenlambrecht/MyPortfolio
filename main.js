@@ -20,7 +20,7 @@
     const src = yt ? `https://www.youtube-nocookie.com/embed/${yt[1]}` : loom ? `https://www.loom.com/embed/${loom[1]}` : vimeo ? `https://player.vimeo.com/video/${vimeo[1]}` : "";
     if (src) return `<div class="demo-video rv"><iframe src="${esc(src)}" title="${esc(v.label)}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
     if (u) return `<a class="btn btn-sun demo-link rv" href="${esc(u)}" target="_blank" rel="noopener">▶ ${esc(v.label)}</a>`;
-    return `<div class="demo-video demo-ph rv"><span class="demo-play" aria-hidden="true">▶</span><p><span class="todo-tag">To add</span>${esc(v.label)}: a walkthrough of the full app</p></div>`;
+    return `<div class="demo-video demo-ph rv"><span class="demo-play" aria-hidden="true">▶</span><p class="demo-soon">Coming soon</p></div>`;
   };
 
   const ext = (href, label, cls) =>
